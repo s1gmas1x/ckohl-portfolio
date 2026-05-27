@@ -1,20 +1,46 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
-        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
+  <q-layout view="lHh lpR fFf">
+    <q-header class="site-header">
+      <q-toolbar class="site-toolbar">
+        <q-toolbar-title class="site-title"> Chad Kohl </q-toolbar-title>
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <q-btn
+            v-for="item in navigationItems"
+            :key="item.id"
+            flat
+            no-caps
+            :label="item.label"
+            class="nav-link"
+            @click="scrollToSection(item.id)"
+          />
+        </nav>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Open navigation"
+          class="mobile-menu-btn"
+          @click="toggleRightDrawer"
+        />
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+    <q-drawer v-model="rightDrawerOpen" side="right" bordered overlay :width="260">
+      <q-list padding>
+        <q-item-label header> Navigation </q-item-label>
 
-        <EssentialLink v-for="link in linksList" :key="link.title" v-bind="link" />
+        <q-item
+          v-for="item in navigationItems"
+          :key="item.id"
+          v-close-popup
+          clickable
+          @click="scrollToSection(item.id)"
+        >
+          <q-item-section>{{ item.label }}</q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 
@@ -26,56 +52,78 @@
 
 <script setup>
 import { ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
-  },
+const navigationItems = [
+  { label: 'Projects', id: 'projects' },
+  { label: 'Case Studies', id: 'case-studies' },
+  { label: 'Skills', id: 'skills' },
+  { label: 'Contact', id: 'contact' },
 ]
 
-const leftDrawerOpen = ref(false)
+const rightDrawerOpen = ref(false)
 
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value
+function toggleRightDrawer() {
+  rightDrawerOpen.value = !rightDrawerOpen.value
+}
+
+function scrollToSection(sectionId) {
+  rightDrawerOpen.value = false
+
+  document.getElementById(sectionId)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  })
 }
 </script>
+
+<style lang="scss" scoped>
+.site-header {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid #e6e8eb;
+  color: #161a1d;
+  backdrop-filter: blur(14px);
+}
+
+.site-toolbar {
+  min-height: 72px;
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 0;
+}
+
+.site-title {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-link {
+  color: #3c454c;
+  font-weight: 600;
+}
+
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .site-toolbar {
+    min-height: 64px;
+    width: min(100% - 24px, 1120px);
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+</style>
