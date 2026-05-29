@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh lpR fFf">
-    <q-header class="site-header">
+    <q-header class="site-header" :class="{ 'site-header--dark': isDarkMode }">
       <q-toolbar class="site-toolbar">
         <q-toolbar-title class="site-title"> Chad Kohl </q-toolbar-title>
 
@@ -38,7 +38,7 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="rightDrawerOpen" side="right" bordered overlay :width="260">
+    <q-drawer v-model="rightDrawerOpen" side="right" bordered overlay :width="260" :dark="isDarkMode">
       <q-list padding>
         <q-item-label header> Navigation </q-item-label>
 
@@ -152,15 +152,15 @@ function scrollToSection(sectionId) {
   display: none;
 }
 
-:global(.body--dark) .site-header {
+.site-header--dark {
   background: rgba(18, 24, 30, 0.94);
   border-bottom-color: #26323d;
   color: #f3f7fa;
 }
 
-:global(.body--dark) .nav-link,
-:global(.body--dark) .theme-toggle,
-:global(.body--dark) .mobile-menu-btn {
+.site-header--dark .nav-link,
+.site-header--dark .theme-toggle,
+.site-header--dark .mobile-menu-btn {
   color: #d7e0e7;
 }
 

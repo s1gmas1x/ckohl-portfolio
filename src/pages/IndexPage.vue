@@ -1,5 +1,5 @@
 <template>
-  <q-page class="home-page">
+  <q-page class="home-page" :class="{ 'home-page--dark': isDarkMode }">
     <section class="hero-section">
       <div class="section-inner hero-grid">
         <div class="hero-copy">
@@ -141,7 +141,13 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useQuasar } from 'quasar'
 import { projects } from 'src/data/projects.js'
+
+const $q = useQuasar()
+
+const isDarkMode = computed(() => $q.dark.isActive)
 
 const stats = [
   { value: '5', label: 'Homepage sections' },
@@ -422,7 +428,7 @@ function scrollToContact() {
   text-transform: uppercase;
 }
 
-:global(.body--dark) .home-page {
+.home-page--dark {
   --page-bg: #10161c;
   --section-bg: #151d24;
   --hero-bg: linear-gradient(135deg, rgba(16, 22, 28, 0.96), rgba(25, 35, 44, 0.9));
