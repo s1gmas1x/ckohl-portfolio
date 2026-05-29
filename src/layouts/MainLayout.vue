@@ -38,7 +38,14 @@
       </q-toolbar>
     </q-header>
 
-    <q-drawer v-model="rightDrawerOpen" side="right" bordered overlay :width="260" :dark="isDarkMode">
+    <q-drawer
+      v-model="rightDrawerOpen"
+      side="right"
+      bordered
+      overlay
+      :width="260"
+      :dark="isDarkMode"
+    >
       <q-list padding>
         <q-item-label header> Navigation </q-item-label>
 
@@ -113,9 +120,9 @@ function scrollToSection(sectionId) {
 
 <style lang="scss" scoped>
 .site-header {
-  background: rgba(255, 255, 255, 0.94);
-  border-bottom: 1px solid #e6e8eb;
-  color: #161a1d;
+  background: var(--ck-header-bg);
+  border-bottom: 1px solid var(--ck-header-border);
+  color: var(--ck-text-primary);
   backdrop-filter: blur(14px);
 }
 
@@ -130,6 +137,7 @@ function scrollToSection(sectionId) {
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0;
+  color: var(--ck-text-strong);
 }
 
 .desktop-nav {
@@ -139,29 +147,41 @@ function scrollToSection(sectionId) {
 }
 
 .nav-link {
-  color: #3c454c;
+  color: var(--ck-text-primary);
   font-weight: 600;
 }
 
+.nav-link:hover,
+.nav-link:focus {
+  color: var(--ck-link);
+}
+
 .theme-toggle {
-  color: #3c454c;
+  color: var(--ck-link);
   margin-left: 4px;
 }
 
 .mobile-menu-btn {
+  color: var(--ck-link);
   display: none;
 }
 
 .site-header--dark {
-  background: rgba(18, 24, 30, 0.94);
-  border-bottom-color: #26323d;
-  color: #f3f7fa;
+  background: var(--ck-header-bg);
+  border-bottom-color: var(--ck-header-border);
+  color: var(--ck-text-primary);
 }
 
 .site-header--dark .nav-link,
 .site-header--dark .theme-toggle,
 .site-header--dark .mobile-menu-btn {
-  color: #d7e0e7;
+  color: var(--ck-text-primary);
+}
+
+.site-header--dark .nav-link:hover,
+.site-header--dark .nav-link:focus,
+.site-header--dark .theme-toggle {
+  color: var(--ck-accent-orange);
 }
 
 @media (max-width: 720px) {

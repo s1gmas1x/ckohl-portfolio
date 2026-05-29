@@ -200,20 +200,20 @@ function scrollToContact() {
 
 <style lang="scss" scoped>
 .home-page {
-  --page-bg: #f7f8fa;
-  --section-bg: #ffffff;
-  --hero-bg: linear-gradient(135deg, rgba(236, 241, 246, 0.86), rgba(255, 255, 255, 0.9));
-  --text-strong: #101417;
-  --text-primary: #161a1d;
-  --text-secondary: #53606a;
-  --text-muted: #69757d;
-  --eyebrow-color: #37606a;
-  --card-bg: #ffffff;
-  --card-border: #e3e7eb;
-  --row-border: #e4e8ec;
-  --mark-bg: #101417;
-  --mark-color: #ffffff;
-  --card-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  --page-bg: var(--ck-page-bg);
+  --section-bg: var(--ck-section-bg);
+  --hero-bg: linear-gradient(135deg, var(--ck-surface-subtle), var(--ck-background-light));
+  --text-strong: var(--ck-text-strong);
+  --text-primary: var(--ck-text-primary);
+  --text-secondary: var(--ck-text-secondary);
+  --text-muted: var(--ck-text-muted);
+  --eyebrow-color: var(--ck-orange-dark);
+  --card-bg: var(--ck-surface-bg);
+  --card-border: var(--ck-border);
+  --row-border: var(--ck-row-border);
+  --mark-bg: var(--ck-charcoal);
+  --mark-color: var(--ck-accent-orange);
+  --card-shadow: var(--ck-card-shadow);
 
   background: var(--page-bg);
   color: var(--text-primary);
@@ -400,9 +400,16 @@ function scrollToContact() {
   margin-top: auto;
 }
 
+.tag-list :deep(.q-chip) {
+  background: var(--ck-surface-subtle);
+  border-color: var(--ck-border);
+  color: var(--text-primary);
+}
+
 .project-link {
   justify-self: start;
   margin-top: 4px;
+  font-weight: 700;
 }
 
 .case-list {
@@ -422,27 +429,17 @@ function scrollToContact() {
 .case-row span {
   display: block;
   margin-bottom: 8px;
-  color: #1976d2;
+  color: var(--ck-link);
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .home-page--dark {
-  --page-bg: #10161c;
-  --section-bg: #151d24;
-  --hero-bg: linear-gradient(135deg, rgba(16, 22, 28, 0.96), rgba(25, 35, 44, 0.9));
-  --text-strong: #f4f8fb;
-  --text-primary: #dfe8ee;
-  --text-secondary: #aebbc5;
-  --text-muted: #90a0ab;
-  --eyebrow-color: #8bc7d5;
-  --card-bg: #17212a;
-  --card-border: #2a3945;
-  --row-border: #2a3945;
-  --mark-bg: #f4f8fb;
-  --mark-color: #10161c;
-  --card-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+  --hero-bg: linear-gradient(135deg, var(--ck-charcoal), var(--ck-surface-dark));
+  --eyebrow-color: var(--ck-accent-orange);
+  --mark-bg: var(--ck-accent-orange);
+  --mark-color: var(--ck-charcoal);
 }
 
 .case-row p {
