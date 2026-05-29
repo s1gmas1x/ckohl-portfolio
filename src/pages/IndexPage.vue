@@ -44,7 +44,7 @@
         <div class="section-heading">
           <p class="eyebrow">Projects</p>
           <h2>Selected work</h2>
-          <p>Representative project slots for shipped tools, experiments, and portfolio pieces.</p>
+          <p>Current projects pulled into a reusable data source from the existing work page.</p>
         </div>
 
         <div class="card-grid">
@@ -56,9 +56,24 @@
             class="content-card"
           >
             <q-card-section>
-              <q-icon :name="project.icon" size="28px" class="card-icon" />
               <h3>{{ project.title }}</h3>
               <p>{{ project.description }}</p>
+              <div class="tag-list" aria-label="Project tags">
+                <q-chip v-for="tag in project.tags" :key="tag" outline square dense>
+                  {{ tag }}
+                </q-chip>
+              </div>
+              <q-btn
+                outline
+                no-caps
+                color="primary"
+                icon-right="open_in_new"
+                label="View project"
+                :href="project.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-link"
+              />
             </q-card-section>
           </q-card>
         </div>
@@ -126,28 +141,12 @@
 </template>
 
 <script setup>
+import { projects } from 'src/data/projects.js'
+
 const stats = [
   { value: '5', label: 'Homepage sections' },
   { value: 'Vue 3', label: 'Application base' },
   { value: 'Quasar', label: 'UI framework' },
-]
-
-const projects = [
-  {
-    title: 'Portfolio Foundation',
-    description: 'A responsive Quasar shell for presenting projects, skills, and contact details.',
-    icon: 'dashboard',
-  },
-  {
-    title: 'Technical Tools',
-    description: 'Space for calculators, planning tools, and workflow-focused utilities.',
-    icon: 'construction',
-  },
-  {
-    title: 'UI Experiments',
-    description: 'A home for future interaction work while keeping the MVP clean and fast.',
-    icon: 'tune',
-  },
 ]
 
 const caseStudies = [
@@ -345,12 +344,12 @@ function scrollToContact() {
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
 .content-card {
-  min-height: 230px;
+  min-height: 300px;
 }
 
 .content-card :deep(.q-card__section) {
@@ -358,10 +357,6 @@ function scrollToContact() {
   gap: 14px;
   height: 100%;
   padding: 24px;
-}
-
-.card-icon {
-  color: #1976d2;
 }
 
 .content-card h3,
@@ -375,6 +370,18 @@ function scrollToContact() {
 
 .content-card p {
   margin: 0;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.project-link {
+  justify-self: start;
+  margin-top: 4px;
 }
 
 .case-list {
