@@ -194,8 +194,23 @@ function scrollToContact() {
 
 <style lang="scss" scoped>
 .home-page {
-  background: #f7f8fa;
-  color: #161a1d;
+  --page-bg: #f7f8fa;
+  --section-bg: #ffffff;
+  --hero-bg: linear-gradient(135deg, rgba(236, 241, 246, 0.86), rgba(255, 255, 255, 0.9));
+  --text-strong: #101417;
+  --text-primary: #161a1d;
+  --text-secondary: #53606a;
+  --text-muted: #69757d;
+  --eyebrow-color: #37606a;
+  --card-bg: #ffffff;
+  --card-border: #e3e7eb;
+  --row-border: #e4e8ec;
+  --mark-bg: #101417;
+  --mark-color: #ffffff;
+  --card-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+
+  background: var(--page-bg);
+  color: var(--text-primary);
 }
 
 .section-inner {
@@ -208,7 +223,7 @@ function scrollToContact() {
   display: flex;
   align-items: center;
   padding: 88px 0 56px;
-  background: linear-gradient(135deg, rgba(236, 241, 246, 0.86), rgba(255, 255, 255, 0.9));
+  background: var(--hero-bg);
 }
 
 .hero-grid {
@@ -222,7 +237,7 @@ function scrollToContact() {
 .section-heading h2,
 .contact-panel h2 {
   margin: 0;
-  color: #101417;
+  color: var(--text-strong);
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -235,7 +250,7 @@ function scrollToContact() {
 
 .eyebrow {
   margin: 0 0 14px;
-  color: #37606a;
+  color: var(--eyebrow-color);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -245,7 +260,7 @@ function scrollToContact() {
 .hero-summary {
   max-width: 640px;
   margin: 24px 0 0;
-  color: #4a545b;
+  color: var(--text-secondary);
   font-size: 1.16rem;
   line-height: 1.7;
 }
@@ -260,8 +275,8 @@ function scrollToContact() {
 .hero-panel,
 .content-card,
 .contact-panel {
-  background: #ffffff;
-  border: 1px solid #e3e7eb;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
 }
 
@@ -269,7 +284,7 @@ function scrollToContact() {
   display: grid;
   gap: 24px;
   padding: 28px;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  box-shadow: var(--card-shadow);
 }
 
 .profile-mark {
@@ -278,8 +293,8 @@ function scrollToContact() {
   width: 72px;
   aspect-ratio: 1;
   border-radius: 8px;
-  background: #101417;
-  color: #ffffff;
+  background: var(--mark-bg);
+  color: var(--mark-color);
   font-weight: 800;
   font-size: 1.35rem;
 }
@@ -287,13 +302,13 @@ function scrollToContact() {
 .panel-label,
 .stat-item span {
   margin: 0;
-  color: #69757d;
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
 .hero-panel h2 {
   margin: 6px 0 0;
-  color: #20272c;
+  color: var(--text-primary);
   font-size: 1.45rem;
   line-height: 1.3;
 }
@@ -310,7 +325,7 @@ function scrollToContact() {
 }
 
 .stat-item strong {
-  color: #101417;
+  color: var(--text-strong);
   font-size: 1.2rem;
 }
 
@@ -320,7 +335,7 @@ function scrollToContact() {
 }
 
 .alternate-section {
-  background: #ffffff;
+  background: var(--section-bg);
 }
 
 .section-heading {
@@ -338,7 +353,7 @@ function scrollToContact() {
 .contact-panel p:last-child,
 .content-card p,
 .case-row p {
-  color: #53606a;
+  color: var(--text-secondary);
   line-height: 1.65;
 }
 
@@ -363,7 +378,7 @@ function scrollToContact() {
 .case-row h3,
 .skill-group h3 {
   margin: 0;
-  color: #20272c;
+  color: var(--text-primary);
   font-size: 1.16rem;
   font-weight: 800;
 }
@@ -395,7 +410,7 @@ function scrollToContact() {
   gap: 28px;
   align-items: start;
   padding: 22px 0;
-  border-top: 1px solid #e4e8ec;
+  border-top: 1px solid var(--row-border);
 }
 
 .case-row span {
@@ -405,6 +420,23 @@ function scrollToContact() {
   font-size: 0.8rem;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+:global(.body--dark) .home-page {
+  --page-bg: #10161c;
+  --section-bg: #151d24;
+  --hero-bg: linear-gradient(135deg, rgba(16, 22, 28, 0.96), rgba(25, 35, 44, 0.9));
+  --text-strong: #f4f8fb;
+  --text-primary: #dfe8ee;
+  --text-secondary: #aebbc5;
+  --text-muted: #90a0ab;
+  --eyebrow-color: #8bc7d5;
+  --card-bg: #17212a;
+  --card-border: #2a3945;
+  --row-border: #2a3945;
+  --mark-bg: #f4f8fb;
+  --mark-color: #10161c;
+  --card-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
 }
 
 .case-row p {

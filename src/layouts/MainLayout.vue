@@ -20,6 +20,16 @@
           flat
           dense
           round
+          :icon="themeIcon"
+          :aria-label="themeLabel"
+          class="theme-toggle"
+          @click="toggleTheme"
+        />
+
+        <q-btn
+          flat
+          dense
+          round
           icon="menu"
           aria-label="Open navigation"
           class="mobile-menu-btn"
@@ -51,7 +61,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useQuasar } from 'quasar'
+
+const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
+
+const $q = useQuasar()
 
 const navigationItems = [
   { label: 'Projects', id: 'projects' },
@@ -61,9 +76,29 @@ const navigationItems = [
 ]
 
 const rightDrawerOpen = ref(false)
+const isDarkMode = computed(() => $q.dark.isActive)
+const themeIcon = computed(() => (isDarkMode.value ? 'light_mode' : 'dark_mode'))
+const themeLabel = computed(() => (isDarkMode.value ? 'Use light theme' : 'Use dark theme'))
+
+restoreThemePreference()
 
 function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
+}
+
+function toggleTheme() {
+  const nextIsDarkMode = !isDarkMode.value
+
+  $q.dark.set(nextIsDarkMode)
+  localStorage.setItem(THEME_STORAGE_KEY, nextIsDarkMode ? 'dark' : 'light')
+}
+
+function restoreThemePreference() {
+  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY)
+
+  if (storedTheme === 'dark' || storedTheme === 'light') {
+    $q.dark.set(storedTheme === 'dark')
+  }
 }
 
 function scrollToSection(sectionId) {
@@ -108,8 +143,25 @@ function scrollToSection(sectionId) {
   font-weight: 600;
 }
 
+.theme-toggle {
+  color: #3c454c;
+  margin-left: 4px;
+}
+
 .mobile-menu-btn {
   display: none;
+}
+
+:global(.body--dark) .site-header {
+  background: rgba(18, 24, 30, 0.94);
+  border-bottom-color: #26323d;
+  color: #f3f7fa;
+}
+
+:global(.body--dark) .nav-link,
+:global(.body--dark) .theme-toggle,
+:global(.body--dark) .mobile-menu-btn {
+  color: #d7e0e7;
 }
 
 @media (max-width: 720px) {
