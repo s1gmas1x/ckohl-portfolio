@@ -2,16 +2,65 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --ck-orange: #f99c1e;
+  --ck-orange-dark: #e48700;
+  --ck-charcoal: #27363e;
+  --ck-surface-dark: #34454f;
+  --ck-background-light: #f8f9fa;
+  --ck-surface-light: #ffffff;
+  --ck-accent-orange: #ffb84d;
+  --ck-page-bg: var(--ck-background-light);
+  --ck-section-bg: var(--ck-surface-light);
+  --ck-surface-bg: var(--ck-surface-light);
+  --ck-surface-subtle: #fff7ec;
+  --ck-border: #e7e1d8;
+  --ck-row-border: #eadfce;
+  --ck-text-strong: #1e2a30;
+  --ck-text-primary: var(--ck-charcoal);
+  --ck-text-secondary: #5a6971;
+  --ck-text-muted: #728087;
+  --ck-link: var(--ck-orange-dark);
+  --ck-header-bg: rgba(255, 255, 255, 0.94);
+  --ck-header-border: #eadfce;
+  --ck-card-shadow: 0 18px 50px rgba(39, 54, 62, 0.08);
+  --ck-primary-button-text: var(--ck-charcoal);
+}
+
 body {
-  color: #161a1d;
-  background: #f7f8fa;
+  color: var(--ck-text-primary);
+  background: var(--ck-page-bg);
 }
 
 body.body--dark {
-  color: #dfe8ee;
-  background: #10161c;
+  --ck-page-bg: var(--ck-charcoal);
+  --ck-section-bg: #2d3e47;
+  --ck-surface-bg: var(--ck-surface-dark);
+  --ck-surface-subtle: #3a4d58;
+  --ck-border: #50626c;
+  --ck-row-border: #50626c;
+  --ck-text-strong: #ffffff;
+  --ck-text-primary: #f1f5f7;
+  --ck-text-secondary: #d3dde2;
+  --ck-text-muted: #b4c2c9;
+  --ck-link: var(--ck-accent-orange);
+  --ck-header-bg: rgba(39, 54, 62, 0.96);
+  --ck-header-border: #50626c;
+  --ck-card-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+
+  color: var(--ck-text-primary);
+  background: var(--ck-page-bg);
 }
 
 a {
   color: inherit;
+}
+
+.q-btn.bg-primary,
+.q-btn.text-primary {
+  font-weight: 700;
+}
+
+.q-btn.bg-primary {
+  color: var(--ck-primary-button-text) !important;
 }
