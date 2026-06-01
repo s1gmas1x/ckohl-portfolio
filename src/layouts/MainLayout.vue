@@ -68,12 +68,15 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 import { useQuasar } from 'quasar'
+import { useRoute, useRouter } from 'vue-router'
 
 const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
 
 const $q = useQuasar()
+const route = useRoute()
+const router = useRouter()
 
 const navigationItems = [
   { label: 'Projects', id: 'projects' },
@@ -108,8 +111,13 @@ function restoreThemePreference() {
   }
 }
 
-function scrollToSection(sectionId) {
+async function scrollToSection(sectionId) {
   rightDrawerOpen.value = false
+
+  if (route.path !== '/') {
+    await router.push({ path: '/', hash: `#${sectionId}` })
+    await nextTick()
+  }
 
   document.getElementById(sectionId)?.scrollIntoView({
     behavior: 'smooth',
