@@ -20,6 +20,10 @@ const routes = [
         path: 'case-studies/azure-performance',
         component: () => import('pages/AzurePerformanceCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/garden-planning',
+        component: () => import('pages/GardenPlanningCaseStudy.vue'),
+      },
     ],
   },
 
