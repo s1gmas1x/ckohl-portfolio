@@ -88,14 +88,12 @@
           <p>Short-form technical writeups can live here as the portfolio grows.</p>
         </div>
 
-        <div class="case-list">
-          <article v-for="caseStudy in caseStudies" :key="caseStudy.title" class="case-row">
-            <div>
-              <span>{{ caseStudy.category }}</span>
-              <h3>{{ caseStudy.title }}</h3>
-            </div>
-            <p>{{ caseStudy.description }}</p>
-          </article>
+        <div class="card-grid">
+          <CaseStudyCard
+            v-for="caseStudy in caseStudies"
+            :key="caseStudy.title"
+            :case-study="caseStudy"
+          />
         </div>
       </div>
     </section>
@@ -143,6 +141,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useQuasar } from 'quasar'
+import CaseStudyCard from 'src/components/CaseStudyCard.vue'
+import { caseStudies } from 'src/data/caseStudies.js'
 import { projects } from 'src/data/projects.js'
 
 const $q = useQuasar()
@@ -153,25 +153,6 @@ const stats = [
   { value: '5', label: 'Homepage sections' },
   { value: 'Vue 3', label: 'Application base' },
   { value: 'Quasar', label: 'UI framework' },
-]
-
-const caseStudies = [
-  {
-    category: 'Workflow',
-    title: 'Turning issues into incremental delivery',
-    description: 'Document decisions, constraints, and build steps from idea through release.',
-  },
-  {
-    category: 'Debugging',
-    title: 'Tracing production-facing problems',
-    description:
-      'Capture symptoms, root cause, fix strategy, and verification in a reusable format.',
-  },
-  {
-    category: 'Interface',
-    title: 'Designing focused user flows',
-    description: 'Show the tradeoffs behind layout, component structure, and responsive behavior.',
-  },
 ]
 
 const skillGroups = [
@@ -412,38 +393,11 @@ function scrollToContact() {
   font-weight: 700;
 }
 
-.case-list {
-  display: grid;
-  gap: 14px;
-}
-
-.case-row {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) 1fr;
-  gap: 28px;
-  align-items: start;
-  padding: 22px 0;
-  border-top: 1px solid var(--row-border);
-}
-
-.case-row span {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--ck-link);
-  font-size: 0.8rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
 .home-page--dark {
   --hero-bg: linear-gradient(135deg, var(--ck-charcoal), var(--ck-surface-dark));
   --eyebrow-color: var(--ck-accent-orange);
   --mark-bg: var(--ck-accent-orange);
   --mark-color: var(--ck-charcoal);
-}
-
-.case-row p {
-  margin: 0;
 }
 
 .split-section {
@@ -529,13 +483,8 @@ function scrollToContact() {
     padding: 22px;
   }
 
-  .stat-grid,
-  .case-row {
+  .stat-grid {
     grid-template-columns: 1fr;
-  }
-
-  .case-row {
-    gap: 10px;
   }
 
   .content-section {
