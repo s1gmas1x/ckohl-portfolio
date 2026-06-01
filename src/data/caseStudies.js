@@ -24,12 +24,12 @@ export const caseStudies = [
     path: '/case-studies/azure-platform-update',
   },
   {
-    title: 'Weather map interface',
-    category: 'Mapping',
+    title: 'Azure App Service performance investigation',
+    category: 'Performance Diagnostics',
     summary:
-      'A future writeup on composing live weather layers, map controls, and responsive interface choices for scan-friendly context.',
-    technologies: ['Leaflet', 'Esri-Leaflet', 'Weather APIs', 'Responsive UI'],
-    path: '/case-studies/weather-map',
+      'An anonymized case study on using App Lens, telemetry, resource analysis, and diagnostic logs to investigate production performance issues.',
+    technologies: ['Azure App Service', 'App Lens', 'Performance telemetry', 'Diagnostic logs'],
+    path: '/case-studies/azure-performance',
   },
   {
     title: 'Garden planning app structure',

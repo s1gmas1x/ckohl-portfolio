@@ -16,6 +16,10 @@ const routes = [
         path: 'case-studies/azure-platform-update',
         component: () => import('pages/AzurePlatformUpdateCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/azure-performance',
+        component: () => import('pages/AzurePerformanceCaseStudy.vue'),
+      },
     ],
   },
 
