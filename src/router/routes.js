@@ -8,6 +8,10 @@ const routes = [
         path: 'case-studies/kitchenratio',
         component: () => import('pages/KitchenRatioCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/azure-troubleshooting',
+        component: () => import('pages/AzureTroubleshootingCaseStudy.vue'),
+      },
     ],
   },
 

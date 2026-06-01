@@ -8,11 +8,11 @@ export const caseStudies = [
     path: '/case-studies/kitchenratio',
   },
   {
-    title: 'Azure troubleshooting workflow',
+    title: 'Azure App Service SQL failover troubleshooting',
     category: 'Debugging',
     summary:
-      'A future writeup on tracing cloud application symptoms, narrowing root cause, and documenting verification steps.',
-    technologies: ['Azure', 'Diagnostics', 'Root cause analysis', 'Runbooks'],
+      'An anonymized diagnostic case study on reproducing long SQL reconnect times after mirror failover and isolating platform responsibility.',
+    technologies: ['Azure App Service', 'ASP.NET Framework 4.8', 'SQL Server', 'SQL mirroring'],
     path: '/case-studies/azure-troubleshooting',
   },
   {
