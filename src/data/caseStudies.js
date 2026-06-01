@@ -16,6 +16,14 @@ export const caseStudies = [
     path: '/case-studies/azure-troubleshooting',
   },
   {
+    title: 'Azure App Service platform update investigation',
+    category: 'Platform Diagnostics',
+    summary:
+      'An anonymized case study on investigating production performance degradation, platform telemetry, and controlled infrastructure changes.',
+    technologies: ['Azure App Service', 'Platform telemetry', 'Instance Allocations', 'Performance analysis'],
+    path: '/case-studies/azure-platform-update',
+  },
+  {
     title: 'Weather map interface',
     category: 'Mapping',
     summary:

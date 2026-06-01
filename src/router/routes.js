@@ -12,6 +12,10 @@ const routes = [
         path: 'case-studies/azure-troubleshooting',
         component: () => import('pages/AzureTroubleshootingCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/azure-platform-update',
+        component: () => import('pages/AzurePlatformUpdateCaseStudy.vue'),
+      },
     ],
   },
 
