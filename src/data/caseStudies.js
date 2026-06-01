@@ -32,11 +32,11 @@ export const caseStudies = [
     path: '/case-studies/azure-performance',
   },
   {
-    title: 'Garden planning app structure',
+    title: 'Garden Planning App architecture',
     category: 'Application Design',
     summary:
-      'A future writeup on organizing seasonal planning, plant tracking, and product UI decisions for a practical garden workflow.',
-    technologies: ['Vue 3', 'Quasar', 'Data modeling', 'Product UI'],
+      'A product architecture case study for a garden planning app with interactive layouts, raised bed management, and database-driven plant information.',
+    technologies: ['Laravel', 'Vue 3', 'Quasar', 'PostgreSQL'],
     path: '/case-studies/garden-planning',
   },
 ]
