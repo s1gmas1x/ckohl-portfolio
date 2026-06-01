@@ -11,7 +11,7 @@ export const projects = [
     description:
       "Vue 3 calculator that helps bakers scale recipes and test dough formulas with baker's percentages.",
     tags: ['Vue 3', 'Pinia', 'Calculator'],
-    url: 'https://calculator.kitchenratio.com/',
+    url: 'https://kitchenratio.com/calculator',
   },
   {
     title: 'Weather map',

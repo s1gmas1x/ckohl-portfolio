@@ -3,8 +3,8 @@ export const caseStudies = [
     title: 'KitchenRatio formula scaling',
     category: 'Product Engineering',
     summary:
-      "A future writeup on turning baker's math workflows into a focused calculator experience with predictable state and clear validation.",
-    technologies: ['Vue 3', 'Pinia', 'Quasar', 'Baker percentages'],
+      "A baking and recipe scaling platform for baker's percentages, dough hydration calculations, educational guides, and accurate formula scaling.",
+    technologies: ['Vue 3', 'Vite', 'Pinia', 'VitePress', 'Netlify', 'Cloudflare'],
     path: '/case-studies/kitchenratio',
   },
   {
