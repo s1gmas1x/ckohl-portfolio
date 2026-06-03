@@ -1,4 +1,5 @@
 import gardenPlannerMapThumb from 'src/assets/images/garden-app/garden-planner-map-thumb.png'
+import kitchenRatioOverviewThumb from 'src/assets/images/kitchenratio/kitchenratio-overview-thumb.png'
 
 export const projects = [
   {
@@ -18,6 +19,10 @@ export const projects = [
       "Vue 3 calculator that helps bakers scale recipes and test dough formulas with baker's percentages.",
     tags: ['Vue 3', 'Pinia', 'Calculator'],
     url: 'https://kitchenratio.com/calculator',
+    image: {
+      src: kitchenRatioOverviewThumb,
+      alt: 'KitchenRatio overview screenshot',
+    },
   },
   {
     title: 'Weather map',
