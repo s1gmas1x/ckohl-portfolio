@@ -55,6 +55,15 @@
             bordered
             class="content-card"
           >
+            <q-img
+              v-if="project.image"
+              :src="project.image.src"
+              :alt="project.image.alt"
+              :ratio="16 / 9"
+              fit="cover"
+              loading="lazy"
+              class="content-card__image"
+            />
             <q-card-section>
               <h3>{{ project.title }}</h3>
               <p>{{ project.description }}</p>
@@ -351,13 +360,20 @@ function scrollToContact() {
 }
 
 .content-card {
+  display: flex;
+  flex-direction: column;
   min-height: 300px;
+  overflow: hidden;
+}
+
+.content-card__image {
+  border-bottom: 1px solid var(--card-border);
 }
 
 .content-card :deep(.q-card__section) {
   display: grid;
   gap: 14px;
-  height: 100%;
+  flex: 1;
   padding: 24px;
 }
 
