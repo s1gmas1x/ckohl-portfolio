@@ -1,3 +1,5 @@
+import gardenPlannerMapThumb from 'src/assets/images/garden-app/garden-planner-map-thumb.png'
+
 export const projects = [
   {
     title: 'Gardening App',
@@ -5,6 +7,10 @@ export const projects = [
       'Garden planning and plant tracking app for keeping seasonal work organized in one place.',
     tags: ['Garden planning', 'Product UI', 'Side project'],
     url: 'https://garden.ckohl.com/',
+    image: {
+      src: gardenPlannerMapThumb,
+      alt: 'Garden Planning App map layout screenshot',
+    },
   },
   {
     title: "KitchenRatio: Baker's Math Calculator",
