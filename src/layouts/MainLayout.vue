@@ -7,12 +7,13 @@
         <nav class="desktop-nav" aria-label="Primary navigation">
           <q-btn
             v-for="item in navigationItems"
-            :key="item.id"
+            :key="item.label"
             flat
             no-caps
             :label="item.label"
             class="nav-link"
-            @click="scrollToSection(item.id)"
+            :class="{ 'nav-link--active': isNavigationItemActive(item) }"
+            @click="handleNavigation(item)"
           />
         </nav>
 
@@ -51,10 +52,12 @@
 
         <q-item
           v-for="item in navigationItems"
-          :key="item.id"
+          :key="item.label"
           v-close-popup
           clickable
-          @click="scrollToSection(item.id)"
+          :active="isNavigationItemActive(item)"
+          active-class="drawer-link--active"
+          @click="handleNavigation(item)"
         >
           <q-item-section>{{ item.label }}</q-item-section>
         </q-item>
@@ -79,6 +82,7 @@ const route = useRoute()
 const router = useRouter()
 
 const navigationItems = [
+  { label: 'About', path: '/about' },
   { label: 'Projects', id: 'projects' },
   { label: 'Case Studies', id: 'case-studies' },
   { label: 'Skills', id: 'skills' },
@@ -109,6 +113,21 @@ function restoreThemePreference() {
   if (storedTheme === 'dark' || storedTheme === 'light') {
     $q.dark.set(storedTheme === 'dark')
   }
+}
+
+async function handleNavigation(item) {
+  rightDrawerOpen.value = false
+
+  if (item.path) {
+    await router.push(item.path)
+    return
+  }
+
+  await scrollToSection(item.id)
+}
+
+function isNavigationItemActive(item) {
+  return Boolean(item.path && route.path === item.path)
 }
 
 async function scrollToSection(sectionId) {
@@ -160,7 +179,8 @@ async function scrollToSection(sectionId) {
 }
 
 .nav-link:hover,
-.nav-link:focus {
+.nav-link:focus,
+.nav-link--active {
   color: var(--ck-link);
 }
 
@@ -188,8 +208,14 @@ async function scrollToSection(sectionId) {
 
 .site-header--dark .nav-link:hover,
 .site-header--dark .nav-link:focus,
+.site-header--dark .nav-link--active,
 .site-header--dark .theme-toggle {
   color: var(--ck-accent-orange);
+}
+
+.drawer-link--active {
+  color: var(--ck-link);
+  font-weight: 800;
 }
 
 @media (max-width: 720px) {
