@@ -2,15 +2,7 @@
   <q-page class="case-study-page">
     <section class="case-study-hero">
       <div class="case-study-inner">
-        <q-btn
-          flat
-          no-caps
-          color="primary"
-          icon="arrow_back"
-          label="Back to portfolio"
-          to="/"
-          class="back-link"
-        />
+        <PageBackLink />
 
         <div class="case-study-heading">
           <p class="eyebrow">{{ caseStudy.category }}</p>
@@ -118,6 +110,7 @@
 </template>
 
 <script setup>
+import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 
 const caseStudy = caseStudies.find((item) => item.path === '/case-studies/azure-platform-update')
@@ -216,11 +209,6 @@ const narrativeSections = [
 
 body.body--dark .case-study-hero {
   background: linear-gradient(135deg, var(--ck-charcoal), var(--ck-surface-dark));
-}
-
-.back-link {
-  margin-bottom: 40px;
-  font-weight: 700;
 }
 
 .case-study-heading {
@@ -373,10 +361,6 @@ body.body--dark .case-study-hero {
 
   .case-study-hero {
     padding: 40px 0 56px;
-  }
-
-  .back-link {
-    margin-bottom: 28px;
   }
 
   .case-study-heading h1 {
