@@ -48,11 +48,24 @@ defineProps({
 
 <style lang="scss" scoped>
 .case-study-card {
+  position: relative;
   height: 100%;
   background: var(--card-bg);
   border-color: var(--card-border);
   border-radius: 8px;
   box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.case-study-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 24px;
+  width: 48px;
+  height: 3px;
+  background: var(--ck-orange);
+  border-radius: 0 0 999px 999px;
 }
 
 .case-study-card :deep(.q-card__section) {
@@ -94,8 +107,9 @@ defineProps({
 .case-study-card h3 {
   margin: 0;
   color: var(--text-primary);
-  font-size: 1.16rem;
+  font-size: 1.18rem;
   font-weight: 800;
+  line-height: 1.25;
 }
 
 .case-study-card p {
@@ -110,6 +124,7 @@ defineProps({
 }
 
 .tag-list :deep(.q-chip) {
+  font-weight: 700;
   margin: 0;
 }
 

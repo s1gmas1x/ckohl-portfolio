@@ -6,9 +6,9 @@ html {
   --ck-orange: #f99c1e;
   --ck-orange-dark: #e48700;
   --ck-charcoal: #12151b;
-  --ck-surface-dark: #232b35;
-  --ck-dark-surface: #1b2028;
-  --ck-dark-card: #232b35;
+  --ck-surface-dark: #1c232d;
+  --ck-dark-surface: #151a22;
+  --ck-dark-card: #1d2530;
   --ck-background-light: #f8f9fa;
   --ck-surface-light: #ffffff;
   --ck-accent-orange: #ffb84d;
@@ -25,7 +25,7 @@ html {
   --ck-link: var(--ck-orange-dark);
   --ck-header-bg: rgba(255, 255, 255, 0.94);
   --ck-header-border: #eadfce;
-  --ck-card-shadow: 0 18px 50px rgba(39, 54, 62, 0.08);
+  --ck-card-shadow: 0 18px 50px rgba(39, 54, 62, 0.1);
   --ck-primary-button-text: var(--ck-charcoal);
 }
 
@@ -39,16 +39,16 @@ body.body--dark {
   --ck-section-bg: var(--ck-dark-surface);
   --ck-surface-bg: var(--ck-dark-card);
   --ck-surface-subtle: #2b3440;
-  --ck-border: #384250;
-  --ck-row-border: #303946;
+  --ck-border: #333d4a;
+  --ck-row-border: #2b3440;
   --ck-text-strong: #ffffff;
   --ck-text-primary: #f4f6f8;
   --ck-text-secondary: #c8d0da;
   --ck-text-muted: #9aa6b5;
   --ck-link: var(--ck-accent-orange);
-  --ck-header-bg: rgba(18, 21, 27, 0.92);
-  --ck-header-border: #303946;
-  --ck-card-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
+  --ck-header-bg: rgba(8, 11, 15, 0.88);
+  --ck-header-border: rgba(249, 156, 30, 0.16);
+  --ck-card-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
 
   color: var(--ck-text-primary);
   background: var(--ck-page-bg);
@@ -65,4 +65,9 @@ a {
 
 .q-btn.bg-primary {
   color: var(--ck-primary-button-text) !important;
+  box-shadow: 0 10px 24px rgba(249, 156, 30, 0.22);
+}
+
+.q-btn.q-btn--outline {
+  background: rgba(249, 156, 30, 0.03);
 }

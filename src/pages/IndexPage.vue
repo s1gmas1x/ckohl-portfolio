@@ -4,6 +4,7 @@
       <div class="section-inner hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Portfolio / Web Application Engineering</p>
+          <p class="hero-badge">Full-stack developer</p>
           <h1>Building focused web tools with practical, reliable foundations.</h1>
           <p class="hero-summary">
             I am Chad Kohl, a developer who turns everyday workflows into useful web applications,
@@ -184,6 +185,21 @@
         />
       </div>
     </section>
+
+    <footer class="site-footer">
+      <div class="section-inner footer-grid">
+        <div>
+          <img :src="ckLogo" alt="CK." class="footer-logo" />
+          <p>Building web applications that make practical workflows easier to manage.</p>
+        </div>
+
+        <div class="footer-links" aria-label="Footer navigation">
+          <span>Navigation</span>
+          <button type="button" @click="scrollToProjects">Projects</button>
+          <button type="button" @click="scrollToContact">Contact</button>
+        </div>
+      </div>
+    </footer>
   </q-page>
 </template>
 
@@ -191,6 +207,7 @@
 import { computed } from 'vue'
 import { useQuasar } from 'quasar'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
+import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { projects } from 'src/data/projects.js'
@@ -289,6 +306,22 @@ function scrollToContact() {
   line-height: 1.03;
 }
 
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin: 0 0 22px;
+  padding: 6px 12px;
+  background: rgba(249, 156, 30, 0.1);
+  border: 1px solid rgba(249, 156, 30, 0.24);
+  border-radius: 999px;
+  color: var(--eyebrow-color);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .eyebrow {
   margin: 0 0 14px;
   color: var(--eyebrow-color);
@@ -323,9 +356,22 @@ function scrollToContact() {
 }
 
 .hero-panel {
+  position: relative;
   display: grid;
   gap: 22px;
   padding: 30px;
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: '';
+  position: absolute;
+  right: -28px;
+  bottom: -38px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(249, 156, 30, 0.16), transparent 68%);
+  pointer-events: none;
 }
 
 .profile-mark {
@@ -410,12 +456,15 @@ function scrollToContact() {
   display: flex;
   flex-direction: column;
   min-height: 300px;
+  padding: 12px;
   overflow: hidden;
 }
 
 .content-card__image {
   background: var(--image-bg);
-  border-bottom: 1px solid var(--image-border);
+  border: 1px solid var(--image-border);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .content-card__image :deep(.q-img__image) {
@@ -427,7 +476,7 @@ function scrollToContact() {
   align-content: start;
   gap: 20px;
   flex: 1;
-  padding: 18px 24px 24px;
+  padding: 18px 8px 8px;
 }
 
 .content-card__body,
@@ -451,8 +500,9 @@ function scrollToContact() {
 .skill-group h3 {
   margin: 0;
   color: var(--text-primary);
-  font-size: 1.16rem;
+  font-size: 1.18rem;
   font-weight: 800;
+  line-height: 1.25;
 }
 
 .content-card p,
@@ -470,6 +520,7 @@ function scrollToContact() {
   background: var(--ck-surface-subtle);
   border-color: var(--ck-border);
   color: var(--text-primary);
+  font-weight: 700;
   margin: 0;
 }
 
@@ -559,11 +610,79 @@ function scrollToContact() {
 }
 
 .contact-panel {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 28px;
   padding: 32px;
+  overflow: hidden;
+}
+
+.contact-panel::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  height: 100%;
+  background-image: radial-gradient(rgba(249, 156, 30, 0.32) 1px, transparent 1px);
+  background-size: 10px 10px;
+  mask-image: linear-gradient(90deg, transparent, #000);
+  pointer-events: none;
+}
+
+.site-footer {
+  padding: 36px 0 44px;
+  border-top: 1px solid var(--card-border);
+  background: var(--page-bg);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer-logo {
+  display: block;
+  width: 76px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.site-footer p {
+  max-width: 340px;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: grid;
+  gap: 8px;
+  min-width: 160px;
+}
+
+.footer-links span {
+  color: var(--text-strong);
+  font-weight: 800;
+}
+
+.footer-links button {
+  width: fit-content;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+}
+
+.footer-links button:hover,
+.footer-links button:focus {
+  color: var(--ck-link);
 }
 
 @media (max-width: 900px) {
@@ -622,6 +741,10 @@ function scrollToContact() {
 
   .contact-panel {
     align-items: stretch;
+    flex-direction: column;
+  }
+
+  .footer-grid {
     flex-direction: column;
   }
 }
