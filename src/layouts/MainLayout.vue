@@ -304,7 +304,7 @@ function updateActiveSection() {
 @media (max-width: 720px) {
   .site-toolbar {
     min-height: 62px;
-    width: min(100% - 24px, 1120px);
+    width: min(100% - 48px, 1120px);
   }
 
   .site-logo {

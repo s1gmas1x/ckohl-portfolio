@@ -3,8 +3,10 @@
     <section class="hero-section">
       <div class="section-inner hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Portfolio / Web Application Engineering</p>
-          <p class="hero-badge">Full-stack developer</p>
+          <p class="hero-badge">
+            <q-icon name="code" size="14px" aria-hidden="true" />
+            <span>Full-stack Developer</span>
+          </p>
           <h1>Building focused web tools with practical, reliable foundations.</h1>
           <p class="hero-summary">
             I am Chad Kohl, a developer who turns everyday workflows into useful web applications,
@@ -16,24 +18,35 @@
               unelevated
               no-caps
               color="primary"
+              icon="work"
               label="View Projects"
               @click="scrollToProjects"
             />
-            <q-btn outline no-caps color="primary" label="Contact" @click="scrollToContact" />
+            <q-btn
+              outline
+              no-caps
+              color="primary"
+              icon="mail"
+              label="Contact"
+              @click="scrollToContact"
+            />
           </div>
         </div>
 
-        <div class="hero-panel" aria-label="Portfolio snapshot">
-          <div class="profile-mark">CK</div>
-          <div>
-            <p class="panel-label">Current focus</p>
-            <h2>Product-minded interfaces, readable application structure, and evidence-based debugging.</h2>
+        <div class="hero-code-card" aria-label="Developer profile code sample">
+          <div class="code-window-bar" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
-          <q-separator />
-          <div class="stat-grid">
-            <div v-for="stat in stats" :key="stat.label" class="stat-item">
-              <strong>{{ stat.value }}</strong>
-              <span>{{ stat.label }}</span>
+
+          <div class="code-card-mark" aria-hidden="true">&lt;/&gt;</div>
+          <div class="code-brace-mark" aria-hidden="true">{</div>
+
+          <div class="code-content">
+            <div v-for="line in codeLines" :key="line.number" class="code-line">
+              <span class="line-number">{{ line.number }}</span>
+              <code v-html="line.html"></code>
             </div>
           </div>
         </div>
@@ -218,10 +231,39 @@ const isDarkMode = computed(() => $q.dark.isActive)
 
 const homepageHighlights = experienceHighlights.slice(0, 3)
 
-const stats = [
-  { value: 'Vue + Laravel', label: 'Application foundation' },
-  { value: 'Quasar', label: 'Interface framework' },
-  { value: 'Case studies', label: 'Technical reasoning' },
+const codeLines = [
+  {
+    number: 1,
+    html: '<span class="code-keyword">const</span> <span class="code-variable">developer</span> = {',
+  },
+  { number: 2, html: '  <span class="code-property">name</span>: <span class="code-string">"Chad Kohl"</span>,' },
+  {
+    number: 3,
+    html: '  <span class="code-property">role</span>: <span class="code-string">"Full-Stack Developer"</span>,',
+  },
+  {
+    number: 4,
+    html: '  <span class="code-property">focus</span>: [<span class="code-string">"Web Apps"</span>, <span class="code-string">"APIs"</span>, <span class="code-string">"UI/UX"</span>],',
+  },
+  {
+    number: 5,
+    html: '  <span class="code-property">passion</span>: <span class="code-string">"Building solutions that make a difference"</span>,',
+  },
+  {
+    number: 6,
+    html: '  <span class="code-property">technologies</span>: [<span class="code-string">"Vue"</span>, <span class="code-string">"Quasar"</span>, <span class="code-string">"Laravel"</span>],',
+  },
+  { number: 7, html: '};' },
+  { number: 8, html: '' },
+  {
+    number: 9,
+    html: '<span class="code-keyword">function</span> <span class="code-function">buildSomethingGreat</span>() {',
+  },
+  {
+    number: 10,
+    html: `  <span class="code-keyword">return</span> <span class="code-string">"Let's work together"</span>;`,
+  },
+  { number: 11, html: '}' },
 ]
 
 const skillGroups = [
@@ -266,6 +308,14 @@ function scrollToContact() {
   --card-shadow: var(--ck-card-shadow);
   --image-bg: var(--ck-surface-subtle);
   --image-border: var(--ck-border);
+  --code-text: #334155;
+  --code-line-number: #8a99a8;
+  --code-keyword: #a85b00;
+  --code-string: #087f8c;
+  --code-variable: #1e2a30;
+  --code-property: #287a3e;
+  --code-function: #8a5a00;
+  --code-header-bg: rgba(8, 12, 17, 0.05);
 
   background: var(--page-bg);
   color: var(--text-primary);
@@ -277,18 +327,18 @@ function scrollToContact() {
 }
 
 .hero-section {
-  min-height: min(680px, calc(100vh - 72px));
+  min-height: auto;
   display: flex;
   align-items: center;
-  padding: 72px 0 52px;
+  padding: 52px 0 28px;
   background: var(--hero-bg);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .hero-copy h1,
@@ -301,14 +351,15 @@ function scrollToContact() {
 }
 
 .hero-copy h1 {
-  max-width: 720px;
-  font-size: 4.35rem;
-  line-height: 1.03;
+  max-width: 660px;
+  font-size: 3.35rem;
+  line-height: 1.08;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
+  gap: 7px;
   width: fit-content;
   margin: 0 0 22px;
   padding: 6px 12px;
@@ -343,10 +394,10 @@ function scrollToContact() {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin-top: 22px;
 }
 
-.hero-panel,
+.hero-code-card,
 .content-card,
 .contact-panel {
   background: var(--card-bg);
@@ -355,72 +406,135 @@ function scrollToContact() {
   box-shadow: var(--card-shadow);
 }
 
-.hero-panel {
+.hero-code-card {
   position: relative;
   display: grid;
-  gap: 22px;
-  padding: 30px;
+  align-self: stretch;
+  gap: 18px;
+  min-height: 400px;
+  padding: 0 0 26px;
+  background: var(--card-bg);
+  overflow: visible;
+}
+
+.hero-code-card::after {
+  content: none;
+}
+
+.code-window-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 38px;
+  padding: 0 18px;
+  background: var(--code-header-bg);
+  border-bottom: 1px solid var(--card-border);
+  border-radius: 8px 8px 0 0;
+}
+
+.code-window-bar span {
+  width: 9px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+}
+
+.code-window-bar span:nth-child(1) {
+  background: #ef6b5a;
+}
+
+.code-window-bar span:nth-child(2) {
+  background: #f4bf4f;
+}
+
+.code-window-bar span:nth-child(3) {
+  background: #61c554;
+}
+
+.code-card-mark {
+  position: absolute;
+  top: -5px;
+  right: -4px;
+  color: var(--ck-orange);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 4.15rem;
+  font-weight: 800;
+  letter-spacing: -0.12em;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.code-brace-mark {
+  position: absolute;
+  right: calc(100% - 10px);
+  bottom: 0;
+  z-index: 1;
+  color: var(--ck-orange);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 4.6rem;
+  font-weight: 500;
+  line-height: 1;
+  opacity: 0.95;
+}
+
+.code-content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  padding: 18px 24px 0 22px;
   overflow: hidden;
 }
 
-.hero-panel::after {
-  content: '';
-  position: absolute;
-  right: -28px;
-  bottom: -38px;
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(249, 156, 30, 0.16), transparent 68%);
-  pointer-events: none;
-}
-
-.profile-mark {
+.code-line {
   display: grid;
-  place-items: center;
-  width: 72px;
-  aspect-ratio: 1;
-  border-radius: 8px;
-  background: var(--mark-bg);
-  color: var(--mark-color);
-  font-weight: 800;
-  font-size: 1.35rem;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: 8px;
+  min-height: 18px;
+  color: var(--code-text);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: clamp(0.7rem, 0.76vw, 0.82rem);
+  line-height: 1.55;
 }
 
-.panel-label,
-.stat-item span {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.9rem;
+.code-line code {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
 }
 
-.hero-panel h2 {
-  margin: 6px 0 0;
-  color: var(--text-primary);
-  font-size: 1.36rem;
-  line-height: 1.36;
+.line-number {
+  color: var(--code-line-number);
+  text-align: right;
+  user-select: none;
 }
 
-.stat-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+.code-line :deep(.code-keyword) {
+  color: var(--code-keyword);
 }
 
-.stat-item {
-  display: grid;
-  gap: 4px;
-  padding-top: 12px;
-  border-top: 1px solid var(--row-border);
+.code-line :deep(.code-string) {
+  color: var(--code-string);
 }
 
-.stat-item strong {
-  color: var(--text-strong);
-  font-size: 1.2rem;
+.code-line :deep(.code-variable) {
+  color: var(--code-variable);
+}
+
+.code-line :deep(.code-property) {
+  color: var(--code-property);
+}
+
+.code-line :deep(.code-function) {
+  color: var(--code-function);
 }
 
 .content-section {
   scroll-margin-top: 88px;
   padding: 76px 0 88px;
+}
+
+.hero-section + .content-section {
+  padding-top: 48px;
 }
 
 .alternate-section {
@@ -531,13 +645,21 @@ function scrollToContact() {
 
 .home-page--dark {
   --hero-bg:
-    radial-gradient(circle at top left, rgba(249, 156, 30, 0.12), transparent 36%),
-    linear-gradient(135deg, var(--ck-page-bg), var(--ck-section-bg));
+    radial-gradient(circle at top left, rgba(249, 156, 30, 0.06), transparent 32%),
+    linear-gradient(135deg, #070b10, #0b1016);
   --eyebrow-color: var(--ck-accent-orange);
   --mark-bg: var(--ck-accent-orange);
   --mark-color: var(--ck-charcoal);
-  --image-bg: #151920;
-  --image-border: #303946;
+  --image-bg: #101720;
+  --image-border: #25303c;
+  --code-text: #94a3b8;
+  --code-line-number: #5f6c7d;
+  --code-keyword: #f99c1e;
+  --code-string: #7dd3fc;
+  --code-variable: #f8fafc;
+  --code-property: #86efac;
+  --code-function: #facc15;
+  --code-header-bg: rgba(255, 255, 255, 0.07);
 }
 
 .split-section {
@@ -686,6 +808,10 @@ function scrollToContact() {
 }
 
 @media (max-width: 900px) {
+  .section-inner {
+    width: min(100% - 48px, 1120px);
+  }
+
   .hero-grid,
   .split-section,
   .card-grid,
@@ -693,8 +819,11 @@ function scrollToContact() {
     grid-template-columns: 1fr;
   }
 
-  .hero-panel {
+  .hero-code-card {
     max-width: 640px;
+    width: calc(100% - 24px);
+    margin-left: 24px;
+    min-height: 360px;
   }
 
   .card-grid {
@@ -702,7 +831,7 @@ function scrollToContact() {
   }
 
   .hero-copy h1 {
-    font-size: 3.45rem;
+    font-size: 2.85rem;
   }
 
   .section-heading h2,
@@ -713,26 +842,53 @@ function scrollToContact() {
 
 @media (max-width: 640px) {
   .section-inner {
-    width: min(100% - 24px, 1120px);
+    width: min(100% - 48px, 1120px);
   }
 
   .hero-section {
     min-height: auto;
-    padding: 56px 0 44px;
+    padding: 38px 0 28px;
   }
 
   .hero-copy h1 {
-    font-size: 2.45rem;
-    line-height: 1.02;
+    font-size: 2.15rem;
+    line-height: 1.08;
   }
 
   .hero-summary {
     font-size: 1rem;
   }
 
-  .hero-panel,
+  .hero-code-card,
   .contact-panel {
     padding: 22px;
+  }
+
+  .hero-code-card {
+    min-height: auto;
+    padding: 0 0 22px;
+  }
+
+  .code-content {
+    padding: 8px 16px 0 16px;
+  }
+
+  .code-line {
+    font-size: 0.7rem;
+    grid-template-columns: 22px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .code-brace-mark {
+    right: calc(100% - 8px);
+    bottom: 0;
+    font-size: 3.6rem;
+  }
+
+  .code-card-mark {
+    top: -3px;
+    right: -3px;
+    font-size: 3.2rem;
   }
 
   .content-section {
@@ -746,6 +902,17 @@ function scrollToContact() {
 
   .footer-grid {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 380px) {
+  .section-inner {
+    width: min(100% - 36px, 1120px);
+  }
+
+  .hero-code-card {
+    width: calc(100% - 20px);
+    margin-left: 20px;
   }
 }
 </style>
