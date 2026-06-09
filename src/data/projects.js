@@ -1,5 +1,6 @@
 import gardenPlannerMapThumb from 'src/assets/images/garden-app/garden-planner-map-thumb.png'
 import kitchenRatioOverviewThumb from 'src/assets/images/kitchenratio/kitchenratio-overview-thumb.png'
+import weatherMapSatelliteRadar from 'src/assets/images/weather-map/weather-map-satellite-radar.png'
 
 export const projects = [
   {
@@ -30,6 +31,10 @@ export const projects = [
       'Interactive weather map built with Leaflet and Esri-Leaflet using live weather layers and map controls.',
     tags: ['Leaflet', 'Esri-Leaflet', 'Weather APIs'],
     url: 'https://weather.ckohl.com/',
+    image: {
+      src: weatherMapSatelliteRadar,
+      alt: 'Weather Map satellite radar layer screenshot',
+    },
   },
   {
     title: 'Previous landing page',
