@@ -6,8 +6,8 @@ export const projects = [
   {
     title: 'Gardening App',
     description:
-      'Garden planning and plant tracking app for keeping seasonal work organized in one place.',
-    tags: ['Garden planning', 'Product UI', 'Side project'],
+      'A database-driven garden planning app for mapping growing areas, tracking plants, and organizing seasonal work.',
+    tags: ['Laravel', 'Vue 3', 'PostgreSQL'],
     url: 'https://garden.ckohl.com/',
     image: {
       src: gardenPlannerMapThumb,
@@ -17,7 +17,7 @@ export const projects = [
   {
     title: "KitchenRatio: Baker's Math Calculator",
     description:
-      "Vue 3 calculator that helps bakers scale recipes and test dough formulas with baker's percentages.",
+      "A Vue 3 baking calculator for scaling formulas, checking hydration, and working with baker's percentages.",
     tags: ['Vue 3', 'Pinia', 'Calculator'],
     url: 'https://kitchenratio.com/calculator',
     image: {
@@ -28,7 +28,7 @@ export const projects = [
   {
     title: 'Weather map',
     description:
-      'Interactive weather map built with Leaflet and Esri-Leaflet using live weather layers and map controls.',
+      'A Leaflet weather map that combines radar, alerts, hurricane tracking, and multiple map layers.',
     tags: ['Leaflet', 'Esri-Leaflet', 'Weather APIs'],
     url: 'https://weather.ckohl.com/',
     image: {
@@ -39,7 +39,7 @@ export const projects = [
   {
     title: 'Previous landing page',
     description:
-      'Earlier static marketing landing page converted from a Laravel app with responsive layouts.',
+      'A responsive static landing page preserved from an earlier Laravel-based version of the site.',
     tags: ['SCSS', 'Responsive design', 'Static site'],
     url: 'https://oldsite.ckohl.com',
   },

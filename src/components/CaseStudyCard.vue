@@ -1,28 +1,38 @@
 <template>
   <q-card flat bordered class="case-study-card">
     <q-card-section>
-      <div class="case-study-card__header">
-        <span>{{ caseStudy.category }}</span>
-        <h3>{{ caseStudy.title }}</h3>
+      <div class="case-study-card__body">
+        <div class="case-study-card__header">
+          <span>{{ caseStudy.category }}</span>
+          <h3>{{ caseStudy.title }}</h3>
+        </div>
+
+        <p>{{ caseStudy.summary }}</p>
       </div>
 
-      <p>{{ caseStudy.summary }}</p>
+      <div class="case-study-card__actions">
+        <div class="tag-list" aria-label="Case study technologies">
+          <q-chip
+            v-for="technology in caseStudy.technologies"
+            :key="technology"
+            outline
+            square
+            dense
+          >
+            {{ technology }}
+          </q-chip>
+        </div>
 
-      <div class="tag-list" aria-label="Case study technologies">
-        <q-chip v-for="technology in caseStudy.technologies" :key="technology" outline square dense>
-          {{ technology }}
-        </q-chip>
+        <q-btn
+          outline
+          no-caps
+          color="primary"
+          icon-right="arrow_forward"
+          label="Read case study"
+          :to="caseStudy.path"
+          class="case-study-card__link"
+        />
       </div>
-
-      <q-btn
-        outline
-        no-caps
-        color="primary"
-        icon-right="arrow_forward"
-        label="Read case study"
-        :to="caseStudy.path"
-        class="case-study-card__link"
-      />
     </q-card-section>
   </q-card>
 </template>
@@ -46,9 +56,25 @@ defineProps({
 
 .case-study-card :deep(.q-card__section) {
   display: grid;
-  gap: 14px;
+  align-content: start;
+  gap: 22px;
   height: 100%;
   padding: 24px;
+}
+
+.case-study-card__body,
+.case-study-card__actions {
+  display: grid;
+}
+
+.case-study-card__body {
+  gap: 14px;
+}
+
+.case-study-card__actions {
+  align-self: end;
+  gap: 16px;
+  margin-top: auto;
 }
 
 .case-study-card__header {
@@ -79,9 +105,11 @@ defineProps({
 
 .case-study-card__link {
   justify-self: start;
-  align-self: end;
-  margin-top: 4px;
   font-weight: 700;
+}
+
+.tag-list :deep(.q-chip) {
+  margin: 0;
 }
 
 @media (max-width: 640px) {

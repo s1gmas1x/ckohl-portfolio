@@ -3,7 +3,7 @@ export const caseStudies = [
     title: 'KitchenRatio formula scaling',
     category: 'Product Engineering',
     summary:
-      "A baking and recipe scaling platform for baker's percentages, dough hydration calculations, educational guides, and accurate formula scaling.",
+      "How KitchenRatio turns baker's percentages, hydration math, and formula scaling into a clearer product workflow.",
     technologies: ['Vue 3', 'Vite', 'Pinia', 'VitePress', 'Netlify', 'Cloudflare'],
     path: '/case-studies/kitchenratio',
   },
@@ -11,7 +11,7 @@ export const caseStudies = [
     title: 'Azure App Service SQL failover troubleshooting',
     category: 'Debugging',
     summary:
-      'An anonymized diagnostic case study on reproducing long SQL reconnect times after mirror failover and isolating platform responsibility.',
+      'An anonymized debugging case study on reproducing SQL reconnect delays after failover and narrowing the responsible layer.',
     technologies: ['Azure App Service', 'ASP.NET Framework 4.8', 'SQL Server', 'SQL mirroring'],
     path: '/case-studies/azure-troubleshooting',
   },
@@ -19,7 +19,7 @@ export const caseStudies = [
     title: 'Azure App Service platform update investigation',
     category: 'Platform Diagnostics',
     summary:
-      'An anonymized case study on investigating production performance degradation, platform telemetry, and controlled infrastructure changes.',
+      'An anonymized investigation into production performance changes using platform telemetry and controlled infrastructure updates.',
     technologies: ['Azure App Service', 'Platform telemetry', 'Instance Allocations', 'Performance analysis'],
     path: '/case-studies/azure-platform-update',
   },
@@ -27,7 +27,7 @@ export const caseStudies = [
     title: 'Azure App Service performance investigation',
     category: 'Performance Diagnostics',
     summary:
-      'An anonymized case study on using App Lens, telemetry, resource analysis, and diagnostic logs to investigate production performance issues.',
+      'A diagnostics-focused case study using App Lens, telemetry, resource signals, and logs to isolate performance issues.',
     technologies: ['Azure App Service', 'App Lens', 'Performance telemetry', 'Diagnostic logs'],
     path: '/case-studies/azure-performance',
   },
@@ -35,7 +35,7 @@ export const caseStudies = [
     title: 'Garden Planning App architecture',
     category: 'Application Design',
     summary:
-      'A product architecture case study for a garden planning app with interactive layouts, raised bed management, and database-driven plant information.',
+      'A product architecture case study for interactive garden layouts, raised bed workflows, and plant information management.',
     technologies: ['Laravel', 'Vue 3', 'Quasar', 'PostgreSQL'],
     path: '/case-studies/garden-planning',
   },

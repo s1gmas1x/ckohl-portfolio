@@ -3,11 +3,11 @@
     <section class="hero-section">
       <div class="section-inner hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">Portfolio / Engineering Showcase</p>
-          <h1>Building practical web experiences with a clear technical foundation.</h1>
+          <p class="eyebrow">Portfolio / Web Application Engineering</p>
+          <h1>Building focused web tools with practical, reliable foundations.</h1>
           <p class="hero-summary">
-            I am Chad Kohl, a developer focused on clean interfaces, reliable workflows, and
-            thoughtful problem solving across modern web projects.
+            I am Chad Kohl, a developer who turns everyday workflows into useful web applications,
+            from Vue and Quasar interfaces to Laravel backends and database-driven features.
           </p>
 
           <div class="hero-actions">
@@ -26,7 +26,7 @@
           <div class="profile-mark">CK</div>
           <div>
             <p class="panel-label">Current focus</p>
-            <h2>Portfolio systems, technical case studies, and production-minded UI.</h2>
+            <h2>Product-minded interfaces, readable application structure, and evidence-based debugging.</h2>
           </div>
           <q-separator />
           <div class="stat-grid">
@@ -43,8 +43,8 @@
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow">Projects</p>
-          <h2>Selected work</h2>
-          <p>Current projects pulled into a reusable data source from the existing work page.</p>
+          <h2>Selected projects</h2>
+          <p>Small, practical applications built around real workflows, clear interfaces, and maintainable application code.</p>
         </div>
 
         <div class="card-grid">
@@ -65,24 +65,28 @@
               class="content-card__image"
             />
             <q-card-section>
-              <h3>{{ project.title }}</h3>
-              <p>{{ project.description }}</p>
-              <div class="tag-list" aria-label="Project tags">
-                <q-chip v-for="tag in project.tags" :key="tag" outline square dense>
-                  {{ tag }}
-                </q-chip>
+              <div class="content-card__body">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
               </div>
-              <q-btn
-                outline
-                no-caps
-                color="primary"
-                icon-right="open_in_new"
-                label="View project"
-                :href="project.url"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="project-link"
-              />
+              <div class="content-card__actions">
+                <div class="tag-list" aria-label="Project tags">
+                  <q-chip v-for="tag in project.tags" :key="tag" outline square dense>
+                    {{ tag }}
+                  </q-chip>
+                </div>
+                <q-btn
+                  outline
+                  no-caps
+                  color="primary"
+                  icon-right="open_in_new"
+                  label="View project"
+                  :href="project.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="project-link"
+                />
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -93,8 +97,8 @@
       <div class="section-inner">
         <div class="section-heading">
           <p class="eyebrow">Case Studies</p>
-          <h2>Problem-solving notes</h2>
-          <p>Short-form technical writeups can live here as the portfolio grows.</p>
+          <h2>Engineering case studies</h2>
+          <p>Short writeups on product decisions, debugging work, and the technical reasoning behind selected projects.</p>
         </div>
 
         <div class="card-grid">
@@ -112,7 +116,7 @@
         <div class="section-heading">
           <p class="eyebrow">Skills</p>
           <h2>Core toolkit</h2>
-          <p>Frontend implementation, application structure, debugging, and iterative delivery.</p>
+          <p>Frontend implementation, Laravel-backed application structure, diagnostics, and steady delivery across modern web projects.</p>
         </div>
 
         <div class="skill-groups">
@@ -130,8 +134,8 @@
       <div class="section-inner contact-panel">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Have a project or technical challenge?</h2>
-          <p>Reach out for portfolio work, implementation help, or collaboration.</p>
+          <h2>Have a project or technical problem to untangle?</h2>
+          <p>Reach out for web application implementation, portfolio work, or practical debugging help.</p>
         </div>
 
         <q-btn
@@ -159,23 +163,23 @@ const $q = useQuasar()
 const isDarkMode = computed(() => $q.dark.isActive)
 
 const stats = [
-  { value: '5', label: 'Homepage sections' },
-  { value: 'Vue 3', label: 'Application base' },
-  { value: 'Quasar', label: 'UI framework' },
+  { value: 'Vue + Laravel', label: 'Application foundation' },
+  { value: 'Quasar', label: 'Interface framework' },
+  { value: 'Case studies', label: 'Technical reasoning' },
 ]
 
 const skillGroups = [
   {
-    title: 'Frontend',
+    title: 'Application UI',
     skills: ['Vue', 'Quasar', 'JavaScript', 'HTML', 'SCSS'],
+  },
+  {
+    title: 'Backend and Data',
+    skills: ['Laravel', 'PHP', 'PostgreSQL', 'Application design'],
   },
   {
     title: 'Engineering',
     skills: ['GitHub', 'Debugging', 'Code review', 'Build tooling'],
-  },
-  {
-    title: 'Delivery',
-    skills: ['Responsive UI', 'Documentation', 'Issue workflows', 'Testing basics'],
   },
 ]
 
@@ -218,7 +222,7 @@ function scrollToContact() {
   min-height: calc(100vh - 72px);
   display: flex;
   align-items: center;
-  padding: 88px 0 56px;
+  padding: 96px 0 64px;
   background: var(--hero-bg);
 }
 
@@ -239,9 +243,9 @@ function scrollToContact() {
 }
 
 .hero-copy h1 {
-  max-width: 780px;
-  font-size: 4.8rem;
-  line-height: 0.98;
+  max-width: 760px;
+  font-size: 4.55rem;
+  line-height: 1;
 }
 
 .eyebrow {
@@ -254,11 +258,11 @@ function scrollToContact() {
 }
 
 .hero-summary {
-  max-width: 640px;
-  margin: 24px 0 0;
+  max-width: 660px;
+  margin: 26px 0 0;
   color: var(--text-secondary);
   font-size: 1.16rem;
-  line-height: 1.7;
+  line-height: 1.68;
 }
 
 .hero-actions {
@@ -305,8 +309,8 @@ function scrollToContact() {
 .hero-panel h2 {
   margin: 6px 0 0;
   color: var(--text-primary);
-  font-size: 1.45rem;
-  line-height: 1.3;
+  font-size: 1.36rem;
+  line-height: 1.36;
 }
 
 .stat-grid {
@@ -327,7 +331,7 @@ function scrollToContact() {
 
 .content-section {
   scroll-margin-top: 88px;
-  padding: 88px 0;
+  padding: 92px 0;
 }
 
 .alternate-section {
@@ -335,8 +339,8 @@ function scrollToContact() {
 }
 
 .section-heading {
-  max-width: 680px;
-  margin-bottom: 32px;
+  max-width: 720px;
+  margin-bottom: 36px;
 }
 
 .section-heading h2,
@@ -350,13 +354,13 @@ function scrollToContact() {
 .content-card p,
 .case-row p {
   color: var(--text-secondary);
-  line-height: 1.65;
+  line-height: 1.68;
 }
 
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .content-card {
@@ -372,9 +376,25 @@ function scrollToContact() {
 
 .content-card :deep(.q-card__section) {
   display: grid;
-  gap: 14px;
+  align-content: start;
+  gap: 20px;
   flex: 1;
-  padding: 24px;
+  padding: 18px 24px 24px;
+}
+
+.content-card__body,
+.content-card__actions {
+  display: grid;
+}
+
+.content-card__body {
+  gap: 6px;
+}
+
+.content-card__actions {
+  align-self: end;
+  gap: 16px;
+  margin-top: auto;
 }
 
 .content-card h3,
@@ -394,18 +414,17 @@ function scrollToContact() {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: auto;
 }
 
 .tag-list :deep(.q-chip) {
   background: var(--ck-surface-subtle);
   border-color: var(--ck-border);
   color: var(--text-primary);
+  margin: 0;
 }
 
 .project-link {
   justify-self: start;
-  margin-top: 4px;
   font-weight: 700;
 }
 
@@ -482,7 +501,7 @@ function scrollToContact() {
 
   .hero-section {
     min-height: auto;
-    padding: 72px 0 40px;
+    padding: 72px 0 48px;
   }
 
   .hero-copy h1 {
@@ -504,7 +523,7 @@ function scrollToContact() {
   }
 
   .content-section {
-    padding: 64px 0;
+    padding: 68px 0;
   }
 
   .contact-panel {
