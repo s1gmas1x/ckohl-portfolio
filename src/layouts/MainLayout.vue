@@ -2,7 +2,11 @@
   <q-layout view="lHh lpR fFf">
     <q-header class="site-header" :class="{ 'site-header--dark': isDarkMode }">
       <q-toolbar class="site-toolbar">
-        <q-toolbar-title class="site-title"> Chad Kohl </q-toolbar-title>
+        <q-toolbar-title class="site-title">
+          <router-link to="/" aria-label="Chad Kohl home" class="site-logo-link">
+            <img :src="ckLogo" alt="CK." class="site-logo" />
+          </router-link>
+        </q-toolbar-title>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
           <q-btn
@@ -75,6 +79,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRoute, useRouter } from 'vue-router'
+import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
 
 const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
 
@@ -205,29 +210,44 @@ function updateActiveSection() {
 }
 
 .site-toolbar {
-  min-height: 72px;
+  min-height: 70px;
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 0;
 }
 
 .site-title {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0;
-  color: var(--ck-text-strong);
+  display: flex;
+  align-items: center;
+}
+
+.site-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-logo {
+  display: block;
+  width: 88px;
+  height: auto;
 }
 
 .desktop-nav {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 8px;
 }
 
 .nav-link {
   border-radius: 8px;
   color: var(--ck-text-primary);
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.desktop-nav .nav-link:last-child {
+  border: 1px solid rgba(249, 156, 30, 0.42);
+  color: var(--ck-link);
 }
 
 .nav-link:hover,
@@ -239,7 +259,7 @@ function updateActiveSection() {
 
 .theme-toggle {
   color: var(--ck-link);
-  margin-left: 4px;
+  margin-left: 10px;
 }
 
 .mobile-menu-btn {
@@ -257,6 +277,10 @@ function updateActiveSection() {
 .site-header--dark .theme-toggle,
 .site-header--dark .mobile-menu-btn {
   color: var(--ck-text-primary);
+}
+
+.site-header--dark .desktop-nav .nav-link:last-child {
+  color: var(--ck-accent-orange);
 }
 
 .site-header--dark .nav-link:hover,
@@ -279,8 +303,12 @@ function updateActiveSection() {
 
 @media (max-width: 720px) {
   .site-toolbar {
-    min-height: 64px;
+    min-height: 62px;
     width: min(100% - 24px, 1120px);
+  }
+
+  .site-logo {
+    width: 76px;
   }
 
   .desktop-nav {
