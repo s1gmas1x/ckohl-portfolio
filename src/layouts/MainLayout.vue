@@ -46,6 +46,7 @@
       overlay
       :width="260"
       :dark="isDarkMode"
+      class="site-drawer"
     >
       <q-list padding>
         <q-item-label header> Navigation </q-item-label>
@@ -71,7 +72,7 @@
 </template>
 
 <script setup>
-import { computed, nextTick, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRoute, useRouter } from 'vue-router'
 
@@ -82,19 +83,41 @@ const route = useRoute()
 const router = useRouter()
 
 const navigationItems = [
-  { label: 'About', path: '/about' },
   { label: 'Projects', id: 'projects' },
   { label: 'Case Studies', id: 'case-studies' },
+  { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
   { label: 'Contact', id: 'contact' },
 ]
 
+const homeSectionIds = navigationItems.map((item) => item.id).filter(Boolean)
+
 const rightDrawerOpen = ref(false)
+const activeSectionId = ref('')
 const isDarkMode = computed(() => $q.dark.isActive)
 const themeIcon = computed(() => (isDarkMode.value ? 'light_mode' : 'dark_mode'))
 const themeLabel = computed(() => (isDarkMode.value ? 'Use light theme' : 'Use dark theme'))
 
 restoreThemePreference()
+
+onMounted(() => {
+  updateActiveSection()
+  window.addEventListener('scroll', updateActiveSection, { passive: true })
+  window.addEventListener('resize', updateActiveSection)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateActiveSection)
+  window.removeEventListener('resize', updateActiveSection)
+})
+
+watch(
+  () => route.fullPath,
+  async () => {
+    await nextTick()
+    updateActiveSection()
+  },
+)
 
 function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
@@ -127,14 +150,18 @@ async function handleNavigation(item) {
 }
 
 function isNavigationItemActive(item) {
-  return Boolean(item.path && route.path === item.path)
+  if (item.path) {
+    return route.path === item.path
+  }
+
+  return route.path === '/' && activeSectionId.value === item.id
 }
 
 async function scrollToSection(sectionId) {
   rightDrawerOpen.value = false
 
   if (route.path !== '/') {
-    await router.push({ path: '/', hash: `#${sectionId}` })
+    await router.push('/')
     await nextTick()
   }
 
@@ -142,6 +169,30 @@ async function scrollToSection(sectionId) {
     behavior: 'smooth',
     block: 'start',
   })
+
+  activeSectionId.value = sectionId
+}
+
+function updateActiveSection() {
+  if (route.path !== '/') {
+    activeSectionId.value = ''
+    return
+  }
+
+  const sectionIds = homeSectionIds.filter((sectionId) => document.getElementById(sectionId))
+
+  const activationOffset = 120
+  let currentSectionId = ''
+
+  for (const sectionId of sectionIds) {
+    const sectionTop = document.getElementById(sectionId)?.getBoundingClientRect().top
+
+    if (sectionTop !== undefined && sectionTop <= activationOffset) {
+      currentSectionId = sectionId
+    }
+  }
+
+  activeSectionId.value = currentSectionId
 }
 </script>
 
@@ -174,6 +225,7 @@ async function scrollToSection(sectionId) {
 }
 
 .nav-link {
+  border-radius: 8px;
   color: var(--ck-text-primary);
   font-weight: 600;
 }
@@ -181,6 +233,7 @@ async function scrollToSection(sectionId) {
 .nav-link:hover,
 .nav-link:focus,
 .nav-link--active {
+  background: var(--ck-surface-subtle);
   color: var(--ck-link);
 }
 
@@ -216,6 +269,12 @@ async function scrollToSection(sectionId) {
 .drawer-link--active {
   color: var(--ck-link);
   font-weight: 800;
+}
+
+.site-drawer {
+  background: var(--ck-surface-bg);
+  border-color: var(--ck-header-border);
+  color: var(--ck-text-primary);
 }
 
 @media (max-width: 720px) {

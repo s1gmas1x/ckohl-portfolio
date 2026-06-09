@@ -52,6 +52,7 @@ defineProps({
   background: var(--card-bg);
   border-color: var(--card-border);
   border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 .case-study-card :deep(.q-card__section) {

@@ -111,6 +111,42 @@
       </div>
     </section>
 
+    <section id="about" class="content-section">
+      <div class="section-inner about-preview">
+        <div class="section-heading">
+          <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
+          <h2>{{ aboutHero.headline }}</h2>
+          <p>{{ aboutHero.summary }}</p>
+        </div>
+
+        <div class="about-highlight-grid">
+          <q-card
+            v-for="highlight in homepageHighlights"
+            :key="highlight.title"
+            flat
+            bordered
+            class="about-highlight-card"
+          >
+            <q-card-section>
+              <q-icon :name="highlight.icon" size="28px" />
+              <h3>{{ highlight.title }}</h3>
+              <p>{{ highlight.description }}</p>
+            </q-card-section>
+          </q-card>
+        </div>
+
+        <q-btn
+          outline
+          no-caps
+          color="primary"
+          icon-right="arrow_forward"
+          label="Read full story"
+          to="/about"
+          class="about-link"
+        />
+      </div>
+    </section>
+
     <section id="skills" class="content-section">
       <div class="section-inner split-section">
         <div class="section-heading">
@@ -155,12 +191,15 @@
 import { computed } from 'vue'
 import { useQuasar } from 'quasar'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
+import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { projects } from 'src/data/projects.js'
 
 const $q = useQuasar()
 
 const isDarkMode = computed(() => $q.dark.isActive)
+
+const homepageHighlights = experienceHighlights.slice(0, 3)
 
 const stats = [
   { value: 'Vue + Laravel', label: 'Application foundation' },
@@ -208,6 +247,8 @@ function scrollToContact() {
   --mark-bg: var(--ck-charcoal);
   --mark-color: var(--ck-accent-orange);
   --card-shadow: var(--ck-card-shadow);
+  --image-bg: var(--ck-surface-subtle);
+  --image-border: var(--ck-border);
 
   background: var(--page-bg);
   color: var(--text-primary);
@@ -219,17 +260,17 @@ function scrollToContact() {
 }
 
 .hero-section {
-  min-height: calc(100vh - 72px);
+  min-height: min(680px, calc(100vh - 72px));
   display: flex;
   align-items: center;
-  padding: 96px 0 64px;
+  padding: 72px 0 52px;
   background: var(--hero-bg);
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.72fr);
+  gap: 56px;
   align-items: center;
 }
 
@@ -243,9 +284,9 @@ function scrollToContact() {
 }
 
 .hero-copy h1 {
-  max-width: 760px;
-  font-size: 4.55rem;
-  line-height: 1;
+  max-width: 720px;
+  font-size: 4.35rem;
+  line-height: 1.03;
 }
 
 .eyebrow {
@@ -258,11 +299,11 @@ function scrollToContact() {
 }
 
 .hero-summary {
-  max-width: 660px;
+  max-width: 620px;
   margin: 26px 0 0;
   color: var(--text-secondary);
   font-size: 1.16rem;
-  line-height: 1.68;
+  line-height: 1.72;
 }
 
 .hero-actions {
@@ -278,13 +319,13 @@ function scrollToContact() {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
+  box-shadow: var(--card-shadow);
 }
 
 .hero-panel {
   display: grid;
-  gap: 24px;
-  padding: 28px;
-  box-shadow: var(--card-shadow);
+  gap: 22px;
+  padding: 30px;
 }
 
 .profile-mark {
@@ -315,13 +356,15 @@ function scrollToContact() {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  grid-template-columns: 1fr;
+  gap: 12px;
 }
 
 .stat-item {
   display: grid;
   gap: 4px;
+  padding-top: 12px;
+  border-top: 1px solid var(--row-border);
 }
 
 .stat-item strong {
@@ -331,7 +374,7 @@ function scrollToContact() {
 
 .content-section {
   scroll-margin-top: 88px;
-  padding: 92px 0;
+  padding: 76px 0 88px;
 }
 
 .alternate-section {
@@ -340,7 +383,7 @@ function scrollToContact() {
 
 .section-heading {
   max-width: 720px;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .section-heading h2,
@@ -360,7 +403,7 @@ function scrollToContact() {
 .card-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 22px;
+  gap: 24px;
 }
 
 .content-card {
@@ -371,7 +414,12 @@ function scrollToContact() {
 }
 
 .content-card__image {
-  border-bottom: 1px solid var(--card-border);
+  background: var(--image-bg);
+  border-bottom: 1px solid var(--image-border);
+}
+
+.content-card__image :deep(.q-img__image) {
+  transform: scale(1.01);
 }
 
 .content-card :deep(.q-card__section) {
@@ -398,6 +446,7 @@ function scrollToContact() {
 }
 
 .content-card h3,
+.about-highlight-card h3,
 .case-row h3,
 .skill-group h3 {
   margin: 0;
@@ -406,7 +455,8 @@ function scrollToContact() {
   font-weight: 800;
 }
 
-.content-card p {
+.content-card p,
+.about-highlight-card p {
   margin: 0;
 }
 
@@ -429,16 +479,59 @@ function scrollToContact() {
 }
 
 .home-page--dark {
-  --hero-bg: linear-gradient(135deg, var(--ck-charcoal), var(--ck-surface-dark));
+  --hero-bg:
+    radial-gradient(circle at top left, rgba(249, 156, 30, 0.12), transparent 36%),
+    linear-gradient(135deg, var(--ck-page-bg), var(--ck-section-bg));
   --eyebrow-color: var(--ck-accent-orange);
   --mark-bg: var(--ck-accent-orange);
   --mark-color: var(--ck-charcoal);
+  --image-bg: #151920;
+  --image-border: #303946;
 }
 
 .split-section {
   display: grid;
   grid-template-columns: minmax(260px, 0.7fr) 1fr;
   gap: 48px;
+}
+
+.about-preview {
+  display: grid;
+}
+
+.about-highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.about-highlight-card {
+  background: var(--card-bg);
+  border-color: var(--card-border);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.about-highlight-card :deep(.q-card__section) {
+  display: grid;
+  gap: 12px;
+  height: 100%;
+  padding: 22px;
+}
+
+.about-highlight-card :deep(.q-icon) {
+  color: var(--ck-link);
+}
+
+.about-highlight-card p {
+  color: var(--text-secondary);
+  line-height: 1.62;
+}
+
+.about-link {
+  justify-self: start;
+  margin-top: 24px;
+  font-weight: 700;
 }
 
 .skill-groups {
@@ -448,7 +541,11 @@ function scrollToContact() {
 
 .skill-group {
   display: grid;
-  gap: 12px;
+  gap: 14px;
+  padding: 22px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
 }
 
 .skill-list {
@@ -472,7 +569,8 @@ function scrollToContact() {
 @media (max-width: 900px) {
   .hero-grid,
   .split-section,
-  .card-grid {
+  .card-grid,
+  .about-highlight-grid {
     grid-template-columns: 1fr;
   }
 
@@ -481,11 +579,11 @@ function scrollToContact() {
   }
 
   .card-grid {
-    gap: 16px;
+    gap: 20px;
   }
 
   .hero-copy h1 {
-    font-size: 3.6rem;
+    font-size: 3.45rem;
   }
 
   .section-heading h2,
@@ -501,7 +599,7 @@ function scrollToContact() {
 
   .hero-section {
     min-height: auto;
-    padding: 72px 0 48px;
+    padding: 56px 0 44px;
   }
 
   .hero-copy h1 {
@@ -518,12 +616,8 @@ function scrollToContact() {
     padding: 22px;
   }
 
-  .stat-grid {
-    grid-template-columns: 1fr;
-  }
-
   .content-section {
-    padding: 68px 0;
+    padding: 56px 0 64px;
   }
 
   .contact-panel {

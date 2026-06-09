@@ -1,42 +1,44 @@
 <template>
   <q-page class="about-page">
     <section class="about-hero">
-      <div class="about-inner hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
-          <h1>{{ aboutHero.name }}</h1>
-          <p class="professional-title">{{ aboutHero.title }}</p>
-          <h2>{{ aboutHero.headline }}</h2>
-          <p class="hero-intro">{{ aboutHero.intro }}</p>
-          <p class="hero-summary">{{ aboutHero.summary }}</p>
+      <div class="about-inner">
+        <PageBackLink label="Back to home" />
 
-          <div class="hero-actions">
-            <q-btn
-              unelevated
-              no-caps
-              color="primary"
-              label="View projects"
-              @click="scrollToHomeSection('projects')"
-            />
-            <q-btn
-              outline
-              no-caps
-              color="primary"
-              label="Contact"
-              class="q-ml-md"
-              style="margin-left: 20px"
-              @click="scrollToHomeSection('contact')"
-            />
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
+            <h1>{{ aboutHero.name }}</h1>
+            <p class="professional-title">{{ aboutHero.title }}</p>
+            <h2>{{ aboutHero.headline }}</h2>
+            <p class="hero-intro">{{ aboutHero.intro }}</p>
+            <p class="hero-summary">{{ aboutHero.summary }}</p>
+
+            <div class="hero-actions">
+              <q-btn
+                unelevated
+                no-caps
+                color="primary"
+                label="View projects"
+                @click="scrollToHomeSection('projects')"
+              />
+              <q-btn
+                outline
+                no-caps
+                color="primary"
+                label="Contact"
+                @click="scrollToHomeSection('contact')"
+              />
+            </div>
           </div>
-        </div>
 
-        <q-card flat bordered class="profile-card">
-          <q-card-section>
-            <div class="profile-mark" aria-label="Chad Kohl profile mark">CK</div>
-            <q-icon name="psychology" color="primary" size="32px" />
-            <p>How does this system work, and how can I make it better?</p>
-          </q-card-section>
-        </q-card>
+          <q-card flat bordered class="profile-card">
+            <q-card-section>
+              <div class="profile-mark" aria-label="Chad Kohl profile mark">CK</div>
+              <q-icon name="psychology" color="primary" size="32px" />
+              <p>How does this system work, and how can I make it better?</p>
+            </q-card-section>
+          </q-card>
+        </div>
       </div>
     </section>
 
@@ -128,6 +130,7 @@
 import { useMeta } from 'quasar'
 import { nextTick } from 'vue'
 import { useRouter } from 'vue-router'
+import PageBackLink from 'src/components/PageBackLink.vue'
 import {
   aboutHero,
   aboutStorySections,
@@ -160,7 +163,7 @@ useMeta({
 })
 
 async function scrollToHomeSection(sectionId) {
-  await router.push({ path: '/', hash: `#${sectionId}` })
+  await router.push('/')
   await nextTick()
 
   document.getElementById(sectionId)?.scrollIntoView({
@@ -182,12 +185,14 @@ async function scrollToHomeSection(sectionId) {
 }
 
 .about-hero {
-  padding: 96px 0 80px;
+  padding: 56px 0 72px;
   background: linear-gradient(135deg, var(--ck-surface-subtle), var(--ck-background-light));
 }
 
 body.body--dark .about-hero {
-  background: linear-gradient(135deg, var(--ck-charcoal), var(--ck-surface-dark));
+  background:
+    radial-gradient(circle at top left, rgba(249, 156, 30, 0.12), transparent 36%),
+    linear-gradient(135deg, var(--ck-page-bg), var(--ck-section-bg));
 }
 
 .hero-grid {
@@ -259,6 +264,13 @@ body.body--dark .about-hero {
   max-width: 720px;
   margin: 18px 0 0;
   font-size: 1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
 }
 
 .profile-card,
@@ -446,7 +458,7 @@ body.body--dark .profile-mark {
   }
 
   .about-hero {
-    padding: 64px 0 56px;
+    padding: 40px 0 56px;
   }
 
   .hero-copy h1 {
@@ -479,9 +491,3 @@ body.body--dark .profile-mark {
   }
 }
 </style>
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 30px;
-}

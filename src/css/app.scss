@@ -5,8 +5,10 @@ html {
 :root {
   --ck-orange: #f99c1e;
   --ck-orange-dark: #e48700;
-  --ck-charcoal: #27363e;
-  --ck-surface-dark: #34454f;
+  --ck-charcoal: #12151b;
+  --ck-surface-dark: #232b35;
+  --ck-dark-surface: #1b2028;
+  --ck-dark-card: #232b35;
   --ck-background-light: #f8f9fa;
   --ck-surface-light: #ffffff;
   --ck-accent-orange: #ffb84d;
@@ -34,19 +36,19 @@ body {
 
 body.body--dark {
   --ck-page-bg: var(--ck-charcoal);
-  --ck-section-bg: #2d3e47;
-  --ck-surface-bg: var(--ck-surface-dark);
-  --ck-surface-subtle: #3a4d58;
-  --ck-border: #50626c;
-  --ck-row-border: #50626c;
+  --ck-section-bg: var(--ck-dark-surface);
+  --ck-surface-bg: var(--ck-dark-card);
+  --ck-surface-subtle: #2b3440;
+  --ck-border: #384250;
+  --ck-row-border: #303946;
   --ck-text-strong: #ffffff;
-  --ck-text-primary: #f1f5f7;
-  --ck-text-secondary: #d3dde2;
-  --ck-text-muted: #b4c2c9;
+  --ck-text-primary: #f4f6f8;
+  --ck-text-secondary: #c8d0da;
+  --ck-text-muted: #9aa6b5;
   --ck-link: var(--ck-accent-orange);
-  --ck-header-bg: rgba(39, 54, 62, 0.96);
-  --ck-header-border: #50626c;
-  --ck-card-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --ck-header-bg: rgba(18, 21, 27, 0.92);
+  --ck-header-border: #303946;
+  --ck-card-shadow: 0 22px 60px rgba(0, 0, 0, 0.34);
 
   color: var(--ck-text-primary);
   background: var(--ck-page-bg);
