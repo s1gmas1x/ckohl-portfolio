@@ -4,7 +4,7 @@
       <q-toolbar class="site-toolbar">
         <q-toolbar-title class="site-title">
           <router-link to="/" aria-label="Chad Kohl home" class="site-logo-link">
-            <img :src="ckLogo" alt="CK." class="site-logo" />
+            <img :src="siteLogo" alt="CK." class="site-logo" />
           </router-link>
         </q-toolbar-title>
 
@@ -15,6 +15,7 @@
             flat
             no-caps
             :label="item.label"
+            :icon="item.icon"
             class="nav-link"
             :class="{ 'nav-link--active': isNavigationItemActive(item) }"
             @click="handleNavigation(item)"
@@ -64,6 +65,9 @@
           active-class="drawer-link--active"
           @click="handleNavigation(item)"
         >
+          <q-item-section v-if="item.icon" avatar>
+            <q-icon :name="item.icon" />
+          </q-item-section>
           <q-item-section>{{ item.label }}</q-item-section>
         </q-item>
       </q-list>
@@ -79,9 +83,11 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRoute, useRouter } from 'vue-router'
-import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
+import ckLogoDark from 'src/assets/svg/logo/ck-logo.svg'
+import ckLogoLight from 'src/assets/svg/logo/ck-logo-light.svg'
 
 const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
+const HEADER_SCROLL_OFFSET = 84
 
 const $q = useQuasar()
 const route = useRoute()
@@ -92,7 +98,7 @@ const navigationItems = [
   { label: 'Case Studies', id: 'case-studies' },
   { label: 'About', id: 'about' },
   { label: 'Skills', id: 'skills' },
-  { label: 'Contact', id: 'contact' },
+  { label: 'Contact', id: 'contact', icon: 'mail_outline' },
 ]
 
 const homeSectionIds = navigationItems.map((item) => item.id).filter(Boolean)
@@ -100,6 +106,7 @@ const homeSectionIds = navigationItems.map((item) => item.id).filter(Boolean)
 const rightDrawerOpen = ref(false)
 const activeSectionId = ref('')
 const isDarkMode = computed(() => $q.dark.isActive)
+const siteLogo = computed(() => (isDarkMode.value ? ckLogoDark : ckLogoLight))
 const themeIcon = computed(() => (isDarkMode.value ? 'light_mode' : 'dark_mode'))
 const themeLabel = computed(() => (isDarkMode.value ? 'Use light theme' : 'Use dark theme'))
 
@@ -170,9 +177,15 @@ async function scrollToSection(sectionId) {
     await nextTick()
   }
 
-  document.getElementById(sectionId)?.scrollIntoView({
+  const section = document.getElementById(sectionId)
+
+  if (!section) return
+
+  const scrollTop = section.getBoundingClientRect().top + window.scrollY - HEADER_SCROLL_OFFSET
+
+  window.scrollTo({
+    top: Math.max(scrollTop, 0),
     behavior: 'smooth',
-    block: 'start',
   })
 
   activeSectionId.value = sectionId
@@ -186,7 +199,7 @@ function updateActiveSection() {
 
   const sectionIds = homeSectionIds.filter((sectionId) => document.getElementById(sectionId))
 
-  const activationOffset = 120
+  const activationOffset = HEADER_SCROLL_OFFSET + 56
   let currentSectionId = ''
 
   for (const sectionId of sectionIds) {
@@ -207,10 +220,11 @@ function updateActiveSection() {
   border-bottom: 1px solid var(--ck-header-border);
   color: var(--ck-text-primary);
   backdrop-filter: blur(14px);
+  box-shadow: 0 8px 24px rgba(8, 12, 17, 0.04);
 }
 
 .site-toolbar {
-  min-height: 70px;
+  min-height: 68px;
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
   padding: 0;
@@ -228,7 +242,7 @@ function updateActiveSection() {
 
 .site-logo {
   display: block;
-  width: 88px;
+  width: 82px;
   height: auto;
 }
 
@@ -239,22 +253,62 @@ function updateActiveSection() {
 }
 
 .nav-link {
-  border-radius: 8px;
+  position: relative;
+  min-height: 40px;
+  padding: 0 10px;
+  border-radius: 0;
   color: var(--ck-text-primary);
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 700;
 }
 
+.nav-link::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  bottom: 2px;
+  left: 10px;
+  height: 2px;
+  background: var(--ck-link);
+  border-radius: 999px;
+  opacity: 0;
+  transform: scaleX(0.72);
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
 .desktop-nav .nav-link:last-child {
-  border: 1px solid rgba(249, 156, 30, 0.42);
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(249, 156, 30, 0.5);
+  border-radius: 8px;
   color: var(--ck-link);
+}
+
+.desktop-nav .nav-link:last-child::after {
+  content: none;
 }
 
 .nav-link:hover,
 .nav-link:focus,
 .nav-link--active {
-  background: var(--ck-surface-subtle);
+  background: transparent;
   color: var(--ck-link);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after,
+.nav-link--active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.desktop-nav .nav-link:last-child:hover,
+.desktop-nav .nav-link:last-child:focus,
+.desktop-nav .nav-link:last-child.nav-link--active {
+  background: rgba(249, 156, 30, 0.08);
+  border-color: var(--ck-link);
 }
 
 .theme-toggle {
@@ -271,6 +325,7 @@ function updateActiveSection() {
   background: var(--ck-header-bg);
   border-bottom-color: var(--ck-header-border);
   color: var(--ck-text-primary);
+  box-shadow: none;
 }
 
 .site-header--dark .nav-link,
@@ -291,8 +346,10 @@ function updateActiveSection() {
 }
 
 .drawer-link--active {
+  background: rgba(249, 156, 30, 0.08);
   color: var(--ck-link);
   font-weight: 800;
+  border-left: 3px solid var(--ck-link);
 }
 
 .site-drawer {
@@ -308,7 +365,7 @@ function updateActiveSection() {
   }
 
   .site-logo {
-    width: 76px;
+    width: 72px;
   }
 
   .desktop-nav {
