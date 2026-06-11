@@ -55,54 +55,29 @@
 
     <section id="projects" class="content-section">
       <div class="section-inner">
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
+        <div class="section-heading section-heading--with-action">
+          <div class="section-heading__top">
+            <p class="eyebrow">Projects</p>
+            <q-btn
+              flat
+              no-caps
+              color="primary"
+              icon-right="arrow_forward"
+              label="View all projects"
+              to="/projects"
+              class="section-heading__link"
+            />
+          </div>
           <h2>Selected projects</h2>
           <p>Small, practical applications built around real workflows, clear interfaces, and maintainable application code.</p>
         </div>
 
-        <div class="card-grid">
-          <q-card
-            v-for="project in projects"
+        <div class="card-grid projects-grid">
+          <ProjectCard
+            v-for="project in featuredProjects"
             :key="project.title"
-            flat
-            bordered
-            class="content-card"
-          >
-            <q-img
-              v-if="project.image"
-              :src="project.image.src"
-              :alt="project.image.alt"
-              :ratio="16 / 9"
-              fit="cover"
-              loading="lazy"
-              class="content-card__image"
-            />
-            <q-card-section>
-              <div class="content-card__body">
-                <h3>{{ project.title }}</h3>
-                <p>{{ project.description }}</p>
-              </div>
-              <div class="content-card__actions">
-                <div class="tag-list" aria-label="Project tags">
-                  <q-chip v-for="tag in project.tags" :key="tag" outline square dense>
-                    {{ tag }}
-                  </q-chip>
-                </div>
-                <q-btn
-                  outline
-                  no-caps
-                  color="primary"
-                  icon-right="open_in_new"
-                  label="View project"
-                  :href="project.url"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="project-link"
-                />
-              </div>
-            </q-card-section>
-          </q-card>
+            :project="project"
+          />
         </div>
       </div>
     </section>
@@ -220,10 +195,11 @@
 import { computed } from 'vue'
 import { useQuasar } from 'quasar'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
+import ProjectCard from 'src/components/ProjectCard.vue'
 import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
-import { projects } from 'src/data/projects.js'
+import { featuredProjects } from 'src/data/projects.js'
 
 const $q = useQuasar()
 
@@ -306,8 +282,6 @@ function scrollToContact() {
   --mark-bg: var(--ck-charcoal);
   --mark-color: var(--ck-accent-orange);
   --card-shadow: var(--ck-card-shadow);
-  --image-bg: var(--ck-surface-subtle);
-  --image-border: var(--ck-border);
   --code-text: #334155;
   --code-line-number: #8a99a8;
   --code-keyword: #a85b00;
@@ -398,7 +372,6 @@ function scrollToContact() {
 }
 
 .hero-code-card,
-.content-card,
 .contact-panel {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
@@ -546,6 +519,30 @@ function scrollToContact() {
   margin-bottom: 40px;
 }
 
+.section-heading--with-action {
+  margin-bottom: 14px;
+  max-width: none;
+}
+
+.section-heading--with-action > h2,
+.section-heading--with-action > p {
+  max-width: 720px;
+}
+
+.section-heading__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.section-heading__link {
+  margin-top: -8px;
+  min-height: 34px;
+  padding: 0;
+  font-weight: 800;
+}
+
 .section-heading h2,
 .contact-panel h2 {
   font-size: 2.85rem;
@@ -554,7 +551,6 @@ function scrollToContact() {
 
 .section-heading p:last-child,
 .contact-panel p:last-child,
-.content-card p,
 .case-row p {
   color: var(--text-secondary);
   line-height: 1.68;
@@ -566,81 +562,23 @@ function scrollToContact() {
   gap: 24px;
 }
 
-.content-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 300px;
-  padding: 12px;
-  overflow: hidden;
-}
-
-.content-card__image {
-  background: var(--image-bg);
-  border: 1px solid var(--image-border);
-  border-radius: 6px;
-  overflow: hidden;
-}
-
-.content-card__image :deep(.q-img__image) {
-  transform: scale(1.01);
-}
-
-.content-card :deep(.q-card__section) {
-  display: grid;
-  align-content: start;
+.projects-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-  flex: 1;
-  padding: 18px 8px 8px;
 }
 
-.content-card__body,
-.content-card__actions {
-  display: grid;
-}
-
-.content-card__body {
-  gap: 6px;
-}
-
-.content-card__actions {
-  align-self: end;
-  gap: 16px;
-  margin-top: auto;
-}
-
-.content-card h3,
 .about-highlight-card h3,
 .case-row h3,
 .skill-group h3 {
   margin: 0;
   color: var(--text-primary);
-  font-size: 1.18rem;
+  font-size: 1.08rem;
   font-weight: 800;
   line-height: 1.25;
 }
 
-.content-card p,
 .about-highlight-card p {
   margin: 0;
-}
-
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tag-list :deep(.q-chip) {
-  background: var(--ck-surface-subtle);
-  border-color: var(--ck-border);
-  color: var(--text-primary);
-  font-weight: 700;
-  margin: 0;
-}
-
-.project-link {
-  justify-self: start;
-  font-weight: 700;
 }
 
 .home-page--dark {
@@ -650,8 +588,6 @@ function scrollToContact() {
   --eyebrow-color: var(--ck-accent-orange);
   --mark-bg: var(--ck-accent-orange);
   --mark-color: var(--ck-charcoal);
-  --image-bg: #101720;
-  --image-border: #25303c;
   --code-text: #94a3b8;
   --code-line-number: #5f6c7d;
   --code-keyword: #f99c1e;
@@ -830,6 +766,10 @@ function scrollToContact() {
     gap: 20px;
   }
 
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-copy h1 {
     font-size: 2.85rem;
   }
@@ -837,6 +777,14 @@ function scrollToContact() {
   .section-heading h2,
   .contact-panel h2 {
     font-size: 2.4rem;
+  }
+
+  .section-heading--with-action {
+    margin-bottom: 20px;
+  }
+
+  .section-heading__link {
+    margin-top: -8px;
   }
 }
 
@@ -893,6 +841,10 @@ function scrollToContact() {
 
   .content-section {
     padding: 56px 0 64px;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
 
   .contact-panel {
