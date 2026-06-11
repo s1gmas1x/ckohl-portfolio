@@ -3,7 +3,15 @@
     <q-card-section>
       <div class="case-study-card__body">
         <div class="case-study-card__header">
-          <span>{{ caseStudy.category }}</span>
+          <q-chip
+            outline
+            square
+            dense
+            color="primary"
+            class="case-study-card__category"
+          >
+            {{ caseStudy.category }}
+          </q-chip>
           <h3>{{ caseStudy.title }}</h3>
         </div>
 
@@ -48,32 +56,24 @@ defineProps({
 
 <style lang="scss" scoped>
 .case-study-card {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   height: 100%;
-  background: var(--card-bg);
-  border-color: var(--card-border);
+  padding: 10px;
+  background: var(--ck-surface-bg);
+  border-color: var(--ck-border);
   border-radius: 8px;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--ck-card-shadow);
   overflow: hidden;
 }
 
-.case-study-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 24px;
-  width: 48px;
-  height: 3px;
-  background: var(--ck-orange);
-  border-radius: 0 0 999px 999px;
-}
-
 .case-study-card :deep(.q-card__section) {
-  display: grid;
-  align-content: start;
-  gap: 22px;
-  height: 100%;
-  padding: 24px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 6px 6px;
 }
 
 .case-study-card__body,
@@ -82,55 +82,76 @@ defineProps({
 }
 
 .case-study-card__body {
-  gap: 14px;
+  gap: 10px;
 }
 
 .case-study-card__actions {
-  align-self: end;
-  gap: 16px;
+  align-self: stretch;
+  gap: 12px;
   margin-top: auto;
 }
 
 .case-study-card__header {
   display: grid;
-  gap: 8px;
+  align-content: start;
+  gap: 10px;
 }
 
-.case-study-card__header span {
-  color: var(--ck-link);
-  font-size: 0.8rem;
+.case-study-card__category {
+  width: fit-content;
+  min-height: 22px;
+  margin: 0;
+  padding: 0 8px;
+  border-radius: 5px;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .case-study-card h3 {
   margin: 0;
-  color: var(--text-primary);
-  font-size: 1.18rem;
+  color: var(--ck-text-primary);
+  font-size: 1.08rem;
   font-weight: 800;
   line-height: 1.25;
 }
 
 .case-study-card p {
   margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.65;
+  color: var(--ck-text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.58;
 }
 
 .case-study-card__link {
   justify-self: start;
+  min-height: 34px;
+  padding: 0 10px;
   font-weight: 700;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
 .tag-list :deep(.q-chip) {
+  min-height: 24px;
+  padding: 0 9px;
+  background: rgba(8, 12, 17, 0.045);
+  border: 1px solid rgba(8, 12, 17, 0.08);
+  border-radius: 5px;
+  color: var(--ck-text-secondary);
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0;
   margin: 0;
 }
 
-@media (max-width: 640px) {
-  .case-study-card :deep(.q-card__section) {
-    padding: 22px;
-  }
+body.body--dark .tag-list :deep(.q-chip) {
+  background: rgba(255, 255, 255, 0.055);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: #c8d0da;
 }
 </style>
