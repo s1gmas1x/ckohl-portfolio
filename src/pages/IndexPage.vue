@@ -113,8 +113,19 @@
 
     <section id="about" class="content-section">
       <div class="section-inner about-preview">
-        <div class="section-heading">
-          <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
+        <div class="section-heading section-heading--with-action">
+          <div class="section-heading__top">
+            <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
+            <q-btn
+              flat
+              no-caps
+              color="primary"
+              icon-right="arrow_forward"
+              label="View more about me"
+              to="/about"
+              class="section-heading__link"
+            />
+          </div>
           <h2>{{ aboutHero.headline }}</h2>
           <p>{{ aboutHero.summary }}</p>
         </div>
@@ -134,16 +145,6 @@
             </q-card-section>
           </q-card>
         </div>
-
-        <q-btn
-          outline
-          no-caps
-          color="primary"
-          icon-right="arrow_forward"
-          label="Read full story"
-          to="/about"
-          class="about-link"
-        />
       </div>
     </section>
 
@@ -627,11 +628,12 @@ function scrollToContact() {
 
 .about-highlight-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 }
 
 .about-highlight-card {
+  padding: 10px;
   background: var(--card-bg);
   border-color: var(--card-border);
   border-radius: 8px;
@@ -640,9 +642,10 @@ function scrollToContact() {
 
 .about-highlight-card :deep(.q-card__section) {
   display: grid;
-  gap: 12px;
+  align-content: start;
+  gap: 10px;
   height: 100%;
-  padding: 22px;
+  padding: 16px 6px 6px;
 }
 
 .about-highlight-card :deep(.q-icon) {
@@ -652,12 +655,6 @@ function scrollToContact() {
 .about-highlight-card p {
   color: var(--text-secondary);
   line-height: 1.62;
-}
-
-.about-link {
-  justify-self: start;
-  margin-top: 24px;
-  font-weight: 700;
 }
 
 .skill-groups {
@@ -791,6 +788,10 @@ function scrollToContact() {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .about-highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-copy h1 {
     font-size: 2.85rem;
   }
@@ -869,6 +870,10 @@ function scrollToContact() {
   }
 
   .case-studies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-highlight-grid {
     grid-template-columns: 1fr;
   }
 
