@@ -84,15 +84,26 @@
 
     <section id="case-studies" class="content-section alternate-section">
       <div class="section-inner">
-        <div class="section-heading">
-          <p class="eyebrow">Case Studies</p>
+        <div class="section-heading section-heading--with-action">
+          <div class="section-heading__top">
+            <p class="eyebrow">Case Studies</p>
+            <q-btn
+              flat
+              no-caps
+              color="primary"
+              icon-right="arrow_forward"
+              label="View all case studies"
+              to="/case-studies"
+              class="section-heading__link"
+            />
+          </div>
           <h2>Engineering case studies</h2>
           <p>Short writeups on product decisions, debugging work, and the technical reasoning behind selected projects.</p>
         </div>
 
-        <div class="card-grid">
+        <div class="card-grid case-studies-grid">
           <CaseStudyCard
-            v-for="caseStudy in caseStudies"
+            v-for="caseStudy in featuredCaseStudies"
             :key="caseStudy.title"
             :case-study="caseStudy"
           />
@@ -206,6 +217,7 @@ const $q = useQuasar()
 const isDarkMode = computed(() => $q.dark.isActive)
 
 const homepageHighlights = experienceHighlights.slice(0, 3)
+const featuredCaseStudies = caseStudies.slice(0, 3)
 
 const codeLines = [
   {
@@ -567,6 +579,11 @@ function scrollToContact() {
   gap: 20px;
 }
 
+.case-studies-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
 .about-highlight-card h3,
 .case-row h3,
 .skill-group h3 {
@@ -770,6 +787,10 @@ function scrollToContact() {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .case-studies-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero-copy h1 {
     font-size: 2.85rem;
   }
@@ -844,6 +865,10 @@ function scrollToContact() {
   }
 
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-studies-grid {
     grid-template-columns: 1fr;
   }
 
