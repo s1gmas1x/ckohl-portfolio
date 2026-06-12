@@ -25,6 +25,7 @@
                 outline
                 no-caps
                 color="primary"
+                icon="mail_outline"
                 label="Contact"
                 @click="scrollToHomeSection('contact')"
               />
@@ -33,9 +34,18 @@
 
           <q-card flat bordered class="profile-card">
             <q-card-section>
-              <div class="profile-mark" aria-label="Chad Kohl profile mark">CK</div>
-              <q-icon name="psychology" color="primary" size="32px" />
-              <p>How does this system work, and how can I make it better?</p>
+              <figure class="profile-photo-frame">
+                <img
+                  :src="aboutPortrait"
+                  alt="Black-and-white professional portrait of Chad Kohl"
+                  class="profile-photo"
+                />
+              </figure>
+
+              <div class="profile-card__statement">
+                <div class="profile-mark" aria-label="Chad Kohl profile mark">CK</div>
+                <p>How does this system work, and how can I make it better?</p>
+              </div>
             </q-card-section>
           </q-card>
         </div>
@@ -131,6 +141,7 @@ import { useMeta } from 'quasar'
 import { nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import PageBackLink from 'src/components/PageBackLink.vue'
+import aboutPortrait from 'src/assets/images/about/a_studio_portrait_scene_black_and_white_photograp.png'
 import {
   aboutHero,
   aboutStorySections,
@@ -141,6 +152,8 @@ import {
 } from 'src/data/about.js'
 
 const router = useRouter()
+const HEADER_SCROLL_OFFSET = 84
+const SECTION_WAIT_TIMEOUT = 1000
 
 useMeta({
   title: 'About Chad Kohl | Software Developer',
@@ -166,9 +179,34 @@ async function scrollToHomeSection(sectionId) {
   await router.push('/')
   await nextTick()
 
-  document.getElementById(sectionId)?.scrollIntoView({
+  const section = await waitForSection(sectionId)
+
+  if (!section) return
+
+  const scrollTop = section.getBoundingClientRect().top + window.scrollY - HEADER_SCROLL_OFFSET
+
+  window.scrollTo({
+    top: Math.max(scrollTop, 0),
     behavior: 'smooth',
-    block: 'start',
+  })
+}
+
+function waitForSection(sectionId) {
+  return new Promise((resolve) => {
+    const startedAt = performance.now()
+
+    function findSection() {
+      const section = document.getElementById(sectionId)
+
+      if (section || performance.now() - startedAt >= SECTION_WAIT_TIMEOUT) {
+        resolve(section)
+        return
+      }
+
+      window.requestAnimationFrame(findSection)
+    }
+
+    findSection()
   })
 }
 </script>
@@ -185,7 +223,7 @@ async function scrollToHomeSection(sectionId) {
 }
 
 .about-hero {
-  padding: 56px 0 72px;
+  padding: 48px 0 60px;
   background: linear-gradient(135deg, var(--ck-surface-subtle), var(--ck-background-light));
 }
 
@@ -199,7 +237,7 @@ body.body--dark .about-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 
 .hero-copy h1,
@@ -284,12 +322,38 @@ body.body--dark .about-hero {
 
 .profile-card {
   box-shadow: var(--ck-card-shadow);
+  max-width: 390px;
+  justify-self: end;
 }
 
 .profile-card :deep(.q-card__section) {
   display: grid;
-  gap: 18px;
-  padding: 28px;
+  gap: 16px;
+  padding: 16px;
+}
+
+.profile-photo-frame {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--ck-border) 76%, transparent);
+  border-radius: 8px;
+  background: var(--ck-charcoal);
+  aspect-ratio: 1 / 1;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 52% 18%;
+}
+
+.profile-card__statement {
+  display: grid;
+  gap: 12px;
+  padding: 4px 8px 8px;
 }
 
 .profile-mark {
@@ -312,7 +376,7 @@ body.body--dark .profile-mark {
 .profile-card p {
   margin: 0;
   color: var(--ck-text-primary);
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   font-weight: 800;
   line-height: 1.35;
 }
@@ -447,6 +511,11 @@ body.body--dark .profile-mark {
     font-size: 2rem;
   }
 
+  .profile-card {
+    width: min(100%, 460px);
+    justify-self: start;
+  }
+
   .timeline-column {
     position: static;
   }
@@ -458,7 +527,7 @@ body.body--dark .profile-mark {
   }
 
   .about-hero {
-    padding: 40px 0 56px;
+    padding: 36px 0 48px;
   }
 
   .hero-copy h1 {
@@ -474,6 +543,28 @@ body.body--dark .profile-mark {
     font-size: 1rem;
   }
 
+  .profile-card {
+    width: 100%;
+  }
+
+  .profile-card :deep(.q-card__section) {
+    gap: 14px;
+    padding: 12px;
+  }
+
+  .profile-photo-frame {
+    aspect-ratio: 5 / 4;
+  }
+
+  .profile-photo {
+    object-position: 50% 20%;
+  }
+
+  .profile-card__statement {
+    gap: 12px;
+    padding: 6px 8px 8px;
+  }
+
   .about-section {
     padding: 64px 0;
   }
@@ -483,7 +574,6 @@ body.body--dark .profile-mark {
     font-size: 1.85rem;
   }
 
-  .profile-card :deep(.q-card__section),
   .timeline-card :deep(.q-card__section),
   .interests-card :deep(.q-card__section),
   .highlight-card :deep(.q-card__section) {
