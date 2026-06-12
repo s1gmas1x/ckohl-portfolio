@@ -149,18 +149,44 @@
     </section>
 
     <section id="skills" class="content-section">
-      <div class="section-inner split-section">
+      <div class="section-inner skills-section">
         <div class="section-heading">
           <p class="eyebrow">Skills</p>
-          <h2>Core toolkit</h2>
+          <h2>Skills & technologies</h2>
           <p>Frontend implementation, Laravel-backed application structure, diagnostics, and steady delivery across modern web projects.</p>
         </div>
 
         <div class="skill-groups">
-          <div v-for="group in skillGroups" :key="group.title" class="skill-group">
-            <h3>{{ group.title }}</h3>
+          <div
+            v-for="group in skillGroups"
+            :key="group.title"
+            class="skill-group"
+          >
+            <div class="skill-group__header">
+              <q-icon :name="group.icon" size="24px" />
+              <h3>{{ group.title }}</h3>
+            </div>
+
             <div class="skill-list">
-              <q-chip v-for="skill in group.skills" :key="skill" outline square>{{ skill }}</q-chip>
+              <a
+                v-for="skill in group.skills"
+                :key="skill.label"
+                :href="skill.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="skill-item"
+              >
+                <q-icon
+                  :name="skill.icon"
+                  size="28px"
+                  class="skill-item__icon"
+                  :style="{ color: skill.iconColor }"
+                />
+                <span>
+                  <strong>{{ skill.label }}</strong>
+                  <small>{{ skill.description }}</small>
+                </span>
+              </a>
             </div>
           </div>
         </div>
@@ -206,8 +232,22 @@
 <script setup>
 import { computed } from 'vue'
 import { useQuasar } from 'quasar'
+import {
+  mdiApi,
+  mdiDatabase,
+  mdiDocker,
+  mdiGithub,
+  mdiLaravel,
+  mdiLinux,
+  mdiMicrosoftAzure,
+  mdiSass,
+  mdiVuejs,
+  mdiLanguageJavascript,
+  mdiLanguagePhp,
+} from '@quasar/extras/mdi-v7'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
+import quasarMark from 'src/assets/svg/quasar-mark.svg'
 import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
@@ -257,16 +297,106 @@ const codeLines = [
 
 const skillGroups = [
   {
-    title: 'Application UI',
-    skills: ['Vue', 'Quasar', 'JavaScript', 'HTML', 'SCSS'],
+    title: 'Frontend',
+    icon: 'view_quilt',
+    skills: [
+      {
+        label: 'Vue 3',
+        description: 'Component-driven application UI',
+        icon: mdiVuejs,
+        iconColor: '#42b883',
+        url: 'https://vuejs.org/',
+      },
+      {
+        label: 'Quasar',
+        description: 'Responsive Vue application framework',
+        icon: `img:${quasarMark}`,
+        iconColor: '#00b4ff',
+        url: 'https://quasar.dev/',
+      },
+      {
+        label: 'JavaScript',
+        description: 'Core browser application language',
+        icon: mdiLanguageJavascript,
+        iconColor: '#d6a700',
+        url: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+      },
+      {
+        label: 'SCSS',
+        description: 'Structured styling for responsive UI',
+        icon: mdiSass,
+        iconColor: '#cc6699',
+        url: 'https://sass-lang.com/',
+      },
+    ],
   },
   {
-    title: 'Backend and Data',
-    skills: ['Laravel', 'PHP', 'PostgreSQL', 'Application design'],
+    title: 'Backend',
+    icon: 'dns',
+    skills: [
+      {
+        label: 'Laravel',
+        description: 'PHP application framework',
+        icon: mdiLaravel,
+        iconColor: '#ff2d20',
+        url: 'https://laravel.com/',
+      },
+      {
+        label: 'PHP',
+        description: 'Server-side application development',
+        icon: mdiLanguagePhp,
+        iconColor: '#777bb4',
+        url: 'https://www.php.net/',
+      },
+      {
+        label: 'PostgreSQL',
+        description: 'Relational application data',
+        icon: mdiDatabase,
+        iconColor: '#336791',
+        url: 'https://www.postgresql.org/',
+      },
+      {
+        label: 'REST APIs',
+        description: 'HTTP-based service integration',
+        icon: mdiApi,
+        iconColor: 'var(--ck-link)',
+        url: 'https://developer.mozilla.org/en-US/docs/Glossary/REST',
+      },
+    ],
   },
   {
-    title: 'Engineering',
-    skills: ['GitHub', 'Debugging', 'Code review', 'Build tooling'],
+    title: 'Cloud & DevOps',
+    icon: 'cloud_queue',
+    skills: [
+      {
+        label: 'Azure App Service',
+        description: 'Cloud app hosting and diagnostics',
+        icon: mdiMicrosoftAzure,
+        iconColor: '#0078d4',
+        url: 'https://azure.microsoft.com/en-us/products/app-service',
+      },
+      {
+        label: 'Git / GitHub',
+        description: 'Version control and issue-driven delivery',
+        icon: mdiGithub,
+        iconColor: 'var(--ck-text-primary)',
+        url: 'https://github.com/',
+      },
+      {
+        label: 'Docker',
+        description: 'Containerized local and deployment workflows',
+        icon: mdiDocker,
+        iconColor: '#2496ed',
+        url: 'https://www.docker.com/',
+      },
+      {
+        label: 'Linux',
+        description: 'Server environments and command-line work',
+        icon: mdiLinux,
+        iconColor: '#f5b800',
+        url: 'https://www.kernel.org/',
+      },
+    ],
   },
 ]
 
@@ -616,12 +746,6 @@ function scrollToContact() {
   --code-header-bg: rgba(255, 255, 255, 0.07);
 }
 
-.split-section {
-  display: grid;
-  grid-template-columns: minmax(260px, 0.7fr) 1fr;
-  gap: 48px;
-}
-
 .about-preview {
   display: grid;
 }
@@ -657,24 +781,95 @@ function scrollToContact() {
   line-height: 1.62;
 }
 
+.skills-section {
+  display: grid;
+}
+
+.skills-section .section-heading {
+  margin-bottom: 20px;
+}
+
 .skill-groups {
   display: grid;
-  gap: 22px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .skill-group {
   display: grid;
-  gap: 14px;
+  align-content: start;
+  gap: 16px;
   padding: 22px;
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
+  box-shadow: var(--card-shadow);
+}
+
+.skill-group__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skill-group__header :deep(.q-icon) {
+  color: var(--ck-link);
 }
 
 .skill-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
   gap: 8px;
+}
+
+.skill-item {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 9px 10px;
+  background: rgba(8, 12, 17, 0.035);
+  border: 1px solid rgba(8, 12, 17, 0.07);
+  border-radius: 6px;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition:
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.skill-item:hover,
+.skill-item:focus {
+  border-color: color-mix(in srgb, var(--ck-link) 44%, transparent);
+  color: var(--ck-link);
+  transform: translateY(-1px);
+}
+
+.skill-item__icon {
+  color: var(--ck-link);
+}
+
+.skill-item span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.skill-item strong {
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.skill-item small {
+  color: var(--text-secondary);
+  font-size: 0.76rem;
+  line-height: 1.35;
+}
+
+.home-page--dark .skill-item {
+  background: rgba(255, 255, 255, 0.045);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 .contact-section {
@@ -763,7 +958,6 @@ function scrollToContact() {
   }
 
   .hero-grid,
-  .split-section,
   .card-grid,
   .about-highlight-grid {
     grid-template-columns: 1fr;
@@ -789,6 +983,10 @@ function scrollToContact() {
   }
 
   .about-highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skill-groups {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -874,6 +1072,10 @@ function scrollToContact() {
   }
 
   .about-highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-groups {
     grid-template-columns: 1fr;
   }
 
