@@ -214,20 +214,7 @@
       </div>
     </section>
 
-    <footer class="site-footer">
-      <div class="section-inner footer-grid">
-        <div>
-          <img :src="ckLogo" alt="CK." class="footer-logo" />
-          <p>Building web applications that make practical workflows easier to manage.</p>
-        </div>
-
-        <div class="footer-links" aria-label="Footer navigation">
-          <span>Navigation</span>
-          <button type="button" @click="scrollToProjects">Projects</button>
-          <button type="button" @click="scrollToContact">Contact</button>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </q-page>
 </template>
 
@@ -249,8 +236,8 @@ import {
 } from '@quasar/extras/mdi-v7'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
+import SiteFooter from 'src/components/SiteFooter.vue'
 import quasarMark from 'src/assets/svg/quasar-mark.svg'
-import ckLogo from 'src/assets/svg/logo/ck-logo.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { featuredProjects } from 'src/data/projects.js'
@@ -959,59 +946,6 @@ function scrollToContact() {
   transform: translateY(-1px);
 }
 
-.site-footer {
-  padding: 36px 0 44px;
-  border-top: 1px solid var(--card-border);
-  background: var(--page-bg);
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 32px;
-}
-
-.footer-logo {
-  display: block;
-  width: 76px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.site-footer p {
-  max-width: 340px;
-  margin: 0;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.footer-links {
-  display: grid;
-  gap: 8px;
-  min-width: 160px;
-}
-
-.footer-links span {
-  color: var(--text-strong);
-  font-weight: 800;
-}
-
-.footer-links button {
-  width: fit-content;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  color: var(--text-secondary);
-  cursor: pointer;
-  font: inherit;
-  text-align: left;
-}
-
-.footer-links button:hover,
-.footer-links button:focus {
-  color: var(--ck-link);
-}
-
 @media (max-width: 900px) {
   .section-inner {
     width: min(100% - 48px, 1120px);
@@ -1154,9 +1088,6 @@ function scrollToContact() {
     min-width: 0;
   }
 
-  .footer-grid {
-    flex-direction: column;
-  }
 }
 
 @media (max-width: 380px) {
