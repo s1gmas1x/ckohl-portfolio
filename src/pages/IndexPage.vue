@@ -195,20 +195,22 @@
 
     <section id="contact" class="content-section contact-section">
       <div class="section-inner contact-panel">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Have a project or technical problem to untangle?</h2>
-          <p>Reach out for web application implementation, portfolio work, or practical debugging help.</p>
-        </div>
+        <div class="contact-panel__content">
+          <div class="contact-panel__copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Have a project or technical problem to untangle?</h2>
+            <p>Reach out for web application development, Azure troubleshooting, automation, or technical consulting.</p>
 
-        <q-btn
-          unelevated
-          no-caps
-          color="primary"
-          icon="mail"
-          label="ckohl401@gmail.com"
-          href="mailto:ckohl401@gmail.com"
-        />
+            <a
+              class="contact-action"
+              href="mailto:chad_kohl@ckohl.com"
+              aria-label="Email Chad Kohl at chad_kohl@ckohl.com"
+            >
+              <span>Contact Me</span>
+              <q-icon name="arrow_forward" size="20px" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -878,10 +880,6 @@ function scrollToContact() {
 
 .contact-panel {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
   padding: 32px;
   overflow: hidden;
 }
@@ -897,6 +895,68 @@ function scrollToContact() {
   background-size: 10px 10px;
   mask-image: linear-gradient(90deg, transparent, #000);
   pointer-events: none;
+}
+
+.contact-panel::before {
+  content: 'rocket_launch';
+  position: absolute;
+  right: 84px;
+  top: 50%;
+  color: var(--ck-link);
+  font-family: 'Material Icons';
+  font-size: 11rem;
+  font-weight: normal;
+  line-height: 1;
+  opacity: 0.08;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
+
+.contact-panel__content {
+  position: relative;
+  max-width: 760px;
+  z-index: 1;
+}
+
+.contact-panel__copy .eyebrow {
+  margin-bottom: 12px;
+}
+
+.contact-panel__copy h2 {
+  max-width: 700px;
+  margin-bottom: 12px;
+}
+
+.contact-panel__copy p:last-child {
+  max-width: 620px;
+  margin-bottom: 22px;
+}
+
+.contact-action {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  background: color-mix(in srgb, var(--ck-orange) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ck-orange) 44%, var(--card-border));
+  border-radius: 8px;
+  color: var(--ck-link);
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.contact-action:hover,
+.contact-action:focus {
+  background: color-mix(in srgb, var(--ck-orange) 16%, transparent);
+  border-color: color-mix(in srgb, var(--ck-orange) 62%, var(--card-border));
+  color: var(--ck-link);
+  transform: translateY(-1px);
 }
 
 .site-footer {
@@ -1080,8 +1140,18 @@ function scrollToContact() {
   }
 
   .contact-panel {
-    align-items: stretch;
-    flex-direction: column;
+    padding: 26px;
+  }
+
+  .contact-panel::before {
+    right: 20px;
+    top: 52%;
+    font-size: 6.75rem;
+    opacity: 0.05;
+  }
+
+  .contact-action {
+    min-width: 0;
   }
 
   .footer-grid {
