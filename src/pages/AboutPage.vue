@@ -382,7 +382,7 @@ body.body--dark .profile-mark {
 }
 
 .about-section {
-  padding: 80px 0;
+  padding: 64px 0;
 }
 
 .alternate-section {
@@ -392,13 +392,13 @@ body.body--dark .profile-mark {
 .content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 48px;
+  gap: 40px;
   align-items: start;
 }
 
 .story-column {
   display: grid;
-  gap: 48px;
+  gap: 38px;
 }
 
 .story-block h2,
@@ -408,7 +408,7 @@ body.body--dark .profile-mark {
 }
 
 .story-block p:not(.eyebrow) {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   font-size: 1rem;
 }
 
@@ -454,7 +454,7 @@ body.body--dark .profile-mark {
 
 .section-heading {
   max-width: 720px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .section-heading p {
@@ -479,7 +479,7 @@ body.body--dark .profile-mark {
 .interests-grid {
   display: grid;
   grid-template-columns: minmax(260px, 0.8fr) 1fr;
-  gap: 48px;
+  gap: 40px;
   align-items: start;
 }
 
@@ -566,7 +566,7 @@ body.body--dark .profile-mark {
   }
 
   .about-section {
-    padding: 64px 0;
+    padding: 48px 0;
   }
 
   .story-block h2,

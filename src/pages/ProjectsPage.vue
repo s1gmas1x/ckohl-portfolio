@@ -61,7 +61,7 @@ useMeta({
 }
 
 .projects-hero {
-  padding: 56px 0 48px;
+  padding: 48px 0 40px;
   background: linear-gradient(135deg, var(--ck-surface-subtle), var(--ck-background-light));
 }
 
@@ -102,12 +102,12 @@ body.body--dark .projects-hero {
 }
 
 .section-heading p {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   font-size: 1.08rem;
 }
 
 .projects-section {
-  padding: 64px 0 88px;
+  padding: 52px 0 64px;
 }
 
 .project-card-grid {
@@ -132,11 +132,11 @@ body.body--dark .projects-hero {
 
 @media (max-width: 640px) {
   .projects-hero {
-    padding: 38px 0 42px;
+    padding: 34px 0 36px;
   }
 
   .projects-section {
-    padding: 48px 0 64px;
+    padding: 38px 0 48px;
   }
 
   .project-card-grid {
