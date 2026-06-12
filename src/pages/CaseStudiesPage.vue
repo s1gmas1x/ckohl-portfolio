@@ -57,7 +57,7 @@ useMeta({
 }
 
 .case-studies-hero {
-  padding: 56px 0 48px;
+  padding: 48px 0 40px;
   background: linear-gradient(135deg, var(--ck-surface-subtle), var(--ck-background-light));
 }
 
@@ -90,14 +90,14 @@ body.body--dark .case-studies-hero {
 }
 
 .section-heading p {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: var(--ck-text-secondary);
   font-size: 1.08rem;
   line-height: 1.68;
 }
 
 .case-studies-section {
-  padding: 64px 0 88px;
+  padding: 52px 0 64px;
 }
 
 .case-study-card-grid {
@@ -122,11 +122,11 @@ body.body--dark .case-studies-hero {
 
 @media (max-width: 640px) {
   .case-studies-hero {
-    padding: 38px 0 42px;
+    padding: 34px 0 36px;
   }
 
   .case-studies-section {
-    padding: 48px 0 64px;
+    padding: 38px 0 48px;
   }
 
   .case-study-card-grid {
