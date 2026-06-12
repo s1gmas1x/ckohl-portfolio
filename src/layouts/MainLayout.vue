@@ -59,11 +59,11 @@
         <q-item
           v-for="item in navigationItems"
           :key="item.label"
-          v-close-popup
           clickable
+          :href="getNavigationHref(item)"
           :active="isNavigationItemActive(item)"
           active-class="drawer-link--active"
-          @click="handleNavigation(item)"
+          @click.prevent="handleDrawerNavigation(item)"
         >
           <q-item-section v-if="item.icon" avatar>
             <q-icon :name="item.icon" />
@@ -88,6 +88,8 @@ import ckLogoLight from 'src/assets/svg/logo/ck-logo-light.svg'
 
 const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
 const HEADER_SCROLL_OFFSET = 84
+const DRAWER_CLOSE_SCROLL_DELAY = 280
+const SECTION_WAIT_TIMEOUT = 1000
 
 const $q = useQuasar()
 const route = useRoute()
@@ -151,14 +153,20 @@ function restoreThemePreference() {
 }
 
 async function handleNavigation(item) {
-  rightDrawerOpen.value = false
-
   if (item.path) {
     await router.push(item.path)
     return
   }
 
   await scrollToSection(item.id)
+}
+
+async function handleDrawerNavigation(item) {
+  rightDrawerOpen.value = false
+
+  await nextTick()
+  await waitForDrawerClose()
+  await handleNavigation(item)
 }
 
 function isNavigationItemActive(item) {
@@ -169,15 +177,21 @@ function isNavigationItemActive(item) {
   return route.path === '/' && activeSectionId.value === item.id
 }
 
-async function scrollToSection(sectionId) {
-  rightDrawerOpen.value = false
+function getNavigationHref(item) {
+  if (item.path) {
+    return item.path
+  }
 
+  return `/#${item.id}`
+}
+
+async function scrollToSection(sectionId) {
   if (route.path !== '/') {
     await router.push('/')
     await nextTick()
   }
 
-  const section = document.getElementById(sectionId)
+  const section = await waitForSection(sectionId)
 
   if (!section) return
 
@@ -189,6 +203,31 @@ async function scrollToSection(sectionId) {
   })
 
   activeSectionId.value = sectionId
+}
+
+function waitForDrawerClose() {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, DRAWER_CLOSE_SCROLL_DELAY)
+  })
+}
+
+function waitForSection(sectionId) {
+  return new Promise((resolve) => {
+    const startedAt = performance.now()
+
+    function findSection() {
+      const section = document.getElementById(sectionId)
+
+      if (section || performance.now() - startedAt >= SECTION_WAIT_TIMEOUT) {
+        resolve(section)
+        return
+      }
+
+      window.requestAnimationFrame(findSection)
+    }
+
+    findSection()
+  })
 }
 
 function updateActiveSection() {
