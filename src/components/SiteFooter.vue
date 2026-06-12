@@ -101,7 +101,7 @@ async function scrollToHomeSection(sectionId) {
 
 <style lang="scss" scoped>
 .site-footer {
-  padding: 34px 0 28px;
+  padding: 30px 0 24px;
   background:
     linear-gradient(180deg, color-mix(in srgb, var(--ck-section-bg) 42%, transparent), transparent),
     var(--ck-page-bg);
@@ -112,7 +112,7 @@ async function scrollToHomeSection(sectionId) {
 .site-footer__inner {
   display: grid;
   grid-template-columns: minmax(260px, 1fr) auto auto;
-  gap: 42px;
+  gap: 36px;
   align-items: start;
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
@@ -120,7 +120,7 @@ async function scrollToHomeSection(sectionId) {
 
 .site-footer__brand {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .site-footer__logo-link {
@@ -191,8 +191,8 @@ async function scrollToHomeSection(sectionId) {
   justify-content: space-between;
   gap: 16px;
   width: 100%;
-  margin-top: 26px;
-  padding: 18px max(16px, calc((100% - 1120px) / 2)) 0;
+  margin-top: 22px;
+  padding: 16px max(16px, calc((100% - 1120px) / 2)) 0;
   border-top: 1px solid color-mix(in srgb, var(--ck-border) 72%, transparent);
   box-sizing: border-box;
   color: var(--ck-text-muted);
@@ -201,7 +201,7 @@ async function scrollToHomeSection(sectionId) {
 
 @media (max-width: 760px) {
   .site-footer {
-    padding-top: 30px;
+    padding-top: 28px;
   }
 
   .site-footer__inner {

@@ -111,7 +111,7 @@
       </div>
     </section>
 
-    <section id="about" class="content-section">
+    <section id="about" class="content-section about-section">
       <div class="section-inner about-preview">
         <div class="section-heading section-heading--with-action">
           <div class="section-heading__top">
@@ -148,7 +148,7 @@
       </div>
     </section>
 
-    <section id="skills" class="content-section">
+    <section id="skills" class="content-section skills-content-section">
       <div class="section-inner skills-section">
         <div class="section-heading">
           <p class="eyebrow">Skills</p>
@@ -635,20 +635,28 @@ function scrollToContact() {
 
 .content-section {
   scroll-margin-top: 88px;
-  padding: 76px 0 88px;
+  padding: 52px 0 56px;
 }
 
 .hero-section + .content-section {
-  padding-top: 48px;
+  padding-top: 34px;
 }
 
 .alternate-section {
   background: var(--section-bg);
 }
 
+.about-section {
+  padding-top: 40px;
+}
+
+.skills-content-section {
+  padding-top: 20px;
+}
+
 .section-heading {
   max-width: 720px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .section-heading--with-action {
@@ -862,7 +870,7 @@ function scrollToContact() {
 }
 
 .contact-section {
-  padding-top: 40px;
+  padding: 12px 0 32px;
 }
 
 .contact-panel {
@@ -1054,7 +1062,20 @@ function scrollToContact() {
   }
 
   .content-section {
-    padding: 56px 0 64px;
+    padding: 38px 0 42px;
+  }
+
+  .about-section,
+  .skills-content-section {
+    padding-top: 32px;
+  }
+
+  .skills-content-section {
+    padding-top: 20px;
+  }
+
+  .contact-section {
+    padding: 12px 0 28px;
   }
 
   .projects-grid {
