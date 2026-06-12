@@ -27,9 +27,15 @@ html {
   --ck-header-border: #e3dbcf;
   --ck-card-shadow: 0 18px 50px rgba(39, 54, 62, 0.08);
   --ck-primary-button-text: var(--ck-charcoal);
+  --ck-font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ck-font-heading: 'Ubuntu', var(--ck-font-body);
+  --ck-font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
 }
 
 body {
+  font-family: var(--ck-font-body);
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  text-rendering: optimizeLegibility;
   color: var(--ck-text-primary);
   background: var(--ck-page-bg);
 }
@@ -56,6 +62,52 @@ body.body--dark {
 
 a {
   color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ck-font-heading);
+}
+
+p,
+li,
+small,
+span,
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
+.q-layout,
+.q-page,
+.q-card,
+.q-btn,
+.q-item,
+.q-chip,
+.q-field,
+.q-timeline {
+  font-family: var(--ck-font-body);
+}
+
+.q-btn,
+.q-item {
+  letter-spacing: 0;
+}
+
+.eyebrow,
+.hero-badge,
+.professional-title,
+.site-footer__heading,
+.section-heading__link,
+.nav-link,
+.drawer-link--active,
+.q-btn {
+  font-family: var(--ck-font-heading);
 }
 
 .q-btn.bg-primary,

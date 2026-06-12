@@ -560,7 +560,7 @@ function scrollToContact() {
   top: -5px;
   right: -4px;
   color: var(--ck-orange);
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-family: var(--ck-font-mono);
   font-size: 4.15rem;
   font-weight: 800;
   letter-spacing: -0.12em;
@@ -574,7 +574,7 @@ function scrollToContact() {
   bottom: 0;
   z-index: 1;
   color: var(--ck-orange);
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-family: var(--ck-font-mono);
   font-size: 4.6rem;
   font-weight: 500;
   line-height: 1;
@@ -596,7 +596,7 @@ function scrollToContact() {
   gap: 8px;
   min-height: 18px;
   color: var(--code-text);
-  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-family: var(--ck-font-mono);
   font-size: clamp(0.7rem, 0.76vw, 0.82rem);
   line-height: 1.55;
 }
