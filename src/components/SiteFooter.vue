@@ -220,7 +220,7 @@ async function scrollToHomeSection(sectionId) {
 
 @media (max-width: 480px) {
   .site-footer__inner {
-    width: min(100% - 48px, 1120px);
+    width: min(1120px, calc(100% - 32px));
   }
 
   .site-footer__inner {

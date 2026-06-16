@@ -1,7 +1,7 @@
 <svg width="320" height="120" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">CK. Logo Light Mode</title>
   <desc id="desc">A transparent vector logo with an orange C, black K, and black period for light backgrounds.</desc>
-  <g transform="translate(36 19)" stroke-linejoin="round">
+  <g transform="translate(0 19)" stroke-linejoin="round">
     <path
       d="M64 18C53.8 7.8 37.4 5.5 25.8 13.3C13.8 21.3 7.8 34.5 10.7 47.7C13.6 61.1 25.1 71 39.6 72.2C50.6 73.1 59.6 68.6 66 59"
       stroke="#FF850B"
