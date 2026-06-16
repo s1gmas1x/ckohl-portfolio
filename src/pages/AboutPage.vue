@@ -18,6 +18,7 @@
                 unelevated
                 no-caps
                 color="primary"
+                icon="work"
                 label="View projects"
                 @click="scrollToHomeSection('projects')"
               />
@@ -541,6 +542,16 @@ body.body--dark .profile-mark {
 
   .hero-intro {
     font-size: 1rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    gap: 10px;
+  }
+
+  .hero-actions :deep(.q-btn) {
+    width: 100%;
+    min-height: 44px;
   }
 
   .profile-card {
