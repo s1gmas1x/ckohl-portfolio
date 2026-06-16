@@ -43,7 +43,7 @@
 
     <div class="site-footer__bottom">
       <span>&copy; 2019-{{ year }} ckohl.com. All rights reserved.</span>
-      <span>ckohl.com</span>
+      <span>Made with love ckohl.com <span class="site-footer__heart" aria-hidden="true">🧡</span></span>
     </div>
   </footer>
 </template>
@@ -197,6 +197,11 @@ async function scrollToHomeSection(sectionId) {
   box-sizing: border-box;
   color: var(--ck-text-muted);
   font-size: 0.86rem;
+}
+
+.site-footer__heart {
+  color: var(--ck-accent-orange);
+  line-height: 1;
 }
 
 @media (max-width: 760px) {

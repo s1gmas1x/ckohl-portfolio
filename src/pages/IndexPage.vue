@@ -1029,6 +1029,16 @@ function scrollToContact() {
     font-size: 1rem;
   }
 
+  .hero-actions {
+    display: grid;
+    gap: 10px;
+  }
+
+  .hero-actions :deep(.q-btn) {
+    width: 100%;
+    min-height: 44px;
+  }
+
   .hero-code-card,
   .contact-panel {
     padding: 22px;
