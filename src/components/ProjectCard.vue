@@ -249,9 +249,4 @@ body.body--dark .tag-list :deep(.q-chip) {
   font-weight: 700;
 }
 
-@media (max-width: 640px) {
-  .project-card__link-row {
-    justify-content: flex-start;
-  }
-}
 </style>
