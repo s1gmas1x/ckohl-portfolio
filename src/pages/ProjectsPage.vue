@@ -36,17 +36,16 @@ import { useMeta } from 'quasar'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
 import { projects } from 'src/data/projects.js'
+import { createPageMeta } from 'src/utils/seo.js'
 
-useMeta({
-  title: 'Projects | Chad Kohl',
-  meta: {
-    description: {
-      name: 'description',
-      content:
-        'A fuller project portfolio from Chad Kohl, including web applications, case-study projects, and in-development product ideas.',
-    },
-  },
-})
+useMeta(
+  createPageMeta({
+    title: 'Projects | Chad Kohl Full Stack Developer',
+    description:
+      'Explore projects by Chad Kohl, a full stack developer building practical web applications, product experiments, and workflow-focused tools.',
+    path: '/projects',
+  })
+)
 </script>
 
 <style lang="scss" scoped>

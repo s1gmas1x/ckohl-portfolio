@@ -1,7 +1,7 @@
 {
   "name": "ckohl-portfolio",
   "version": "0.0.1",
-  "description": "My new portfolio",
+  "description": "Portfolio, projects, and case studies from Chad Kohl, a full stack developer in Colorado Springs.",
   "productName": "Ckohl Portfolio",
   "author": "Chad Kohl <ckohl401@gmail.com>",
   "type": "module",

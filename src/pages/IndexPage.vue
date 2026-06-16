@@ -220,7 +220,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useQuasar } from 'quasar'
+import { useMeta, useQuasar } from 'quasar'
 import {
   mdiApi,
   mdiDatabase,
@@ -243,8 +243,18 @@ import quasarMarkDark from 'src/assets/svg/quasar-mark-dark.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { featuredProjects } from 'src/data/projects.js'
+import { createPageMeta } from 'src/utils/seo.js'
 
 const $q = useQuasar()
+
+useMeta(
+  createPageMeta({
+    title: 'Chad Kohl | Full Stack Developer in Colorado Springs',
+    description:
+      'Chad Kohl is a full stack developer in Colorado Springs building practical web applications, case studies, and maintainable software with Vue, Quasar, Laravel, and cloud workflows.',
+    path: '/',
+  })
+)
 
 const isDarkMode = computed(() => $q.dark.isActive)
 

@@ -143,6 +143,7 @@ import { nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import aboutPortrait from 'src/assets/images/about/a_studio_portrait_scene_black_and_white_photograp.png'
+import { createPageMeta } from 'src/utils/seo.js'
 import {
   aboutHero,
   aboutStorySections,
@@ -156,25 +157,14 @@ const router = useRouter()
 const HEADER_SCROLL_OFFSET = 84
 const SECTION_WAIT_TIMEOUT = 1000
 
-useMeta({
-  title: 'About Chad Kohl | Software Developer',
-  meta: {
-    description: {
-      name: 'description',
-      content:
-        "Learn about Chad Kohl's background in software development, Azure support engineering, leadership, creative work, and practical project building.",
-    },
-    ogTitle: {
-      property: 'og:title',
-      content: 'About Chad Kohl | Software Developer',
-    },
-    ogDescription: {
-      property: 'og:description',
-      content:
-        "A professional narrative about Chad Kohl's path through technology, leadership, creativity, cloud support, and software development.",
-    },
-  },
-})
+useMeta(
+  createPageMeta({
+    title: 'About Chad Kohl | Full Stack Developer in Colorado Springs',
+    description:
+      "Learn about Chad Kohl's background in software development, Azure support engineering, leadership, and practical product building in Colorado Springs.",
+    path: '/about',
+  })
+)
 
 async function scrollToHomeSection(sectionId) {
   await router.push('/')
