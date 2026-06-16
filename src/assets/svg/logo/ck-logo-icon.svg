@@ -1,0 +1,12 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CK Icon</title>
+  <desc id="desc">A square application icon derived from the CK logo, with an orange C and white K on a dark background.</desc>
+  <rect width="512" height="512" fill="#111820"/>
+  <circle cx="140" cy="256" r="118" fill="#F99C1E"/>
+  <circle cx="140" cy="256" r="76" fill="#111820"/>
+  <rect x="144" y="124" width="128" height="264" fill="#111820"/>
+  <g transform="translate(248 124)">
+    <rect x="0" y="0" width="40" height="264" fill="#FFFFFF"/>
+    <path d="M40 122L174 0H216L88 132L216 264H174L40 144V122Z" fill="#FFFFFF"/>
+  </g>
+</svg>
