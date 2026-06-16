@@ -32,17 +32,16 @@ import { useMeta } from 'quasar'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
+import { createPageMeta } from 'src/utils/seo.js'
 
-useMeta({
-  title: 'Case Studies | Chad Kohl',
-  meta: {
-    description: {
-      name: 'description',
-      content:
-        'A fuller case study collection from Chad Kohl, including product engineering, debugging, platform diagnostics, and application design writeups.',
-    },
-  },
-})
+useMeta(
+  createPageMeta({
+    title: 'Case Studies | Chad Kohl Developer Portfolio',
+    description:
+      'Read case studies from Chad Kohl covering product engineering, debugging, Azure platform diagnostics, and application design decisions.',
+    path: '/case-studies',
+  })
+)
 </script>
 
 <style lang="scss" scoped>
