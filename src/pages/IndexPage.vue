@@ -227,7 +227,6 @@ import {
   mdiDocker,
   mdiGithub,
   mdiLaravel,
-  mdiLinux,
   mdiMicrosoftAzure,
   mdiSass,
   mdiVuejs,
@@ -237,7 +236,10 @@ import {
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
 import SiteFooter from 'src/components/SiteFooter.vue'
+import linuxTux from 'src/assets/svg/linux-tux.svg'
+import linuxTuxDark from 'src/assets/svg/linux-tux-dark.svg'
 import quasarMark from 'src/assets/svg/quasar-mark.svg'
+import quasarMarkDark from 'src/assets/svg/quasar-mark-dark.svg'
 import { aboutHero, experienceHighlights } from 'src/data/about.js'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { featuredProjects } from 'src/data/projects.js'
@@ -284,7 +286,7 @@ const codeLines = [
   { number: 11, html: '}' },
 ]
 
-const skillGroups = [
+const skillGroups = computed(() => [
   {
     title: 'Frontend',
     icon: 'view_quilt',
@@ -299,8 +301,7 @@ const skillGroups = [
       {
         label: 'Quasar',
         description: 'Responsive Vue application framework',
-        icon: `img:${quasarMark}`,
-        iconColor: '#00b4ff',
+        icon: `img:${isDarkMode.value ? quasarMarkDark : quasarMark}`,
         url: 'https://quasar.dev/',
       },
       {
@@ -381,13 +382,12 @@ const skillGroups = [
       {
         label: 'Linux',
         description: 'Server environments and command-line work',
-        icon: mdiLinux,
-        iconColor: '#f5b800',
+        icon: `img:${isDarkMode.value ? linuxTuxDark : linuxTux}`,
         url: 'https://www.kernel.org/',
       },
     ],
   },
-]
+])
 
 function scrollToProjects() {
   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
