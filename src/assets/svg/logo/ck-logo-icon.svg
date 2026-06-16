@@ -2,11 +2,16 @@
   <title id="title">CK Icon</title>
   <desc id="desc">A square application icon derived from the CK logo, with an orange C and white K on a dark background.</desc>
   <rect width="512" height="512" fill="#111820"/>
-  <circle cx="140" cy="256" r="118" fill="#F99C1E"/>
-  <circle cx="140" cy="256" r="76" fill="#111820"/>
-  <rect x="144" y="124" width="128" height="264" fill="#111820"/>
-  <g transform="translate(248 124)">
-    <rect x="0" y="0" width="40" height="264" fill="#FFFFFF"/>
-    <path d="M40 122L174 0H216L88 132L216 264H174L40 144V122Z" fill="#FFFFFF"/>
+  <g transform="translate(48 86) scale(2.72)" stroke-linejoin="round">
+    <path
+      d="M64 18C53.8 7.8 37.4 5.5 25.8 13.3C13.8 21.3 7.8 34.5 10.7 47.7C13.6 61.1 25.1 71 39.6 72.2C50.6 73.1 59.6 68.6 66 59"
+      stroke="#F99C1E"
+      stroke-width="15"
+      stroke-linecap="butt"
+    />
+    <rect x="76" y="8" width="14" height="68" fill="#FFFFFF"/>
+    <path d="M90 39L123 8H136L100 47H90V39Z" fill="#FFFFFF"/>
+    <path d="M90 46H100L136 76H121L90 55V46Z" fill="#FFFFFF"/>
+    <circle cx="145" cy="70" r="7" fill="#FFFFFF"/>
   </g>
 </svg>
