@@ -111,10 +111,22 @@
 </template>
 
 <script setup>
+import { useMeta } from 'quasar'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
+import { createPageMeta } from 'src/utils/seo.js'
 
 const caseStudy = caseStudies.find((item) => item.path === '/case-studies/azure-troubleshooting')
+
+useMeta(
+  createPageMeta({
+    title: `${caseStudy.title} | Chad Kohl Case Study`,
+    description: caseStudy.summary,
+    path: caseStudy.path,
+    socialTitle: `${caseStudy.title} | Chad Kohl`,
+    socialDescription: caseStudy.summary,
+  }),
+)
 
 const environment = [
   'Azure App Service',
