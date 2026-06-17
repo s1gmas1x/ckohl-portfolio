@@ -59,6 +59,7 @@ import ckLogoLight from 'src/assets/svg/logo/ck-logo-light.svg'
 const $q = useQuasar()
 const route = useRoute()
 const router = useRouter()
+const HEADER_SCROLL_OFFSET = 84
 
 const navigationLinks = [
   { label: 'Projects', id: 'projects' },
@@ -92,9 +93,15 @@ async function scrollToHomeSection(sectionId) {
     await nextTick()
   }
 
-  document.getElementById(sectionId)?.scrollIntoView({
+  const section = document.getElementById(sectionId)
+
+  if (!section) return
+
+  const scrollTop = section.getBoundingClientRect().top + window.scrollY - HEADER_SCROLL_OFFSET
+
+  window.scrollTo({
+    top: Math.max(scrollTop, 0),
     behavior: 'smooth',
-    block: 'start',
   })
 }
 </script>

@@ -38,7 +38,13 @@ async function declineCookies() {
 
 <template>
   <div v-if="showBanner" class="cookie-overlay" role="presentation">
-    <q-card class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <q-card
+      class="cookie-banner"
+      role="dialog"
+      aria-modal="true"
+      aria-live="polite"
+      aria-label="Cookie consent"
+    >
       <q-card-section class="cookie-banner__content">
         <div class="cookie-banner__copy">
           <p class="cookie-banner__eyebrow">Privacy preferences</p>

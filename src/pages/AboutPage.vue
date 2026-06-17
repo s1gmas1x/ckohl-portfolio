@@ -142,7 +142,7 @@ import { useMeta } from 'quasar'
 import { nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import PageBackLink from 'src/components/PageBackLink.vue'
-import aboutPortrait from 'src/assets/images/about/a_studio_portrait_scene_black_and_white_photograp.png'
+import aboutPortrait from 'src/assets/images/about/a_studio_portrait_scene_black_and_white_photograp.webp'
 import { createPageMeta } from 'src/utils/seo.js'
 import {
   aboutHero,
@@ -166,10 +166,11 @@ useMeta(
     socialTitle: 'About Chad Kohl | Full Stack Developer in Colorado Springs',
     socialDescription:
       "Meet Chad Kohl, a Colorado Springs full stack developer with experience in software development, Azure support, and practical product building.",
-    imagePath: '/chad-kohl-social-share.png',
+    imagePath: '/chad-kohl-social-share.webp',
     imageAlt: 'Black-and-white portrait of Chad Kohl',
-    imageWidth: '1122',
-    imageHeight: '1402',
+    imageWidth: '960',
+    imageHeight: '1200',
+    imageType: 'image/webp',
   })
 )
 

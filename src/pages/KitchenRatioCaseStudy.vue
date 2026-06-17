@@ -151,14 +151,26 @@
 </template>
 
 <script setup>
+import { useMeta } from 'quasar'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { projects } from 'src/data/projects.js'
+import { createPageMeta } from 'src/utils/seo.js'
 
 const caseStudy = caseStudies.find((item) => item.path === '/case-studies/kitchenratio')
 const kitchenRatioProject = projects.find((project) => project.title.includes('KitchenRatio'))
 const liveApplicationUrl = kitchenRatioProject?.url ?? 'https://kitchenratio.com/calculator'
 const educationalContentUrl = 'https://kitchenratio.com'
+
+useMeta(
+  createPageMeta({
+    title: `${caseStudy.title} | Chad Kohl Case Study`,
+    description: caseStudy.summary,
+    path: caseStudy.path,
+    socialTitle: `${caseStudy.title} | Chad Kohl`,
+    socialDescription: caseStudy.summary,
+  }),
+)
 
 const technologyStack = ['Vue 3', 'Vite', 'Pinia', 'VitePress', 'Netlify', 'Cloudflare']
 
