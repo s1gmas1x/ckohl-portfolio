@@ -1,8 +1,8 @@
 export const SITE_NAME = 'Chad Kohl'
 export const SITE_URL = 'https://ckohl.com'
-export const DEFAULT_OG_IMAGE_PATH = '/chad-kohl-social-share.png'
-export const DEFAULT_OG_IMAGE_WIDTH = '1122'
-export const DEFAULT_OG_IMAGE_HEIGHT = '1402'
+export const DEFAULT_OG_IMAGE_PATH = '/portfolio-social-share.png'
+export const DEFAULT_OG_IMAGE_WIDTH = '1024'
+export const DEFAULT_OG_IMAGE_HEIGHT = '1536'
 
 export function absoluteUrl(path = '/') {
   return new URL(path, SITE_URL).toString()
@@ -13,8 +13,13 @@ export function createPageMeta({
   description,
   path,
   type = 'website',
+  socialTitle = title,
+  socialDescription = description,
   imagePath = DEFAULT_OG_IMAGE_PATH,
-  imageAlt = 'Portrait of Chad Kohl',
+  imageAlt = 'Portfolio preview showing CK branding and selected work from Chad Kohl',
+  imageWidth = DEFAULT_OG_IMAGE_WIDTH,
+  imageHeight = DEFAULT_OG_IMAGE_HEIGHT,
+  imageType = 'image/png',
 }) {
   const canonicalUrl = absoluteUrl(path)
   const imageUrl = absoluteUrl(imagePath)
@@ -40,11 +45,11 @@ export function createPageMeta({
       },
       ogTitle: {
         property: 'og:title',
-        content: title,
+        content: socialTitle,
       },
       ogDescription: {
         property: 'og:description',
-        content: description,
+        content: socialDescription,
       },
       ogSiteName: {
         property: 'og:site_name',
@@ -58,9 +63,17 @@ export function createPageMeta({
         property: 'og:image',
         content: imageUrl,
       },
+      ogImageUrl: {
+        property: 'og:image:url',
+        content: imageUrl,
+      },
       ogImageSecureUrl: {
         property: 'og:image:secure_url',
         content: imageUrl,
+      },
+      ogImageType: {
+        property: 'og:image:type',
+        content: imageType,
       },
       ogImageAlt: {
         property: 'og:image:alt',
@@ -68,11 +81,11 @@ export function createPageMeta({
       },
       ogImageWidth: {
         property: 'og:image:width',
-        content: DEFAULT_OG_IMAGE_WIDTH,
+        content: imageWidth,
       },
       ogImageHeight: {
         property: 'og:image:height',
-        content: DEFAULT_OG_IMAGE_HEIGHT,
+        content: imageHeight,
       },
       twitterCard: {
         name: 'twitter:card',
@@ -80,14 +93,22 @@ export function createPageMeta({
       },
       twitterTitle: {
         name: 'twitter:title',
-        content: title,
+        content: socialTitle,
       },
       twitterDescription: {
         name: 'twitter:description',
-        content: description,
+        content: socialDescription,
+      },
+      twitterUrl: {
+        name: 'twitter:url',
+        content: canonicalUrl,
       },
       twitterImage: {
         name: 'twitter:image',
+        content: imageUrl,
+      },
+      twitterImageSrc: {
+        name: 'twitter:image:src',
         content: imageUrl,
       },
       twitterImageAlt: {

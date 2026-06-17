@@ -40,6 +40,9 @@ useMeta(
     description:
       'Read case studies from Chad Kohl covering product engineering, debugging, Azure platform diagnostics, and application design decisions.',
     path: '/case-studies',
+    socialTitle: 'Case Studies by Chad Kohl | Full Stack Developer',
+    socialDescription:
+      'Read engineering case studies from Chad Kohl covering product decisions, debugging, Azure diagnostics, and application design.',
   })
 )
 </script>

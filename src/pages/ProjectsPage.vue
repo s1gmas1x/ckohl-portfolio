@@ -44,6 +44,9 @@ useMeta(
     description:
       'Explore projects by Chad Kohl, a full stack developer building practical web applications, product experiments, and workflow-focused tools.',
     path: '/projects',
+    socialTitle: 'Projects by Chad Kohl | Full Stack Developer',
+    socialDescription:
+      'Browse portfolio projects from Chad Kohl, including practical web apps, product experiments, and CK-branded interface work.',
   })
 )
 </script>
