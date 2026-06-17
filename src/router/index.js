@@ -6,6 +6,8 @@ import {
   createWebHashHistory,
 } from 'vue-router'
 import routes from './routes'
+import { DEFAULT_TRACKING_ID } from 'src/utils/initializeGA.js'
+import { trackInternal } from 'src/utils/trackInternal.js'
 
 /*
  * If not building with SSR mode, you can
@@ -31,6 +33,25 @@ export default defineRouter((/* { store, ssrContext } */) => {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE),
+  })
+
+  Router.afterEach((to) => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
+    const consent = localStorage.getItem('ga-consent')
+
+    if (window.gtag && consent === 'accepted') {
+      window.gtag('config', DEFAULT_TRACKING_ID, { page_path: to.fullPath })
+      return
+    }
+
+    if (consent === 'declined') {
+      trackInternal('pageview', to.name ?? to.path).catch((error) => {
+        console.error('Failed to track internal pageview:', error)
+      })
+    }
   })
 
   return Router
