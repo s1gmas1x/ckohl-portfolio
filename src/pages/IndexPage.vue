@@ -253,6 +253,9 @@ useMeta(
     description:
       'Chad Kohl is a full stack developer in Colorado Springs building practical web applications, case studies, and maintainable software with Vue, Quasar, Laravel, and cloud workflows.',
     path: '/',
+    socialTitle: 'Chad Kohl | Full Stack Developer | Colorado Springs, CO',
+    socialDescription:
+      'Explore Chad Kohl’s portfolio of practical web applications, engineering case studies, and CK-branded product work.',
   })
 )
 

@@ -163,6 +163,13 @@ useMeta(
     description:
       "Learn about Chad Kohl's background in software development, Azure support engineering, leadership, and practical product building in Colorado Springs.",
     path: '/about',
+    socialTitle: 'About Chad Kohl | Full Stack Developer in Colorado Springs',
+    socialDescription:
+      "Meet Chad Kohl, a Colorado Springs full stack developer with experience in software development, Azure support, and practical product building.",
+    imagePath: '/chad-kohl-social-share.png',
+    imageAlt: 'Black-and-white portrait of Chad Kohl',
+    imageWidth: '1122',
+    imageHeight: '1402',
   })
 )
 
