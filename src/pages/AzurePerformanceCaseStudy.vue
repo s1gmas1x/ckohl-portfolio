@@ -14,26 +14,18 @@
         </div>
 
         <div class="summary-grid">
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Environment</span>
-              <strong>Azure App Service, production web applications, enterprise workloads</strong>
-            </q-card-section>
-          </q-card>
-
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Symptoms</span>
-              <strong>Slow response times, intermittent latency, and degradation under load</strong>
-            </q-card-section>
-          </q-card>
-
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Focus</span>
-              <strong>Use telemetry and diagnostics to narrow possible causes</strong>
-            </q-card-section>
-          </q-card>
+          <CaseStudySummaryCard
+            label="Environment"
+            value="Azure App Service, production web applications, enterprise workloads"
+          />
+          <CaseStudySummaryCard
+            label="Symptoms"
+            value="Slow response times, intermittent latency, and degradation under load"
+          />
+          <CaseStudySummaryCard
+            label="Focus"
+            value="Use telemetry and diagnostics to narrow possible causes"
+          />
         </div>
       </div>
     </section>
@@ -51,58 +43,46 @@
         </article>
 
         <aside class="case-study-sidebar" aria-label="Azure performance case study details">
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Environment</h2>
-              <div class="tag-list" aria-label="Environment">
-                <q-chip v-for="item in environment" :key="item" outline square>
-                  {{ item }}
-                </q-chip>
-              </div>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Environment">
+            <div class="tag-list" aria-label="Environment">
+              <q-chip v-for="item in environment" :key="item" outline square>
+                {{ item }}
+              </q-chip>
+            </div>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Reported Symptoms</h2>
-              <q-list dense>
-                <q-item v-for="symptom in reportedSymptoms" :key="symptom">
-                  <q-item-section avatar>
-                    <q-icon name="speed" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ symptom }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Reported Symptoms">
+            <q-list dense>
+              <q-item v-for="symptom in reportedSymptoms" :key="symptom">
+                <q-item-section avatar>
+                  <q-icon name="speed" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ symptom }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Tools Used</h2>
-              <q-list dense>
-                <q-item v-for="tool in toolsUsed" :key="tool">
-                  <q-item-section avatar>
-                    <q-icon name="query_stats" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ tool }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Tools Used">
+            <q-list dense>
+              <q-item v-for="tool in toolsUsed" :key="tool">
+                <q-item-section avatar>
+                  <q-icon name="query_stats" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ tool }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Lessons Learned</h2>
-              <q-list dense>
-                <q-item v-for="lesson in lessonsLearned" :key="lesson">
-                  <q-item-section avatar>
-                    <q-icon name="lightbulb" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ lesson }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Lessons Learned">
+            <q-list dense>
+              <q-item v-for="lesson in lessonsLearned" :key="lesson">
+                <q-item-section avatar>
+                  <q-icon name="lightbulb" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ lesson }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
         </aside>
       </div>
     </section>
@@ -111,6 +91,8 @@
 
 <script setup>
 import { useMeta } from 'quasar'
+import CaseStudyDetailCard from 'src/components/CaseStudyDetailCard.vue'
+import CaseStudySummaryCard from 'src/components/CaseStudySummaryCard.vue'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { createPageMeta } from 'src/utils/seo.js'
@@ -241,8 +223,7 @@ body.body--dark .case-study-hero {
 }
 
 .case-study-heading h1,
-.content-block h2,
-.detail-card h2 {
+.content-block h2 {
   margin: 0;
   color: var(--ck-text-strong);
   font-weight: 800;
@@ -267,31 +248,6 @@ body.body--dark .case-study-hero {
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   margin-top: 44px;
-}
-
-.summary-card,
-.detail-card {
-  background: var(--ck-surface-bg);
-  border-color: var(--ck-border);
-  border-radius: 8px;
-}
-
-.summary-card :deep(.q-card__section) {
-  display: grid;
-  gap: 8px;
-  padding: 22px;
-}
-
-.summary-card span {
-  color: var(--ck-text-muted);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.summary-card strong {
-  color: var(--ck-text-primary);
-  font-size: 1rem;
-  line-height: 1.45;
 }
 
 .case-study-content {
@@ -327,16 +283,6 @@ body.body--dark .case-study-hero {
   gap: 18px;
 }
 
-.detail-card :deep(.q-card__section) {
-  display: grid;
-  gap: 16px;
-  padding: 22px;
-}
-
-.detail-card h2 {
-  font-size: 1.1rem;
-}
-
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -347,16 +293,6 @@ body.body--dark .case-study-hero {
   background: var(--ck-surface-subtle);
   border-color: var(--ck-border);
   color: var(--ck-text-primary);
-}
-
-.detail-card :deep(.q-item) {
-  min-height: 36px;
-  padding: 4px 0;
-  color: var(--ck-text-secondary);
-}
-
-.detail-card :deep(.q-item__section--avatar) {
-  min-width: 34px;
 }
 
 @media (max-width: 900px) {
