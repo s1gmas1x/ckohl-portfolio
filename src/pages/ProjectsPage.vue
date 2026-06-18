@@ -4,14 +4,13 @@
       <div class="projects-inner">
         <PageBackLink label="Back to home" />
 
-        <div class="section-heading">
-          <p class="eyebrow">Projects</p>
-          <h1>Project portfolio</h1>
-          <p>
-            A fuller view of practical applications, experiments, and product ideas built around
-            real workflows, maintainable code, and useful interfaces.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Projects"
+          title="Project portfolio"
+          title-tag="h1"
+          description="A fuller view of practical applications, experiments, and product ideas built around real workflows, maintainable code, and useful interfaces."
+          max-width="760px"
+        />
       </div>
     </section>
 
@@ -35,6 +34,7 @@
 import { useMeta } from 'quasar'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
+import SectionHeader from 'src/components/SectionHeader.vue'
 import { projects } from 'src/data/projects.js'
 import { createPageMeta } from 'src/utils/seo.js'
 
@@ -73,41 +73,6 @@ body.body--dark .projects-hero {
     linear-gradient(135deg, #070b10, #0b1016);
 }
 
-.section-heading {
-  max-width: 760px;
-}
-
-.eyebrow {
-  margin: 0 0 14px;
-  color: var(--ck-link);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.section-heading h1 {
-  margin: 0;
-  color: var(--ck-text-strong);
-  font-weight: 800;
-  letter-spacing: 0;
-}
-
-.section-heading h1 {
-  font-size: 3.5rem;
-  line-height: 1.05;
-}
-
-.section-heading p {
-  color: var(--ck-text-secondary);
-  line-height: 1.68;
-}
-
-.section-heading p {
-  margin: 14px 0 0;
-  font-size: 1.08rem;
-}
-
 .projects-section {
   padding: 52px 0 64px;
 }
@@ -127,9 +92,6 @@ body.body--dark .projects-hero {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .section-heading h1 {
-    font-size: 2.8rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -145,8 +107,5 @@ body.body--dark .projects-hero {
     grid-template-columns: 1fr;
   }
 
-  .section-heading h1 {
-    font-size: 2.25rem;
-  }
 }
 </style>

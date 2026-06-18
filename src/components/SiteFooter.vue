@@ -2,9 +2,7 @@
   <footer class="site-footer">
     <div class="site-footer__inner">
       <div class="site-footer__brand">
-        <router-link to="/" aria-label="Chad Kohl home" class="site-footer__logo-link">
-          <img :src="siteLogo" alt="CK." class="site-footer__logo" />
-        </router-link>
+        <LogoMark />
         <p>Building web applications that make practical workflows easier to manage.</p>
       </div>
 
@@ -43,20 +41,17 @@
 
     <div class="site-footer__bottom">
       <span>&copy; 2019-{{ year }} ckohl.com. All rights reserved.</span>
-      <span>Made with love ckohl.com <span class="site-footer__heart" aria-hidden="true">🧡</span></span>
+      <span>Made with <span class="site-footer__heart" aria-hidden="true">🧡</span> ckohl.com</span>
     </div>
   </footer>
 </template>
 
 <script setup>
-import { computed, nextTick } from 'vue'
-import { useQuasar } from 'quasar'
+import { nextTick } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { mdiEmailOutline, mdiGithub, mdiLinkedin } from '@quasar/extras/mdi-v7'
-import ckLogoDark from 'src/assets/svg/logo/ck-logo.svg'
-import ckLogoLight from 'src/assets/svg/logo/ck-logo-light.svg'
+import LogoMark from 'src/components/LogoMark.vue'
 
-const $q = useQuasar()
 const route = useRoute()
 const router = useRouter()
 const HEADER_SCROLL_OFFSET = 84
@@ -74,8 +69,6 @@ const socialLinks = [
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/chad-kohl401', icon: mdiLinkedin },
 ]
 
-const isDarkMode = computed(() => $q.dark.isActive)
-const siteLogo = computed(() => (isDarkMode.value ? ckLogoDark : ckLogoLight))
 const year = new Date().getFullYear()
 
 async function handleNavigation(item) {
@@ -128,17 +121,6 @@ async function scrollToHomeSection(sectionId) {
 .site-footer__brand {
   display: grid;
   gap: 10px;
-}
-
-.site-footer__logo-link {
-  display: inline-flex;
-  width: fit-content;
-}
-
-.site-footer__logo {
-  display: block;
-  width: 82px;
-  height: auto;
 }
 
 .site-footer__brand p {

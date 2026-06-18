@@ -4,14 +4,13 @@
       <div class="case-studies-inner">
         <PageBackLink label="Back to home" />
 
-        <div class="section-heading">
-          <p class="eyebrow">Case Studies</p>
-          <h1>Engineering case studies</h1>
-          <p>
-            A fuller set of product, debugging, platform, and application design writeups from
-            selected projects and technical investigations.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Case Studies"
+          title="Engineering case studies"
+          title-tag="h1"
+          description="A fuller set of product, debugging, platform, and application design writeups from selected projects and technical investigations."
+          max-width="760px"
+        />
       </div>
     </section>
 
@@ -31,6 +30,7 @@
 import { useMeta } from 'quasar'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import PageBackLink from 'src/components/PageBackLink.vue'
+import SectionHeader from 'src/components/SectionHeader.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { createPageMeta } from 'src/utils/seo.js'
 
@@ -69,35 +69,6 @@ body.body--dark .case-studies-hero {
     linear-gradient(135deg, #070b10, #0b1016);
 }
 
-.section-heading {
-  max-width: 760px;
-}
-
-.eyebrow {
-  margin: 0 0 14px;
-  color: var(--ck-link);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.section-heading h1 {
-  margin: 0;
-  color: var(--ck-text-strong);
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: 0;
-  line-height: 1.05;
-}
-
-.section-heading p {
-  margin: 14px 0 0;
-  color: var(--ck-text-secondary);
-  font-size: 1.08rem;
-  line-height: 1.68;
-}
-
 .case-studies-section {
   padding: 52px 0 64px;
 }
@@ -117,9 +88,6 @@ body.body--dark .case-studies-hero {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .section-heading h1 {
-    font-size: 2.8rem;
-  }
 }
 
 @media (max-width: 640px) {
@@ -135,8 +103,5 @@ body.body--dark .case-studies-hero {
     grid-template-columns: 1fr;
   }
 
-  .section-heading h1 {
-    font-size: 2.25rem;
-  }
 }
 </style>

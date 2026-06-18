@@ -14,26 +14,15 @@
         </div>
 
         <div class="summary-grid">
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Product Focus</span>
-              <strong>Garden planning, raised bed visualization, and seasonal workflows</strong>
-            </q-card-section>
-          </q-card>
-
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Stack</span>
-              <strong>Laravel, Vue 3, Quasar, and PostgreSQL</strong>
-            </q-card-section>
-          </q-card>
-
-          <q-card flat bordered class="summary-card">
-            <q-card-section>
-              <span>Architecture</span>
-              <strong>API-backed product with database-driven plant information</strong>
-            </q-card-section>
-          </q-card>
+          <CaseStudySummaryCard
+            label="Product Focus"
+            value="Garden planning, raised bed visualization, and seasonal workflows"
+          />
+          <CaseStudySummaryCard label="Stack" value="Laravel, Vue 3, Quasar, and PostgreSQL" />
+          <CaseStudySummaryCard
+            label="Architecture"
+            value="API-backed product with database-driven plant information"
+          />
         </div>
       </div>
     </section>
@@ -51,58 +40,46 @@
         </article>
 
         <aside class="case-study-sidebar" aria-label="Garden Planning App case study details">
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Technology Stack</h2>
-              <div class="tag-list" aria-label="Technology stack">
-                <q-chip v-for="technology in technologyStack" :key="technology" outline square>
-                  {{ technology }}
-                </q-chip>
-              </div>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Technology Stack">
+            <div class="tag-list" aria-label="Technology stack">
+              <q-chip v-for="technology in technologyStack" :key="technology" outline square>
+                {{ technology }}
+              </q-chip>
+            </div>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Key Features</h2>
-              <q-list dense>
-                <q-item v-for="feature in keyFeatures" :key="feature">
-                  <q-item-section avatar>
-                    <q-icon name="check_circle" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ feature }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Key Features">
+            <q-list dense>
+              <q-item v-for="feature in keyFeatures" :key="feature">
+                <q-item-section avatar>
+                  <q-icon name="check_circle" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ feature }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Technical Challenges</h2>
-              <q-list dense>
-                <q-item v-for="challenge in technicalChallenges" :key="challenge">
-                  <q-item-section avatar>
-                    <q-icon name="build_circle" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ challenge }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Technical Challenges">
+            <q-list dense>
+              <q-item v-for="challenge in technicalChallenges" :key="challenge">
+                <q-item-section avatar>
+                  <q-icon name="build_circle" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ challenge }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
 
-          <q-card flat bordered class="detail-card">
-            <q-card-section>
-              <h2>Future Roadmap</h2>
-              <q-list dense>
-                <q-item v-for="item in futureRoadmap" :key="item">
-                  <q-item-section avatar>
-                    <q-icon name="timeline" color="primary" />
-                  </q-item-section>
-                  <q-item-section>{{ item }}</q-item-section>
-                </q-item>
-              </q-list>
-            </q-card-section>
-          </q-card>
+          <CaseStudyDetailCard title="Future Roadmap">
+            <q-list dense>
+              <q-item v-for="item in futureRoadmap" :key="item">
+                <q-item-section avatar>
+                  <q-icon name="timeline" color="primary" />
+                </q-item-section>
+                <q-item-section>{{ item }}</q-item-section>
+              </q-item>
+            </q-list>
+          </CaseStudyDetailCard>
         </aside>
       </div>
     </section>
@@ -111,6 +88,8 @@
 
 <script setup>
 import { useMeta } from 'quasar'
+import CaseStudyDetailCard from 'src/components/CaseStudyDetailCard.vue'
+import CaseStudySummaryCard from 'src/components/CaseStudySummaryCard.vue'
 import PageBackLink from 'src/components/PageBackLink.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { createPageMeta } from 'src/utils/seo.js'
@@ -239,8 +218,7 @@ body.body--dark .case-study-hero {
 }
 
 .case-study-heading h1,
-.content-block h2,
-.detail-card h2 {
+.content-block h2 {
   margin: 0;
   color: var(--ck-text-strong);
   font-weight: 800;
@@ -265,31 +243,6 @@ body.body--dark .case-study-hero {
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
   margin-top: 44px;
-}
-
-.summary-card,
-.detail-card {
-  background: var(--ck-surface-bg);
-  border-color: var(--ck-border);
-  border-radius: 8px;
-}
-
-.summary-card :deep(.q-card__section) {
-  display: grid;
-  gap: 8px;
-  padding: 22px;
-}
-
-.summary-card span {
-  color: var(--ck-text-muted);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.summary-card strong {
-  color: var(--ck-text-primary);
-  font-size: 1rem;
-  line-height: 1.45;
 }
 
 .case-study-content {
@@ -325,16 +278,6 @@ body.body--dark .case-study-hero {
   gap: 18px;
 }
 
-.detail-card :deep(.q-card__section) {
-  display: grid;
-  gap: 16px;
-  padding: 22px;
-}
-
-.detail-card h2 {
-  font-size: 1.1rem;
-}
-
 .tag-list {
   display: flex;
   flex-wrap: wrap;
@@ -345,16 +288,6 @@ body.body--dark .case-study-hero {
   background: var(--ck-surface-subtle);
   border-color: var(--ck-border);
   color: var(--ck-text-primary);
-}
-
-.detail-card :deep(.q-item) {
-  min-height: 36px;
-  padding: 4px 0;
-  color: var(--ck-text-secondary);
-}
-
-.detail-card :deep(.q-item__section--avatar) {
-  min-width: 34px;
 }
 
 @media (max-width: 900px) {

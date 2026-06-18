@@ -55,9 +55,12 @@
 
     <section id="projects" class="content-section">
       <div class="section-inner">
-        <div class="section-heading section-heading--with-action">
-          <div class="section-heading__top">
-            <p class="eyebrow">Projects</p>
+        <SectionHeader
+          eyebrow="Projects"
+          title="Selected projects"
+          description="Small, practical applications built around real workflows, clear interfaces, and maintainable application code."
+        >
+          <template #action>
             <q-btn
               flat
               no-caps
@@ -67,10 +70,8 @@
               to="/projects"
               class="section-heading__link"
             />
-          </div>
-          <h2>Selected projects</h2>
-          <p>Small, practical applications built around real workflows, clear interfaces, and maintainable application code.</p>
-        </div>
+          </template>
+        </SectionHeader>
 
         <div class="card-grid projects-grid">
           <ProjectCard
@@ -84,9 +85,12 @@
 
     <section id="case-studies" class="content-section alternate-section">
       <div class="section-inner">
-        <div class="section-heading section-heading--with-action">
-          <div class="section-heading__top">
-            <p class="eyebrow">Case Studies</p>
+        <SectionHeader
+          eyebrow="Case Studies"
+          title="Engineering case studies"
+          description="Short writeups on product decisions, debugging work, and the technical reasoning behind selected projects."
+        >
+          <template #action>
             <q-btn
               flat
               no-caps
@@ -96,10 +100,8 @@
               to="/case-studies"
               class="section-heading__link"
             />
-          </div>
-          <h2>Engineering case studies</h2>
-          <p>Short writeups on product decisions, debugging work, and the technical reasoning behind selected projects.</p>
-        </div>
+          </template>
+        </SectionHeader>
 
         <div class="card-grid case-studies-grid">
           <CaseStudyCard
@@ -113,9 +115,12 @@
 
     <section id="about" class="content-section about-section">
       <div class="section-inner about-preview">
-        <div class="section-heading section-heading--with-action">
-          <div class="section-heading__top">
-            <p class="eyebrow">{{ aboutHero.eyebrow }}</p>
+        <SectionHeader
+          :eyebrow="aboutHero.eyebrow"
+          :title="aboutHero.headline"
+          :description="aboutHero.summary"
+        >
+          <template #action>
             <q-btn
               flat
               no-caps
@@ -125,10 +130,8 @@
               to="/about"
               class="section-heading__link"
             />
-          </div>
-          <h2>{{ aboutHero.headline }}</h2>
-          <p>{{ aboutHero.summary }}</p>
-        </div>
+          </template>
+        </SectionHeader>
 
         <div class="about-highlight-grid">
           <q-card
@@ -150,11 +153,11 @@
 
     <section id="skills" class="content-section skills-content-section">
       <div class="section-inner skills-section">
-        <div class="section-heading">
-          <p class="eyebrow">Skills</p>
-          <h2>Skills & technologies</h2>
-          <p>Frontend implementation, Laravel-backed application structure, diagnostics, and steady delivery across modern web projects.</p>
-        </div>
+        <SectionHeader
+          eyebrow="Skills"
+          title="Skills & technologies"
+          description="Frontend implementation, Laravel-backed application structure, diagnostics, and steady delivery across modern web projects."
+        />
 
         <div class="skill-groups">
           <div
@@ -235,6 +238,7 @@ import {
 } from '@quasar/extras/mdi-v7'
 import CaseStudyCard from 'src/components/CaseStudyCard.vue'
 import ProjectCard from 'src/components/ProjectCard.vue'
+import SectionHeader from 'src/components/SectionHeader.vue'
 import SiteFooter from 'src/components/SiteFooter.vue'
 import linuxTux from 'src/assets/svg/linux-tux.svg'
 import linuxTuxDark from 'src/assets/svg/linux-tux-dark.svg'
@@ -461,7 +465,6 @@ function scrollToContact() {
 }
 
 .hero-copy h1,
-.section-heading h2,
 .contact-panel h2 {
   margin: 0;
   color: var(--text-strong);
@@ -667,42 +670,11 @@ function scrollToContact() {
   padding-top: 20px;
 }
 
-.section-heading {
-  max-width: 720px;
-  margin-bottom: 30px;
-}
-
-.section-heading--with-action {
-  margin-bottom: 14px;
-  max-width: none;
-}
-
-.section-heading--with-action > h2,
-.section-heading--with-action > p {
-  max-width: 720px;
-}
-
-.section-heading__top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.section-heading__link {
-  margin-top: -8px;
-  min-height: 34px;
-  padding: 0;
-  font-weight: 800;
-}
-
-.section-heading h2,
 .contact-panel h2 {
   font-size: 2.85rem;
   line-height: 1.1;
 }
 
-.section-heading p:last-child,
 .contact-panel p:last-child,
 .case-row p {
   color: var(--text-secondary);
@@ -1009,17 +981,8 @@ function scrollToContact() {
     font-size: 2.85rem;
   }
 
-  .section-heading h2,
   .contact-panel h2 {
     font-size: 2.4rem;
-  }
-
-  .section-heading--with-action {
-    margin-bottom: 20px;
-  }
-
-  .section-heading__link {
-    margin-top: -8px;
   }
 }
 

@@ -87,10 +87,7 @@
 
     <section class="about-section alternate-section">
       <div class="about-inner">
-        <div class="section-heading">
-          <p class="eyebrow">Experience</p>
-          <h2>Highlights from the path</h2>
-        </div>
+        <SectionHeader eyebrow="Experience" title="Highlights from the path" size="compact" />
 
         <div class="highlight-grid">
           <q-card
@@ -112,14 +109,12 @@
 
     <section class="about-section">
       <div class="about-inner interests-grid">
-        <div class="section-heading">
-          <p class="eyebrow">Beyond technology</p>
-          <h2>Systems worth understanding</h2>
-          <p>
-            Many of my interests share the same qualities that drew me to technology:
-            experimentation, observation, problem-solving, and continuous improvement.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="Beyond technology"
+          title="Systems worth understanding"
+          description="Many of my interests share the same qualities that drew me to technology: experimentation, observation, problem-solving, and continuous improvement."
+          size="compact"
+        />
 
         <q-card flat bordered class="interests-card">
           <q-card-section>
@@ -142,6 +137,7 @@ import { useMeta } from 'quasar'
 import { nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import PageBackLink from 'src/components/PageBackLink.vue'
+import SectionHeader from 'src/components/SectionHeader.vue'
 import aboutPortrait from 'src/assets/images/about/a_studio_portrait_scene_black_and_white_photograp.webp'
 import { createPageMeta } from 'src/utils/seo.js'
 import {
@@ -241,7 +237,6 @@ body.body--dark .about-hero {
 
 .hero-copy h1,
 .hero-copy h2,
-.section-heading h2,
 .story-block h2,
 .timeline-card h2,
 .highlight-card h3 {
@@ -282,7 +277,6 @@ body.body--dark .about-hero {
 
 .hero-intro,
 .hero-summary,
-.section-heading p,
 .story-block p:not(.eyebrow),
 .highlight-card p,
 .interests-card p,
@@ -400,8 +394,7 @@ body.body--dark .profile-mark {
   gap: 38px;
 }
 
-.story-block h2,
-.section-heading h2 {
+.story-block h2 {
   font-size: 2.2rem;
   line-height: 1.15;
 }
@@ -449,15 +442,6 @@ body.body--dark .profile-mark {
 .timeline-card :deep(.q-timeline__content p) {
   margin: 6px 0 0;
   font-size: 0.92rem;
-}
-
-.section-heading {
-  max-width: 720px;
-  margin-bottom: 28px;
-}
-
-.section-heading p {
-  margin: 14px 0 0;
 }
 
 .highlight-grid {
@@ -578,8 +562,7 @@ body.body--dark .profile-mark {
     padding: 48px 0;
   }
 
-  .story-block h2,
-  .section-heading h2 {
+  .story-block h2 {
     font-size: 1.85rem;
   }
 

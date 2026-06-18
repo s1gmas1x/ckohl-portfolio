@@ -3,9 +3,7 @@
     <q-header class="site-header" :class="{ 'site-header--dark': isDarkMode }">
       <q-toolbar class="site-toolbar">
         <q-toolbar-title class="site-title">
-          <router-link to="/" aria-label="Chad Kohl home" class="site-logo-link">
-            <img :src="siteLogo" alt="CK." class="site-logo" />
-          </router-link>
+          <LogoMark :mobile-size="72" />
         </q-toolbar-title>
 
         <nav class="desktop-nav" aria-label="Primary navigation">
@@ -22,15 +20,7 @@
           />
         </nav>
 
-        <q-btn
-          flat
-          dense
-          round
-          :icon="themeIcon"
-          :aria-label="themeLabel"
-          class="theme-toggle"
-          @click="toggleTheme"
-        />
+        <ThemeToggle class="theme-toggle" />
 
         <q-btn
           flat
@@ -83,10 +73,9 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useQuasar } from 'quasar'
 import { useRoute, useRouter } from 'vue-router'
-import ckLogoDark from 'src/assets/svg/logo/ck-logo.svg'
-import ckLogoLight from 'src/assets/svg/logo/ck-logo-light.svg'
+import LogoMark from 'src/components/LogoMark.vue'
+import ThemeToggle from 'src/components/ThemeToggle.vue'
 
-const THEME_STORAGE_KEY = 'ckohl-portfolio-theme'
 const HEADER_SCROLL_OFFSET = 84
 const DRAWER_CLOSE_SCROLL_DELAY = 280
 const SECTION_WAIT_TIMEOUT = 1000
@@ -108,11 +97,6 @@ const homeSectionIds = navigationItems.map((item) => item.id).filter(Boolean)
 const rightDrawerOpen = ref(false)
 const activeSectionId = ref('')
 const isDarkMode = computed(() => $q.dark.isActive)
-const siteLogo = computed(() => (isDarkMode.value ? ckLogoDark : ckLogoLight))
-const themeIcon = computed(() => (isDarkMode.value ? 'light_mode' : 'dark_mode'))
-const themeLabel = computed(() => (isDarkMode.value ? 'Use light theme' : 'Use dark theme'))
-
-restoreThemePreference()
 
 onMounted(() => {
   updateActiveSection()
@@ -135,21 +119,6 @@ watch(
 
 function toggleRightDrawer() {
   rightDrawerOpen.value = !rightDrawerOpen.value
-}
-
-function toggleTheme() {
-  const nextIsDarkMode = !isDarkMode.value
-
-  $q.dark.set(nextIsDarkMode)
-  localStorage.setItem(THEME_STORAGE_KEY, nextIsDarkMode ? 'dark' : 'light')
-}
-
-function restoreThemePreference() {
-  const storedTheme = localStorage.getItem(THEME_STORAGE_KEY)
-
-  if (storedTheme === 'dark' || storedTheme === 'light') {
-    $q.dark.set(storedTheme === 'dark')
-  }
 }
 
 async function handleNavigation(item) {
@@ -274,17 +243,6 @@ function updateActiveSection() {
   align-items: center;
 }
 
-.site-logo-link {
-  display: inline-flex;
-  align-items: center;
-}
-
-.site-logo {
-  display: block;
-  width: 82px;
-  height: auto;
-}
-
 .desktop-nav {
   display: flex;
   align-items: center;
@@ -401,10 +359,6 @@ function updateActiveSection() {
   .site-toolbar {
     min-height: 62px;
     width: min(100% - 48px, 1120px);
-  }
-
-  .site-logo {
-    width: 72px;
   }
 
   .desktop-nav {
