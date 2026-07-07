@@ -29,7 +29,7 @@ const routes = [
       },
       {
         path: 'case-studies/obsidian-brain',
-        redirect: '/case-studies',
+        component: () => import('pages/ObsidianBrainCaseStudy.vue'),
       },
     ],
   },
