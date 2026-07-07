@@ -27,6 +27,10 @@ const routes = [
         path: 'case-studies/garden-planning',
         component: () => import('pages/GardenPlanningCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/obsidian-brain',
+        redirect: '/case-studies',
+      },
     ],
   },
 
