@@ -43,8 +43,16 @@ export const caseStudies = [
     title: 'Obsidian Brain knowledge system',
     category: 'Knowledge Systems',
     summary:
-      'A case study placeholder for the Obsidian Brain personal knowledge system, note architecture, and portfolio content workflow.',
+      'How an Obsidian-based knowledge system organizes project context, career content, navigation guidelines, and dashboard-driven planning.',
     technologies: ['Obsidian', 'Markdown', 'Knowledge management', 'Content workflow'],
     path: '/case-studies/obsidian-brain',
+  },
+  {
+    title: 'ckohl.com shared backend',
+    category: 'Internal Platform',
+    summary:
+      'How a shared Laravel backend supports ckohl.com as internal platform infrastructure without becoming a public SaaS product.',
+    technologies: ['Laravel', 'PHP', 'API design', 'Internal platform'],
+    path: '/case-studies/shared-backend',
   },
 ]
