@@ -31,6 +31,10 @@ const routes = [
         path: 'case-studies/obsidian-brain',
         component: () => import('pages/ObsidianBrainCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/shared-backend',
+        component: () => import('pages/SharedBackendCaseStudy.vue'),
+      },
     ],
   },
 
