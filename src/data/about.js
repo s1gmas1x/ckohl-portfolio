@@ -2,11 +2,11 @@ export const aboutHero = {
   eyebrow: 'About',
   name: 'Chad Kohl',
   title: 'Software Developer / Cloud Support Engineer',
-  headline: 'Curiosity, problem solving, and building things that make sense.',
+  headline: 'I keep coming back to the same question: how does this system work, and why is it acting like that?',
   intro:
-    "I'm Chad Kohl, a software developer, cloud support engineer, and lifelong technology enthusiast based in Colorado.",
+    "I'm Chad Kohl, a software developer and former Azure App Service support engineer based in Colorado.",
   summary:
-    'I enjoy understanding how systems work, whether that system is a web application, a cloud platform, a loaf of bread, or a vegetable garden.',
+    'That question has followed me from DOS and restaurant rushes to Azure support cases, bread formulas, garden planning, and Laravel/Vue apps.',
 }
 
 export const aboutStorySections = [
@@ -52,25 +52,25 @@ export const experienceHighlights = [
   {
     title: 'Azure App Services support',
     description:
-      'Investigated application performance, configuration issues, and complex cloud behavior while supporting Microsoft Azure customers and engineers.',
+      'Worked cases where customers had a broken app and a reasonable suspicion that Azure was the problem, then followed the evidence without making the situation worse.',
     icon: 'cloud_queue',
   },
   {
     title: 'Technical communication',
     description:
-      'Built experience explaining complex technical problems clearly to people with different levels of technical background.',
+      'Explains what the evidence shows, what is still unknown, and the next real step without hiding behind support-script language.',
     icon: 'forum',
   },
   {
     title: 'Operations leadership',
     description:
-      'Managed restaurant operations, trained employees, and learned how to solve practical problems under real constraints.',
+      'Spent years running restaurant shifts, training people, and de-escalating problems while the clock was loud and customers were waiting.',
     icon: 'groups',
   },
   {
     title: 'Product-minded development',
     description:
-      'Builds software around real workflows, using projects like KitchenRatio and the Garden Planning App to turn everyday problems into useful tools.',
+      'Builds tools around workflows he has actually dealt with: baker\'s math, gardens, career documents, and portfolio infrastructure.',
     icon: 'construction',
   },
 ]
@@ -84,7 +84,7 @@ export const aboutTimeline = [
   {
     title: "Fargo's Pizza Company",
     subtitle: 'Operations and management',
-    body: 'Spent nearly two decades learning leadership, training, operations, and practical problem solving.',
+    body: 'Spent nearly two decades learning how to keep busy shifts moving, train people, and solve problems with customers waiting.',
   },
   {
     title: 'Creative web experiments',
@@ -120,4 +120,4 @@ export const interests = [
 ]
 
 export const closingThought =
-  'Whether troubleshooting an Azure application, building a Laravel project, growing vegetables, cultivating mushrooms, or refining a bread recipe, I usually come back to the same question: how does this system work, and how can I make it better?'
+  'Whether it is an Azure app, a Laravel project, a loaf of bread, or a row of vegetables, I usually come back to the same question: how does this system work, and why is it acting like that?'

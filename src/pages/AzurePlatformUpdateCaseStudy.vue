@@ -8,8 +8,8 @@
           <p class="eyebrow">{{ caseStudy.category }}</p>
           <h1>{{ caseStudy.title }}</h1>
           <p>
-            An anonymized Azure App Service investigation into production application
-            performance degradation that appeared shortly after a platform update.
+            A production app slowed down soon after a reported platform update. The work
+            was to check that timing without pretending timing alone proved the cause.
           </p>
         </div>
 
@@ -20,7 +20,7 @@
           />
           <CaseStudySummaryCard
             label="Method"
-            value="Telemetry review, platform analysis, and controlled infrastructure change"
+            value="Telemetry review, platform comparison, and one controlled infrastructure move"
           />
           <CaseStudySummaryCard
             label="Outcome"
@@ -115,22 +115,21 @@ const toolsUsed = [
   'Azure App Service diagnostics',
   'App Service platform telemetry',
   'Instance Allocations',
-  'Performance analysis techniques',
+  'Symptom and timing comparison',
 ]
 
 const investigationFocus = [
-  'Reviewed available telemetry and diagnostics',
-  'Analyzed platform information',
+  'Compared symptoms with available platform data',
+  'Checked whether timing matched the reported platform change',
   'Investigated instance allocation data',
-  'Evaluated correlation between symptoms and platform changes',
-  'Considered the underlying infrastructure hosting environment',
+  'Used a controlled move to test whether behavior changed with the hosting environment',
 ]
 
 const lessonsLearned = [
   'Correlation does not automatically establish causation',
-  'Infrastructure changes can be useful diagnostic tools',
-  'Platform telemetry can provide valuable evidence',
-  'Controlled changes can help isolate complex issues',
+  'A controlled infrastructure move can be a useful test',
+  'Platform telemetry is useful when it is tied back to observed symptoms',
+  'Do not overstate the conclusion when the evidence only narrows the field',
 ]
 
 const narrativeSections = [
@@ -139,22 +138,22 @@ const narrativeSections = [
     title: 'Performance degradation after a reported platform update',
     paragraphs: [
       'A customer reported performance degradation in a production web application hosted on Azure App Service.',
-      'The customer observed that the issue appeared shortly after a platform update and suspected the platform update was responsible.',
+      'The timing made the platform update a reasonable suspect. It was not enough, by itself, to prove that the update caused the slowdown.',
     ],
   },
   {
     eyebrow: 'Investigation',
     title: 'Evaluate correlation before assigning cause',
     paragraphs: [
-      'The investigation reviewed available telemetry and diagnostics, analyzed platform information, and inspected instance allocation data.',
-      'The goal was to evaluate whether the reported symptoms correlated with platform changes while also considering whether the workload might be affected by the underlying infrastructure hosting environment.',
+      'The investigation reviewed available diagnostics, platform information, and instance allocation data.',
+      'The goal was to compare the customer\'s symptoms with platform signals while keeping another possibility open: the workload might be affected by the specific hosting environment underneath it.',
     ],
   },
   {
     eyebrow: 'Hypothesis',
     title: 'Use movement across infrastructure as a diagnostic signal',
     paragraphs: [
-      'The working hypothesis was intentionally limited: if the issue was related to the underlying hosting environment rather than application code, moving the workload to a different App Service stamp could provide useful evidence.',
+      'The working hypothesis was intentionally limited: if the issue was related to the underlying hosting environment rather than application code, moving the workload to a different App Service stamp could give the investigation a useful signal.',
       'This did not assume a definitive root cause. It created a controlled change that could help isolate whether the behavior followed the application or changed with the hosting environment.',
     ],
   },
@@ -171,7 +170,7 @@ const narrativeSections = [
     title: 'Narrow the scope with evidence',
     paragraphs: [
       'The investigation provided evidence that the issue was associated with the hosting environment rather than the application itself.',
-      'The troubleshooting process helped narrow the scope of the problem and guided next steps through observed behavior, platform telemetry, and a controlled infrastructure change.',
+      'The useful part was not a dramatic root-cause claim. It was a narrower problem space built from observed behavior, platform telemetry, and one controlled change.',
     ],
   },
   {
@@ -179,7 +178,7 @@ const narrativeSections = [
     title: 'Controlled changes help isolate complex platform issues',
     paragraphs: [
       'This case reinforced that correlation does not automatically establish causation, especially when symptoms appear near a platform event.',
-      'It also showed how platform telemetry and controlled infrastructure changes can provide evidence when troubleshooting complex production performance issues.',
+      'It also showed how a small, controlled infrastructure change can make a messy production issue less vague.',
     ],
   },
 ]

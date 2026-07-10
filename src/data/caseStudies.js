@@ -3,7 +3,7 @@ export const caseStudies = [
     title: 'KitchenRatio formula scaling',
     category: 'Product Engineering',
     summary:
-      "How KitchenRatio turns baker's percentages, hydration math, and formula scaling into a clearer product workflow.",
+      "How a bread-baking break habit turned repeated baker's percentage math into a focused formula scaling tool.",
     technologies: ['Vue 3', 'Vite', 'Pinia', 'VitePress', 'Netlify', 'Cloudflare'],
     path: '/case-studies/kitchenratio',
   },
@@ -11,7 +11,7 @@ export const caseStudies = [
     title: 'Azure App Service SQL failover troubleshooting',
     category: 'Debugging',
     summary:
-      'An anonymized debugging case study on reproducing SQL reconnect delays after failover and narrowing the responsible layer.',
+      'An anonymized support case about reproducing SQL reconnect delays after failover and separating app, database, and platform behavior.',
     technologies: ['Azure App Service', 'ASP.NET Framework 4.8', 'SQL Server', 'SQL mirroring'],
     path: '/case-studies/azure-troubleshooting',
   },
@@ -19,7 +19,7 @@ export const caseStudies = [
     title: 'Azure App Service platform update investigation',
     category: 'Platform Diagnostics',
     summary:
-      'An anonymized investigation into production performance changes using platform telemetry and controlled infrastructure updates.',
+      'How production performance changes were narrowed by comparing customer symptoms, platform telemetry, and a controlled infrastructure move.',
     technologies: ['Azure App Service', 'Platform telemetry', 'Instance Allocations', 'Performance analysis'],
     path: '/case-studies/azure-platform-update',
   },
@@ -27,8 +27,8 @@ export const caseStudies = [
     title: 'Azure App Service performance investigation',
     category: 'Performance Diagnostics',
     summary:
-      'A diagnostics-focused case study using App Lens, telemetry, resource signals, and logs to isolate performance issues.',
-    technologies: ['Azure App Service', 'App Lens', 'Performance telemetry', 'Diagnostic logs'],
+      "How Azure's built-in App Service diagnostics, logs, and resource signals helped sort slow apps from platform assumptions.",
+    technologies: ['Azure App Service', 'App Service diagnostics', 'Performance telemetry', 'Diagnostic logs'],
     path: '/case-studies/azure-performance',
   },
   {
