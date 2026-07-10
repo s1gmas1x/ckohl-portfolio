@@ -35,6 +35,10 @@ const routes = [
         path: 'case-studies/shared-backend',
         component: () => import('pages/SharedBackendCaseStudy.vue'),
       },
+      {
+        path: 'case-studies/careerdocs',
+        component: () => import('pages/CareerDocsCaseStudy.vue'),
+      },
     ],
   },
 

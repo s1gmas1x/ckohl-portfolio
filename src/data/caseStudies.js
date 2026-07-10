@@ -55,4 +55,12 @@ export const caseStudies = [
     technologies: ['Laravel', 'PHP', 'API design', 'Internal platform'],
     path: '/case-studies/shared-backend',
   },
+  {
+    title: 'CareerDocs document pipeline',
+    category: 'Document Workflow',
+    summary:
+      'How a Markdown source-of-truth workflow feeds CareerDocs rendering and export without promising automated hiring outcomes.',
+    technologies: ['Markdown', 'CareerDocs', 'Vue 3', 'Quasar'],
+    path: '/case-studies/careerdocs',
+  },
 ]
