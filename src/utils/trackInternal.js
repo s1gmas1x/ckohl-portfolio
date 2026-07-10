@@ -1,4 +1,8 @@
 export async function trackInternal(eventType, eventLabel = null) {
+  if (typeof window === 'undefined' || typeof fetch !== 'function') {
+    return null
+  }
+
   return fetch('https://api.ckohl.com/api/page-visits', {
     method: 'POST',
     headers: {

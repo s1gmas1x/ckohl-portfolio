@@ -48,6 +48,7 @@ export default defineRouter((/* { store, ssrContext } */) => {
     }
 
     if (consent === 'declined') {
+      // Fire-and-forget so static pages never depend on the shared backend.
       trackInternal('pageview', to.name ?? to.path).catch((error) => {
         console.error('Failed to track internal pageview:', error)
       })
