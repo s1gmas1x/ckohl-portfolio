@@ -21,7 +21,7 @@
           />
           <CaseStudySummaryCard
             label="Focus"
-            value="Reproduction testing, comparative analysis, and platform isolation"
+            value="Reproducing the delay and separating hosting behavior from app and database behavior"
           />
           <CaseStudySummaryCard
             label="Outcome"
@@ -120,21 +120,21 @@ const environment = [
 const toolsAndTechniques = [
   'Azure App Service diagnostics',
   'Reproduction testing',
-  'Platform analysis',
-  'Comparative testing between environments',
+  'Hosting environment comparison',
+  'Application and database behavior review',
 ]
 
 const findings = [
-  'The behavior was reproducible',
-  'The delay was not caused by Azure App Service itself',
-  'Evidence supported further investigation outside the App Service platform',
+  'The delay could be reproduced consistently',
+  'The App Service platform was not the source of the delay',
+  'The next investigation needed to focus outside the hosting platform',
 ]
 
 const lessonsLearned = [
-  'Importance of reproduction testing',
-  'Importance of comparative testing',
-  'Avoiding assumptions during troubleshooting',
-  'Using evidence to isolate root cause',
+  'Reproduce the behavior before debating the cause',
+  'Compare environments carefully when the same app behaves differently',
+  'Keep platform, app, and database assumptions separate until the data catches up',
+  'Document what was ruled out so the next step is not guesswork',
 ]
 
 const narrativeSections = [
@@ -148,42 +148,42 @@ const narrativeSections = [
   },
   {
     eyebrow: 'Hypothesis',
-    title: 'Separate platform behavior from application and database behavior',
+    title: 'Do not blame the host just because the symptom appears there',
     paragraphs: [
-      'The investigation started with a deliberately narrow question: was Azure App Service introducing the reconnect delay, or was the difference caused by behavior elsewhere in the application, database, or failover path?',
-      'That hypothesis required comparing environments, reproducing the behavior, and avoiding assumptions based only on where the symptom appeared.',
+      'The investigation started with a deliberately narrow question: was Azure App Service introducing the reconnect delay, or was the difference coming from the application, database, client connection behavior, or failover path?',
+      'That required comparing environments and reproducing the behavior instead of assigning cause based only on where the symptom was easiest to see.',
     ],
   },
   {
     eyebrow: 'Investigation',
     title: 'Build a reproducible comparison',
     paragraphs: [
-      'The troubleshooting process included reviewing the application architecture, comparing behavior between Azure App Service and VM environments, and working with engineering resources to create a reproducible test environment.',
-      'Reproduction testing made it possible to observe the behavior consistently instead of relying on isolated reports. Comparative testing provided a way to evaluate what differed between hosting environments.',
+      'The troubleshooting process included reviewing the application architecture, comparing App Service and VM behavior, and working with engineering resources to create a repeatable test environment.',
+      'That made it possible to watch the delay happen on demand. The comparison showed what changed between hosting environments and what stayed tied to the application and database path.',
     ],
   },
   {
     eyebrow: 'Resolution',
     title: 'Narrow the platform boundary with evidence',
     paragraphs: [
-      'The issue was reproduced consistently, but the investigation demonstrated that Azure App Service itself was not the cause of the long reconnect behavior.',
-      'That finding shifted the troubleshooting path away from App Service remediation and toward further investigation outside the App Service platform.',
+      'The issue was reproduced consistently, but the investigation showed that Azure App Service itself was not causing the long reconnect behavior.',
+      'That shifted the work away from changing the hosting platform and toward the parts of the stack that still matched the evidence.',
     ],
   },
   {
     eyebrow: 'Outcome',
     title: 'Clarify responsibility and avoid unnecessary remediation',
     paragraphs: [
-      'The investigation provided clarity about platform responsibility and helped prevent unnecessary platform-focused remediation efforts.',
-      'The main value was diagnostic: the work narrowed the issue, documented the evidence, and gave the customer a clearer path for continued investigation.',
+      'The investigation clarified platform responsibility and helped prevent unnecessary App Service remediation.',
+      'The main value was practical: the work narrowed the issue, documented the evidence, and gave the customer a better next place to look.',
     ],
   },
   {
     eyebrow: 'Lessons Learned',
-    title: 'Use evidence before assigning cause',
+    title: 'Make the evidence carry the conclusion',
     paragraphs: [
       'This scenario reinforced the importance of reproduction testing and comparative testing when symptoms differ across environments.',
-      'It also showed why effective troubleshooting depends on resisting early assumptions and using evidence to isolate where a root cause is most likely to live.',
+      'It also showed why good support work depends on resisting early assumptions and being clear about what the evidence does and does not prove.',
     ],
   },
 ]

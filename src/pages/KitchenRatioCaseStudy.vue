@@ -8,8 +8,8 @@
           <p class="eyebrow">{{ caseStudy.category }}</p>
           <h1>{{ caseStudy.title }}</h1>
           <p>
-            KitchenRatio is a baking and recipe scaling platform focused on baker's
-            percentages and dough hydration calculations.
+            KitchenRatio started because I was baking bread during Azure support breaks
+            and got tired of doing the same formula math over and over.
           </p>
 
           <div class="hero-actions">
@@ -181,17 +181,17 @@ const engineeringChallenges = [
 const narrativeSections = [
   {
     eyebrow: 'Problem',
-    title: 'Making baker\'s math easier to understand',
+    title: "I needed ingredient weights, not another baking lecture",
     paragraphs: [
-      "KitchenRatio addresses a practical challenge for bakers: baker's percentages and hydration calculations are powerful, but they can be hard to apply consistently when scaling recipes or learning dough formulas.",
-      'The platform needed to support accurate calculation workflows while also making the underlying concepts approachable through educational baking content.',
+      "Baker's percentages and hydration math are useful, but when I was trying to fit bread into a support shift, I needed the numbers quickly. I did not have time to read a whole blog post or watch a video just to get ingredient weights.",
+      'The tool needed to handle the math accurately while still explaining enough of the concept that a baker could understand what changed when a formula scaled.',
     ],
   },
   {
     eyebrow: 'Solution',
-    title: 'A focused calculator and learning platform',
+    title: 'Turn repeated formula math into a tool',
     paragraphs: [
-      'The solution centers on recipe scaling, hydration percentages, and clear calculator flows for common baking decisions. Planned saved recipes extend that workflow by giving bakers a path to return to formulas over time.',
+      'The solution centers on recipe scaling, hydration percentages, and clear calculator flows for the decisions bakers repeat over and over. Planned saved recipes extend that workflow by giving bakers a path to return to formulas over time.',
       'VitePress supports the documentation and guide experience, while the Vue 3 application provides the interactive calculator interface.',
     ],
   },

@@ -7,10 +7,11 @@
             <q-icon name="code" size="14px" aria-hidden="true" />
             <span>Full-stack Developer</span>
           </p>
-          <h1>Building focused web tools with practical, reliable foundations.</h1>
+          <h1>Useful tools for messy workflows.</h1>
           <p class="hero-summary">
-            I am Chad Kohl, a developer who turns everyday workflows into useful web applications,
-            from Vue and Quasar interfaces to Laravel backends and database-driven features.
+            I am Chad Kohl. I build Vue, Quasar, and Laravel tools around workflows I have
+            actually had to deal with: baker's math, garden planning, Azure support
+            investigations, and the backend pieces that keep ckohl.com running.
           </p>
 
           <div class="hero-actions">
@@ -58,7 +59,7 @@
         <SectionHeader
           eyebrow="Projects"
           title="Selected projects"
-          description="Small, practical applications built around real workflows, clear interfaces, and maintainable application code."
+          description="Applications built around real workflows: scaling dough, planning gardens, mapping weather, and keeping backend details out of the user's way."
         >
           <template #action>
             <q-btn
@@ -88,7 +89,7 @@
         <SectionHeader
           eyebrow="Case Studies"
           title="Engineering case studies"
-          description="Short writeups on product decisions, debugging work, and the technical reasoning behind selected projects."
+          description="What broke, what the evidence showed, and how the project changed after the work was done."
         >
           <template #action>
             <q-btn
@@ -156,7 +157,7 @@
         <SectionHeader
           eyebrow="Skills"
           title="Skills & technologies"
-          description="Frontend implementation, Laravel-backed application structure, diagnostics, and steady delivery across modern web projects."
+          description="Vue and Quasar interfaces, Laravel APIs, Azure troubleshooting, and the habit of checking logs before guessing."
         />
 
         <div class="skill-groups">
@@ -255,11 +256,11 @@ useMeta(
   createPageMeta({
     title: 'Chad Kohl | Full Stack Developer in Colorado Springs',
     description:
-      'Chad Kohl is a full stack developer in Colorado Springs building practical web applications, case studies, and maintainable software with Vue, Quasar, Laravel, and cloud workflows.',
+      'Chad Kohl is a full stack developer in Colorado Springs building Vue, Quasar, and Laravel tools for recipes, gardens, support cases, and ckohl.com infrastructure.',
     path: '/',
     socialTitle: 'Chad Kohl | Full Stack Developer | Colorado Springs, CO',
     socialDescription:
-      'Explore Chad Kohl’s portfolio of practical web applications, engineering case studies, and CK-branded product work.',
+      'Explore Chad Kohl’s portfolio of Vue, Quasar, Laravel, Azure troubleshooting, and practical workflow projects.',
   })
 )
 
@@ -280,11 +281,11 @@ const codeLines = [
   },
   {
     number: 4,
-    html: '  <span class="code-property">focus</span>: [<span class="code-string">"Web Apps"</span>, <span class="code-string">"APIs"</span>, <span class="code-string">"UI/UX"</span>],',
+    html: '  <span class="code-property">focus</span>: [<span class="code-string">"Vue Apps"</span>, <span class="code-string">"Laravel APIs"</span>, <span class="code-string">"Diagnostics"</span>],',
   },
   {
     number: 5,
-    html: '  <span class="code-property">passion</span>: <span class="code-string">"Building solutions that make a difference"</span>,',
+    html: '  <span class="code-property">rule</span>: <span class="code-string">"Logs before guesses"</span>,',
   },
   {
     number: 6,
@@ -294,11 +295,11 @@ const codeLines = [
   { number: 8, html: '' },
   {
     number: 9,
-    html: '<span class="code-keyword">function</span> <span class="code-function">buildSomethingGreat</span>() {',
+    html: '<span class="code-keyword">function</span> <span class="code-function">traceTheProblem</span>() {',
   },
   {
     number: 10,
-    html: `  <span class="code-keyword">return</span> <span class="code-string">"Let's work together"</span>;`,
+    html: `  <span class="code-keyword">return</span> <span class="code-string">"Find the part that is actually broken"</span>;`,
   },
   { number: 11, html: '}' },
 ]

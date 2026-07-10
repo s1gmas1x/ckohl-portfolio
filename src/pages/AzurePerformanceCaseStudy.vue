@@ -8,8 +8,9 @@
           <p class="eyebrow">{{ caseStudy.category }}</p>
           <h1>{{ caseStudy.title }}</h1>
           <p>
-            An anonymized Azure App Service performance investigation case study focused
-            on evidence-based diagnostics for production web applications.
+            Customers often came in with a slow production app and a reasonable belief
+            that Azure was the problem. Sometimes it was. Sometimes the evidence pointed
+            somewhere else.
           </p>
         </div>
 
@@ -24,7 +25,7 @@
           />
           <CaseStudySummaryCard
             label="Focus"
-            value="Use telemetry and diagnostics to narrow possible causes"
+            value="Use logs, resource signals, and App Service diagnostics to narrow possible causes"
           />
         </div>
       </div>
@@ -123,7 +124,7 @@ const reportedSymptoms = [
 
 const toolsUsed = [
   'Azure App Service',
-  'App Lens',
+  'App Service diagnostics, including App Lens',
   'Performance telemetry',
   'Memory analysis',
   'Diagnostic logs',
@@ -131,59 +132,59 @@ const toolsUsed = [
 
 const lessonsLearned = [
   'Performance issues rarely have a single obvious cause',
-  'Telemetry is critical for diagnosis',
-  'Evidence should drive conclusions',
+  'Logs and resource signals are better than assumptions',
+  'Conclusions should say what the data actually supports',
   'Eliminating possibilities is often as valuable as confirming them',
-  'Structured troubleshooting reduces time to resolution',
+  'A clear next step matters more than a confident guess',
 ]
 
 const narrativeSections = [
   {
     eyebrow: 'Problem',
-    title: 'Production performance issues across App Service workloads',
+    title: 'Slow apps do not come with a label on the broken part',
     paragraphs: [
       'Customers reported Azure App Service performance issues including slow response times, intermittent latency, and performance degradation under load.',
-      'The investigation needed to avoid assuming a single cause and instead determine whether the symptoms were more likely connected to application code, infrastructure, resource constraints, or external dependencies.',
+      'The investigation needed to determine whether the symptoms were more likely connected to application code, infrastructure, resource constraints, or external dependencies without treating any one layer as guilty by default.',
     ],
   },
   {
     eyebrow: 'Investigation',
     title: 'Separate possible sources of latency',
     paragraphs: [
-      'The investigation process focused on identifying where the issue might originate. That meant evaluating application behavior, infrastructure signals, resource usage, and dependency patterns together instead of treating any one layer as the presumed cause.',
-      'This approach helped keep the troubleshooting process structured while preserving room for multiple possible explanations.',
+      'The investigation process focused on identifying where the issue might originate. That meant evaluating application behavior, infrastructure signals, resource usage, and dependency patterns together.',
+      'That kept the conversation grounded in observed behavior instead of the loudest theory in the room.',
     ],
   },
   {
     eyebrow: 'Diagnostic Approach',
     title: 'Use telemetry to narrow the field',
     paragraphs: [
-      'Typical techniques included reviewing App Lens diagnostics, analyzing performance telemetry, reviewing memory and CPU usage, evaluating application behavior patterns, and comparing platform metrics with reported symptoms.',
-      'The goal was to let evidence narrow the possible causes. In many cases, eliminating unlikely causes was as important as confirming a likely one.',
+      "Typical techniques included reviewing Azure's App Service diagnostics, including App Lens, analyzing performance telemetry, reviewing memory and CPU usage, evaluating application behavior patterns, and comparing platform metrics with reported symptoms.",
+      'The goal was to let the evidence narrow the possible causes. In many cases, ruling out unlikely causes was as useful as confirming a likely one.',
     ],
   },
   {
     eyebrow: 'Findings',
-    title: 'Establish evidence-based conclusions',
+    title: 'Say what the data actually supports',
     paragraphs: [
-      'The primary value of the investigation was establishing evidence-based conclusions and narrowing the scope of potential causes.',
-      'The troubleshooting process focused on identifying actionable next steps rather than making assumptions or claiming root causes that had not been definitively proven.',
+      'The primary value of the investigation was narrowing the scope of potential causes and being honest about what had actually been shown.',
+      'The work focused on giving customers a concrete next step instead of claiming a root cause that had not been proven.',
     ],
   },
   {
     eyebrow: 'Outcome',
     title: 'Guide future remediation efforts',
     paragraphs: [
-      'The investigations helped customers better understand the likely source of performance issues and guided future remediation efforts.',
-      'The outcome was a clearer diagnostic picture: what evidence supported, what had been ruled out, and where follow-up work should focus.',
+      'The investigations helped customers better understand the likely source of performance issues and where remediation work should focus.',
+      'The outcome was a clearer picture: what the evidence supported, what had been ruled out, and what still needed follow-up.',
     ],
   },
   {
     eyebrow: 'Lessons Learned',
-    title: 'Structured troubleshooting improves clarity',
+    title: 'Clarity comes from ruling things in and out',
     paragraphs: [
       'Performance issues rarely have a single obvious cause, especially in production systems where application behavior, hosting infrastructure, resource usage, and dependencies interact.',
-      'Telemetry, diagnostic logs, and structured elimination helped drive conclusions while avoiding unsupported claims.',
+      'Telemetry, diagnostic logs, and careful elimination helped drive conclusions while avoiding unsupported claims.',
     ],
   },
 ]
