@@ -15,12 +15,27 @@
     </section>
 
     <section class="case-studies-section">
-      <div class="case-studies-inner case-study-card-grid">
-        <CaseStudyCard
-          v-for="caseStudy in caseStudies"
-          :key="caseStudy.title"
-          :case-study="caseStudy"
-        />
+      <div class="case-studies-inner case-study-groups">
+        <section
+          v-for="group in groupedCaseStudies"
+          :key="group.title"
+          class="case-study-group"
+          :aria-labelledby="group.headingId"
+        >
+          <div class="case-study-group__header">
+            <p>{{ group.eyebrow }}</p>
+            <h2 :id="group.headingId">{{ group.title }}</h2>
+            <span>{{ group.description }}</span>
+          </div>
+
+          <div class="case-study-card-grid">
+            <CaseStudyCard
+              v-for="caseStudy in group.caseStudies"
+              :key="caseStudy.title"
+              :case-study="caseStudy"
+            />
+          </div>
+        </section>
       </div>
     </section>
   </q-page>
@@ -33,6 +48,44 @@ import PageBackLink from 'src/components/PageBackLink.vue'
 import SectionHeader from 'src/components/SectionHeader.vue'
 import { caseStudies } from 'src/data/caseStudies.js'
 import { createPageMeta } from 'src/utils/seo.js'
+
+const caseStudyGroupDefinitions = [
+  {
+    title: 'Product and application work',
+    headingId: 'product-application-work',
+    eyebrow: 'Build',
+    description: 'Tools, applications, and platform pieces shaped around real workflows.',
+    paths: [
+      '/case-studies/kitchenratio',
+      '/case-studies/garden-planning',
+      '/case-studies/shared-backend',
+    ],
+  },
+  {
+    title: 'Cloud diagnostics',
+    headingId: 'cloud-diagnostics',
+    eyebrow: 'Investigate',
+    description: 'Azure support case studies focused on symptoms, evidence, and narrowing causes.',
+    paths: [
+      '/case-studies/azure-troubleshooting',
+      '/case-studies/azure-platform-update',
+      '/case-studies/azure-performance',
+    ],
+  },
+  {
+    title: 'Knowledge and document systems',
+    headingId: 'knowledge-document-systems',
+    eyebrow: 'Organize',
+    description: 'Workflows for turning notes, career material, and project context into useful outputs.',
+    paths: ['/case-studies/obsidian-brain', '/case-studies/careerdocs'],
+  },
+]
+
+const caseStudyByPath = new Map(caseStudies.map((caseStudy) => [caseStudy.path, caseStudy]))
+const groupedCaseStudies = caseStudyGroupDefinitions.map((group) => ({
+  ...group,
+  caseStudies: group.paths.map((path) => caseStudyByPath.get(path)).filter(Boolean),
+}))
 
 useMeta(
   createPageMeta({
@@ -73,6 +126,53 @@ body.body--dark .case-studies-hero {
   padding: 52px 0 64px;
 }
 
+.case-study-groups,
+.case-study-group {
+  display: grid;
+}
+
+.case-study-groups {
+  gap: 56px;
+}
+
+.case-study-group {
+  gap: 20px;
+}
+
+.case-study-group__header {
+  display: grid;
+  max-width: 760px;
+  gap: 8px;
+}
+
+.case-study-group__header p,
+.case-study-group__header h2,
+.case-study-group__header span {
+  margin: 0;
+}
+
+.case-study-group__header p {
+  color: var(--ck-link);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.case-study-group__header h2 {
+  color: var(--ck-text-strong);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+.case-study-group__header span {
+  color: var(--ck-text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
 .case-study-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -97,6 +197,14 @@ body.body--dark .case-studies-hero {
 
   .case-studies-section {
     padding: 38px 0 48px;
+  }
+
+  .case-study-groups {
+    gap: 44px;
+  }
+
+  .case-study-group__header h2 {
+    font-size: 1.35rem;
   }
 
   .case-study-card-grid {
