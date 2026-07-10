@@ -2,11 +2,11 @@ export const aboutHero = {
   eyebrow: 'About',
   name: 'Chad Kohl',
   title: 'Software Developer / Cloud Support Engineer',
-  headline: 'I keep coming back to the same question: how does this system work, and why is it acting like that?',
+  headline: 'How does this system work, and why is it acting like that?',
   intro:
     "I'm Chad Kohl, a software developer and former Azure App Service support engineer based in Colorado.",
   summary:
-    'That question has followed me from DOS and restaurant rushes to Azure support cases, bread formulas, garden planning, and Laravel/Vue apps.',
+    'That question followed me from DOS and restaurant rushes to Azure support cases, bread formulas, garden planning, and Laravel/Vue apps.',
 }
 
 export const aboutStorySections = [
@@ -23,7 +23,7 @@ export const aboutStorySections = [
     eyebrow: 'Leadership and creativity',
     title: 'Learning to solve problems with people',
     paragraphs: [
-      "Before working in technology professionally, I spent nearly two decades with Fargo's Pizza Company. I eventually served in management, helped train employees, oversaw operations, and worked through the constant problem solving that comes with running a busy restaurant.",
+      "Before working in technology professionally, I spent nearly two decades with Fargo's Pizza Company. I eventually served in management, trained employees, oversaw operations, and learned how to keep a busy restaurant moving when several things were going wrong at once.",
       'Outside of work, I spent years in the local electronic music scene as a DJ and producer. I designed flyers, CD covers, and promotional materials with Adobe Photoshop and Illustrator, and experimented with music production tools including Reason, Fruity Loops, the Korg Triton, and Roland MC-303.',
       'When MySpace became popular, I started customizing pages and promoting events online. That was my introduction to HTML, CSS, and early JavaScript. What began as a way to support music and marketing gradually became a fascination with web development itself.',
     ],
@@ -41,9 +41,9 @@ export const aboutStorySections = [
     eyebrow: 'Building software',
     title: 'Practical tools for real workflows',
     paragraphs: [
-      'Today my primary focus is software development. I enjoy building applications with Laravel, Vue, Quasar, cloud technologies, and modern development workflows.',
-      'KitchenRatio grew out of a practical need. While working in Azure support, I often baked bread during breaks to unwind and wanted a faster way to calculate ingredients without repeatedly referencing recipes. What started as a simple utility eventually grew into a larger application and one of my favorite projects.',
-      'More recently, I have embraced AI-assisted development as part of my workflow. I use GitHub issues to define requirements, leverage AI tools to accelerate implementation, and review the resulting code for quality and maintainability. I view AI as a powerful development tool, but one that works best with strong technical foundations and careful engineering judgment.',
+      'Today I build applications with Laravel, Vue, Quasar, and cloud tools, usually around some practical annoyance that kept showing up.',
+      'KitchenRatio grew out of a practical need. While working in Azure support, I often baked bread during breaks and wanted a faster way to calculate ingredients without reopening the same recipes. What started as a simple utility became a larger application and one of my favorite projects.',
+      'I also use AI-assisted development in a fairly deliberate way: GitHub issues for requirements, AI tools for acceleration, and human review for the parts where correctness and judgment still matter.',
     ],
   },
 ]
@@ -58,7 +58,7 @@ export const experienceHighlights = [
   {
     title: 'Technical communication',
     description:
-      'Explains what the evidence shows, what is still unknown, and the next real step without hiding behind support-script language.',
+      'Explains what the evidence shows, what is still unknown, and the next real step without hiding behind ticket language.',
     icon: 'forum',
   },
   {
@@ -70,7 +70,7 @@ export const experienceHighlights = [
   {
     title: 'Product-minded development',
     description:
-      'Builds tools around workflows he has actually dealt with: baker\'s math, gardens, career documents, and portfolio infrastructure.',
+      'Builds tools around problems he has actually had to handle: baker\'s math, gardens, career documents, and portfolio infrastructure.',
     icon: 'construction',
   },
 ]
@@ -99,12 +99,12 @@ export const aboutTimeline = [
   {
     title: 'Azure technical support engineering',
     subtitle: 'Microsoft Azure App Services',
-    body: 'Supported cloud application troubleshooting with a focus on performance, configuration, root cause analysis, and customer communication.',
+    body: 'Supported cloud application troubleshooting across performance, configuration, root cause analysis, and customer communication.',
   },
   {
     title: 'Software development focus',
     subtitle: 'Laravel, Vue, Quasar, and cloud workflows',
-    body: 'Builds practical applications and uses AI-assisted workflows with GitHub issues, code review, and maintainability in mind.',
+    body: 'Builds practical applications with GitHub issues, code review, and AI assistance as part of the development loop.',
   },
 ]
 

@@ -122,7 +122,7 @@ const investigationFocus = [
   'Compared symptoms with available platform data',
   'Checked whether timing matched the reported platform change',
   'Investigated instance allocation data',
-  'Used a controlled move to test whether behavior changed with the hosting environment',
+  'Used a controlled move to see whether behavior changed with the hosting environment',
 ]
 
 const lessonsLearned = [
@@ -146,15 +146,15 @@ const narrativeSections = [
     title: 'Evaluate correlation before assigning cause',
     paragraphs: [
       'The investigation reviewed available diagnostics, platform information, and instance allocation data.',
-      'The goal was to compare the customer\'s symptoms with platform signals while keeping another possibility open: the workload might be affected by the specific hosting environment underneath it.',
+      'The goal was to compare the customer\'s symptoms with platform signals while keeping another possibility open: the workload might be affected by the hosting environment underneath it.',
     ],
   },
   {
     eyebrow: 'Hypothesis',
     title: 'Use movement across infrastructure as a diagnostic signal',
     paragraphs: [
-      'The working hypothesis was intentionally limited: if the issue was related to the underlying hosting environment rather than application code, moving the workload to a different App Service stamp could give the investigation a useful signal.',
-      'This did not assume a definitive root cause. It created a controlled change that could help isolate whether the behavior followed the application or changed with the hosting environment.',
+      'The working hypothesis was limited: if the issue was related to the hosting environment rather than application code, moving the workload to a different App Service stamp could give the investigation a useful signal.',
+      'This did not assume a definitive root cause. It created one controlled change to see whether the behavior followed the application or changed with the host.',
     ],
   },
   {
@@ -170,7 +170,7 @@ const narrativeSections = [
     title: 'Narrow the scope with evidence',
     paragraphs: [
       'The investigation provided evidence that the issue was associated with the hosting environment rather than the application itself.',
-      'The useful part was not a dramatic root-cause claim. It was a narrower problem space built from observed behavior, platform telemetry, and one controlled change.',
+      'The useful part was not a dramatic root-cause claim. It was a smaller problem space built from observed behavior, platform telemetry, and one controlled change.',
     ],
   },
   {
@@ -178,7 +178,7 @@ const narrativeSections = [
     title: 'Controlled changes help isolate complex platform issues',
     paragraphs: [
       'This case reinforced that correlation does not automatically establish causation, especially when symptoms appear near a platform event.',
-      'It also showed how a small, controlled infrastructure change can make a messy production issue less vague.',
+      'It also showed how a small, controlled infrastructure change can make a production issue less vague.',
     ],
   },
 ]

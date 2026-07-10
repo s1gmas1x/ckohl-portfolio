@@ -134,7 +134,7 @@ const lessonsLearned = [
   'Performance issues rarely have a single obvious cause',
   'Logs and resource signals are better than assumptions',
   'Conclusions should say what the data actually supports',
-  'Eliminating possibilities is often as valuable as confirming them',
+  'Ruling things out is often as valuable as confirming them',
   'A clear next step matters more than a confident guess',
 ]
 
@@ -144,14 +144,14 @@ const narrativeSections = [
     title: 'Slow apps do not come with a label on the broken part',
     paragraphs: [
       'Customers reported Azure App Service performance issues including slow response times, intermittent latency, and performance degradation under load.',
-      'The investigation needed to determine whether the symptoms were more likely connected to application code, infrastructure, resource constraints, or external dependencies without treating any one layer as guilty by default.',
+      'The investigation needed to sort application code, infrastructure, resource constraints, and external dependencies without treating any one layer as guilty by default.',
     ],
   },
   {
     eyebrow: 'Investigation',
     title: 'Separate possible sources of latency',
     paragraphs: [
-      'The investigation process focused on identifying where the issue might originate. That meant evaluating application behavior, infrastructure signals, resource usage, and dependency patterns together.',
+      'The work focused on finding where the issue might originate. That meant evaluating application behavior, infrastructure signals, resource usage, and dependency patterns together.',
       'That kept the conversation grounded in observed behavior instead of the loudest theory in the room.',
     ],
   },
@@ -159,7 +159,7 @@ const narrativeSections = [
     eyebrow: 'Diagnostic Approach',
     title: 'Use telemetry to narrow the field',
     paragraphs: [
-      "Typical techniques included reviewing Azure's App Service diagnostics, including App Lens, analyzing performance telemetry, reviewing memory and CPU usage, evaluating application behavior patterns, and comparing platform metrics with reported symptoms.",
+      "Typical techniques included reviewing Azure's App Service diagnostics, including App Lens, checking performance telemetry, reviewing memory and CPU usage, evaluating application behavior patterns, and comparing platform metrics with reported symptoms.",
       'The goal was to let the evidence narrow the possible causes. In many cases, ruling out unlikely causes was as useful as confirming a likely one.',
     ],
   },
@@ -175,7 +175,7 @@ const narrativeSections = [
     eyebrow: 'Outcome',
     title: 'Guide future remediation efforts',
     paragraphs: [
-      'The investigations helped customers better understand the likely source of performance issues and where remediation work should focus.',
+      'The investigations helped customers understand the likely source of performance issues and where remediation work should focus.',
       'The outcome was a clearer picture: what the evidence supported, what had been ruled out, and what still needed follow-up.',
     ],
   },

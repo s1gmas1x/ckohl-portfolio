@@ -3,7 +3,7 @@ export const caseStudies = [
     title: 'KitchenRatio formula scaling',
     category: 'Product Engineering',
     summary:
-      "How a bread-baking break habit turned repeated baker's percentage math into a focused formula scaling tool.",
+      "How baking bread between support cases turned repeated baker's math into a formula scaling tool.",
     technologies: ['Vue 3', 'Vite', 'Pinia', 'VitePress', 'Netlify', 'Cloudflare'],
     path: '/case-studies/kitchenratio',
   },
@@ -11,7 +11,7 @@ export const caseStudies = [
     title: 'Azure App Service SQL failover troubleshooting',
     category: 'Debugging',
     summary:
-      'An anonymized support case about reproducing SQL reconnect delays after failover and separating app, database, and platform behavior.',
+      'An anonymized support case about reproducing SQL reconnect delays after failover and separating hosting, app, and database behavior.',
     technologies: ['Azure App Service', 'ASP.NET Framework 4.8', 'SQL Server', 'SQL mirroring'],
     path: '/case-studies/azure-troubleshooting',
   },
@@ -19,7 +19,7 @@ export const caseStudies = [
     title: 'Azure App Service platform update investigation',
     category: 'Platform Diagnostics',
     summary:
-      'How production performance changes were narrowed by comparing customer symptoms, platform telemetry, and a controlled infrastructure move.',
+      'How a slow production app was narrowed by comparing customer symptoms, platform telemetry, and one controlled infrastructure move.',
     technologies: ['Azure App Service', 'Platform telemetry', 'Instance Allocations', 'Performance analysis'],
     path: '/case-studies/azure-platform-update',
   },
@@ -27,7 +27,7 @@ export const caseStudies = [
     title: 'Azure App Service performance investigation',
     category: 'Performance Diagnostics',
     summary:
-      "How Azure's built-in App Service diagnostics, logs, and resource signals helped sort slow apps from platform assumptions.",
+      "How Azure's built-in App Service diagnostics, logs, and resource signals helped separate slow apps from platform assumptions.",
     technologies: ['Azure App Service', 'App Service diagnostics', 'Performance telemetry', 'Diagnostic logs'],
     path: '/case-studies/azure-performance',
   },
