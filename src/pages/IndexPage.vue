@@ -9,9 +9,9 @@
           </p>
           <h1>Useful tools for messy workflows.</h1>
           <p class="hero-summary">
-            I am Chad Kohl. I build Vue, Quasar, and Laravel tools around workflows I have
-            actually had to deal with: baker's math, garden planning, Azure support
-            investigations, and the backend pieces that keep ckohl.com running.
+            I am Chad Kohl. I build Vue, Quasar, and Laravel tools for problems I have
+            actually had to deal with: bread formulas, garden plans, Azure support cases,
+            and the backend glue behind ckohl.com.
           </p>
 
           <div class="hero-actions">
@@ -59,7 +59,7 @@
         <SectionHeader
           eyebrow="Projects"
           title="Selected projects"
-          description="Applications built around real workflows: scaling dough, planning gardens, mapping weather, and keeping backend details out of the user's way."
+          description="Applications for jobs that are easy to underestimate: scaling dough, planning gardens, mapping weather, and hiding backend plumbing from the user."
         >
           <template #action>
             <q-btn
@@ -89,7 +89,7 @@
         <SectionHeader
           eyebrow="Case Studies"
           title="Engineering case studies"
-          description="What broke, what the evidence showed, and how the project changed after the work was done."
+          description="What was wrong, what the data showed, and what changed after the work was done."
         >
           <template #action>
             <q-btn
@@ -157,7 +157,7 @@
         <SectionHeader
           eyebrow="Skills"
           title="Skills & technologies"
-          description="Vue and Quasar interfaces, Laravel APIs, Azure troubleshooting, and the habit of checking logs before guessing."
+          description="Vue and Quasar interfaces, Laravel APIs, Azure troubleshooting, and the habit of reading logs before guessing."
         />
 
         <div class="skill-groups">
@@ -256,11 +256,11 @@ useMeta(
   createPageMeta({
     title: 'Chad Kohl | Full Stack Developer in Colorado Springs',
     description:
-      'Chad Kohl is a full stack developer in Colorado Springs building Vue, Quasar, and Laravel tools for recipes, gardens, support cases, and ckohl.com infrastructure.',
+      'Chad Kohl is a full stack developer in Colorado Springs building Vue, Quasar, and Laravel tools for recipes, gardens, support cases, and ckohl.com.',
     path: '/',
     socialTitle: 'Chad Kohl | Full Stack Developer | Colorado Springs, CO',
     socialDescription:
-      'Explore Chad Kohl’s portfolio of Vue, Quasar, Laravel, Azure troubleshooting, and practical workflow projects.',
+      'Explore Chad Kohl’s portfolio of Vue, Quasar, Laravel, Azure troubleshooting, and practical software projects.',
   })
 )
 

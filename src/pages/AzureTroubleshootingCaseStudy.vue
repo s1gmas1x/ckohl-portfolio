@@ -133,7 +133,7 @@ const findings = [
 const lessonsLearned = [
   'Reproduce the behavior before debating the cause',
   'Compare environments carefully when the same app behaves differently',
-  'Keep platform, app, and database assumptions separate until the data catches up',
+  'Keep platform, app, and database assumptions separate until the data supports one',
   'Document what was ruled out so the next step is not guesswork',
 ]
 
@@ -150,7 +150,7 @@ const narrativeSections = [
     eyebrow: 'Hypothesis',
     title: 'Do not blame the host just because the symptom appears there',
     paragraphs: [
-      'The investigation started with a deliberately narrow question: was Azure App Service introducing the reconnect delay, or was the difference coming from the application, database, client connection behavior, or failover path?',
+      'The investigation started with one question: was Azure App Service introducing the reconnect delay, or was the difference coming from the application, database, client connection behavior, or failover path?',
       'That required comparing environments and reproducing the behavior instead of assigning cause based only on where the symptom was easiest to see.',
     ],
   },
@@ -158,7 +158,7 @@ const narrativeSections = [
     eyebrow: 'Investigation',
     title: 'Build a reproducible comparison',
     paragraphs: [
-      'The troubleshooting process included reviewing the application architecture, comparing App Service and VM behavior, and working with engineering resources to create a repeatable test environment.',
+      'The work included reviewing the application architecture, comparing App Service and VM behavior, and working with engineering resources to create a repeatable test environment.',
       'That made it possible to watch the delay happen on demand. The comparison showed what changed between hosting environments and what stayed tied to the application and database path.',
     ],
   },
@@ -174,8 +174,8 @@ const narrativeSections = [
     eyebrow: 'Outcome',
     title: 'Clarify responsibility and avoid unnecessary remediation',
     paragraphs: [
-      'The investigation clarified platform responsibility and helped prevent unnecessary App Service remediation.',
-      'The main value was practical: the work narrowed the issue, documented the evidence, and gave the customer a better next place to look.',
+      'The investigation clarified platform responsibility and helped prevent unnecessary App Service changes.',
+      'The main value was practical: the work narrowed the issue, documented the evidence, and gave the customer a better place to look next.',
     ],
   },
   {

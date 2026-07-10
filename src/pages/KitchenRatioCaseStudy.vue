@@ -183,15 +183,15 @@ const narrativeSections = [
     eyebrow: 'Problem',
     title: "I needed ingredient weights, not another baking lecture",
     paragraphs: [
-      "Baker's percentages and hydration math are useful, but when I was trying to fit bread into a support shift, I needed the numbers quickly. I did not have time to read a whole blog post or watch a video just to get ingredient weights.",
-      'The tool needed to handle the math accurately while still explaining enough of the concept that a baker could understand what changed when a formula scaled.',
+      "Baker's percentages and hydration math are useful, but between support cases I needed the numbers quickly. I did not have time to read a whole blog post or watch a video just to get ingredient weights.",
+      'The tool needed to do the math accurately and explain enough that a baker could see what changed when a formula scaled.',
     ],
   },
   {
     eyebrow: 'Solution',
     title: 'Turn repeated formula math into a tool',
     paragraphs: [
-      'The solution centers on recipe scaling, hydration percentages, and clear calculator flows for the decisions bakers repeat over and over. Planned saved recipes extend that workflow by giving bakers a path to return to formulas over time.',
+      'The calculator focuses on recipe scaling, hydration percentages, and the decisions bakers repeat over and over. Planned saved recipes give bakers a path back to formulas they want to reuse.',
       'VitePress supports the documentation and guide experience, while the Vue 3 application provides the interactive calculator interface.',
     ],
   },
@@ -199,7 +199,7 @@ const narrativeSections = [
     eyebrow: 'Implementation',
     title: 'Flexible calculations with responsive delivery',
     paragraphs: [
-      "The engineering work focused on designing a flexible baker's math calculation engine that could support simple recipe scaling and more advanced baking concepts without making the interface feel overly complex.",
+      "The engineering work centered on a baker's math calculation engine that can support simple recipe scaling and more advanced baking concepts without turning the interface into a spreadsheet.",
       'The frontend uses Vue 3, Vite, and Pinia. VitePress supports the educational content experience, Netlify hosts the frontend, and Cloudflare handles DNS and traffic management.',
       'SEO and analytics work included sitemap and robots.txt setup, Open Graph metadata, route-based meta tags, Google Search Console submission, Google Analytics, and search-friendly content structure.',
     ],
@@ -208,7 +208,7 @@ const narrativeSections = [
     eyebrow: 'Lessons Learned',
     title: 'Balance precision with clarity',
     paragraphs: [
-      'KitchenRatio reinforced the importance of pairing accurate domain logic with clear user-facing language. Baking calculations require precision, but the experience also needs to guide users who are still learning the concepts.',
+      'KitchenRatio reinforced the importance of pairing accurate domain logic with plain user-facing language. Baking calculations require precision, but the experience also needs to guide users who are still learning the concepts.',
       'The project also highlighted the value of integrating documentation and calculator experiences so educational content can support the tool rather than live separately from it.',
     ],
   },
