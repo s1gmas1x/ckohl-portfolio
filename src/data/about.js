@@ -14,36 +14,36 @@ export const aboutStorySections = [
     eyebrow: 'Where it started',
     title: 'An old DOS computer and a lasting spark',
     paragraphs: [
-      'My interest in technology began long before the internet became part of everyday life. After my parents divorced, I spent a lot of time with my grandparents. My grandfather worked on the ENIAC project, and his stories helped spark my curiosity about computers at a young age.',
-      'In their home was an old 8086 computer running DOS. There was no internet connection, no mouse, and not much software to explore. After getting bored with the few programs available, I found an MS-DOS tutorial book and started teaching myself how the computer worked.',
-      'I worked through the lessons, learned my way around the command line, and eventually modified AUTOEXEC.BAT to display custom messages when the computer started. It was small, but it was the first time I had made a computer do something because of instructions I had written. That feeling never really went away.',
+      'My first real computer time was at my grandparents\' house, on an old 8086 running DOS. My grandfather had worked on the ENIAC project, so computers already felt less like magic and more like something people could actually understand if they were stubborn enough.',
+      'That machine had no internet, no mouse, and not much to do once the novelty wore off. I found an MS-DOS tutorial book and started working through it because I wanted to know what was underneath the blinking prompt.',
+      'Eventually I modified AUTOEXEC.BAT so the computer printed custom messages when it started. It was tiny, but it mattered: I had made the machine do something because I understood the instructions well enough to change them.',
     ],
   },
   {
     eyebrow: 'Leadership and creativity',
     title: 'Learning to solve problems with people',
     paragraphs: [
-      "Before working in technology professionally, I spent nearly two decades with Fargo's Pizza Company. I eventually served in management, trained employees, oversaw operations, and learned how to keep a busy restaurant moving when several things were going wrong at once.",
-      'Outside of work, I spent years in the local electronic music scene as a DJ and producer. I designed flyers, CD covers, and promotional materials with Adobe Photoshop and Illustrator, and experimented with music production tools including Reason, Fruity Loops, the Korg Triton, and Roland MC-303.',
-      'When MySpace became popular, I started customizing pages and promoting events online. That was my introduction to HTML, CSS, and early JavaScript. What began as a way to support music and marketing gradually became a fascination with web development itself.',
+      "Before technology became my day job, I spent nearly 26 years at Fargo's Pizza Company. Management taught me a kind of debugging that does not happen in a terminal: the oven is backed up, the dining room is full, somebody is angry, and the answer still has to work in real time.",
+      'Outside of work, I was part of the local electronic music scene as a DJ and producer. I designed flyers, CD covers, and promotional material in Photoshop and Illustrator, and spent a lot of time with tools like Reason, Fruity Loops, the Korg Triton, and Roland MC-303.',
+      'MySpace pulled those threads together. I started customizing pages and promoting events online, which meant learning enough HTML, CSS, and early JavaScript to make the page do what I wanted. The marketing problem turned into a web development problem, and that was much more interesting.',
     ],
   },
   {
     eyebrow: 'Returning to technology',
     title: 'From curiosity to a deliberate path',
     paragraphs: [
-      'After years in management, I realized technology was where I wanted to build my future. I returned to school and earned a Bachelor of Science in Information Technology, graduating Cum Laude from Colorado Technical University.',
-      'One of my earliest courses focused on computer security, which quickly became a major interest. I spent countless hours reading, experimenting, watching DEF CON presentations, and learning how systems worked beneath the surface.',
-      'Not long afterward, I began studying web development. Learning how HTML, CSS, PHP, databases, and server-side applications worked together opened the door to building complete software solutions. Around that time I discovered Laravel, a framework that would become the foundation for many of the applications I build today.',
+      'After years in management, I wanted my career to move back toward technology instead of orbiting around it after hours. I returned to school and earned a Bachelor of Science in Information Technology, graduating Cum Laude from Colorado Technical University.',
+      'Security grabbed me early. I read late, broke things on purpose in lab environments, watched DEF CON talks, and kept chasing the same question: what is really happening under the surface?',
+      'Web development gave that curiosity a place to land. HTML, CSS, PHP, databases, and server-side applications started fitting together as one system, and Laravel eventually became the framework I kept coming back to when I wanted to build something real.',
     ],
   },
   {
     eyebrow: 'Building software',
     title: 'Practical tools for real workflows',
     paragraphs: [
-      'Today I build applications with Laravel, Vue, Quasar, and cloud tools, usually around some practical annoyance that kept showing up.',
-      'KitchenRatio grew out of a practical need. While working in Azure support, I often baked bread during breaks and wanted a faster way to calculate ingredients without reopening the same recipes. What started as a simple utility became a larger application and one of my favorite projects.',
-      'I also use AI-assisted development in a fairly deliberate way: GitHub issues for requirements, AI tools for acceleration, and human review for the parts where correctness and judgment still matter.',
+      'Today I build with Laravel, Vue, Quasar, and cloud tools, usually because some practical annoyance kept showing up and deserved better than another spreadsheet or note.',
+      'KitchenRatio is the cleanest example. I was baking bread between Azure support cases and got tired of reopening the same recipes just to calculate ingredient weights. A small calculator became a larger product because the problem kept being real.',
+      'I use AI-assisted development the same way I use any other tool: with structure around it. GitHub issues define the work, AI helps move faster, and human review decides whether the result is actually correct.',
     ],
   },
 ]
@@ -84,7 +84,7 @@ export const aboutTimeline = [
   {
     title: "Fargo's Pizza Company",
     subtitle: 'Operations and management',
-    body: 'Spent nearly two decades learning how to keep busy shifts moving, train people, and solve problems with customers waiting.',
+    body: 'Spent nearly 26 years learning how to keep busy shifts moving, train people, and solve problems with customers waiting.',
   },
   {
     title: 'Creative web experiments',
@@ -120,4 +120,4 @@ export const interests = [
 ]
 
 export const closingThought =
-  'Whether it is an Azure app, a Laravel project, a loaf of bread, or a row of vegetables, I usually come back to the same question: how does this system work, and why is it acting like that?'
+  'Whether I am looking at an Azure app, a Laravel project, a loaf of bread, or a row of vegetables, the useful question is usually the same: what is this system doing, and what changed?'

@@ -45,7 +45,7 @@
 
               <div class="profile-card__statement">
                 <div class="profile-mark" aria-label="Chad Kohl profile mark">CK</div>
-                <p>How does this system work, and how can I make it better?</p>
+                <p>What is this system doing, and what changed?</p>
               </div>
             </q-card-section>
           </q-card>
@@ -112,7 +112,7 @@
         <SectionHeader
           eyebrow="Beyond technology"
           title="Systems worth understanding"
-          description="Many of my interests share the same qualities that drew me to technology: experimentation, observation, problem-solving, and continuous improvement."
+          description="Baking, gardening, fermentation, and software all reward the same habit: observe the system before deciding what to change."
           size="compact"
         />
 
@@ -157,11 +157,11 @@ useMeta(
   createPageMeta({
     title: 'About Chad Kohl | Full Stack Developer in Colorado Springs',
     description:
-      "Learn about Chad Kohl's background in software development, Azure support engineering, leadership, and practical product building in Colorado Springs.",
+      "Learn about Chad Kohl's path from DOS and restaurant operations to Azure support engineering and practical Laravel/Vue software projects.",
     path: '/about',
     socialTitle: 'About Chad Kohl | Full Stack Developer in Colorado Springs',
     socialDescription:
-      "Meet Chad Kohl, a Colorado Springs full stack developer with experience in software development, Azure support, and practical product building.",
+      "Meet Chad Kohl, a Colorado Springs full stack developer shaped by restaurant operations, Azure support, Laravel, Vue, and practical product work.",
     imagePath: '/chad-kohl-social-share.webp',
     imageAlt: 'Black-and-white portrait of Chad Kohl',
     imageWidth: '960',
